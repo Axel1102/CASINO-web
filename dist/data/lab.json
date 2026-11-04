@@ -1,0 +1,4815 @@
+{
+  "schemaVersion": "1.0",
+  "assets": [
+    {
+      "id": "logo",
+      "url": "./assets/casino-logo.svg",
+      "mimeType": "image/svg+xml",
+      "alt": "CASINO Lab",
+      "caption": null,
+      "credit": "CASINO Lab",
+      "width": 1200,
+      "height": 1018
+    },
+    {
+      "id": "symbol",
+      "url": "./assets/casino-symbol.svg",
+      "mimeType": "image/svg+xml",
+      "alt": "CASINO emblem",
+      "caption": null,
+      "credit": "CASINO Lab",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "group",
+      "url": "./assets/group-photo.png",
+      "mimeType": "image/png",
+      "alt": "CASINO lab members gathered for a group photograph",
+      "caption": "Our group · University of Macau",
+      "credit": "CASINO Lab",
+      "width": 1177,
+      "height": 662
+    },
+    {
+      "id": "portrait-yangxin-chen",
+      "url": "./assets/people/yangxin-chen.png",
+      "mimeType": "image/png",
+      "alt": "Yangxin CHEN",
+      "caption": null,
+      "credit": "CRAB member directory",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "portrait-yongqi-guan",
+      "url": "./assets/people/yongqi-guan.jpg",
+      "mimeType": "image/jpeg",
+      "alt": "Maggie Yongqi GUAN",
+      "caption": null,
+      "credit": "CRAB member directory",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "portrait-ben",
+      "url": "./assets/people/ben.jpg",
+      "mimeType": "image/jpeg",
+      "alt": "Chon Kit LAO, Ben",
+      "caption": null,
+      "credit": "CRAB member directory",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "portrait-wanyi-liu",
+      "url": "./assets/people/wanyi-liu.jpg",
+      "mimeType": "image/jpeg",
+      "alt": "Alicia Wanyi LIU",
+      "caption": null,
+      "credit": "CRAB member directory",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "portrait-sinong-lu",
+      "url": "./assets/people/sinong-lu.jpg",
+      "mimeType": "image/jpeg",
+      "alt": "Nora Sinong LU",
+      "caption": null,
+      "credit": "CRAB member directory",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "portrait-junjie-qing",
+      "url": "./assets/people/junjie-qing.jpg",
+      "mimeType": "image/jpeg",
+      "alt": "Maury Junjie QING",
+      "caption": null,
+      "credit": "CRAB member directory",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "portrait-jianing-si",
+      "url": "./assets/people/jianing-si.jpg",
+      "mimeType": "image/jpeg",
+      "alt": "Janice Jianing SI",
+      "caption": null,
+      "credit": "CRAB member directory",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "portrait-chunlin-wang",
+      "url": "./assets/people/chunlin-wang.jpg",
+      "mimeType": "image/jpeg",
+      "alt": "Green Chunlin WANG",
+      "caption": null,
+      "credit": "CRAB member directory",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "portrait-siyu-wang",
+      "url": "./assets/people/siyu-wang.jpg",
+      "mimeType": "image/jpeg",
+      "alt": "Rainie Siyu WANG",
+      "caption": null,
+      "credit": "CRAB member directory",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "portrait-pi",
+      "url": "./assets/people/pi.jpg",
+      "mimeType": "image/jpeg",
+      "alt": "Kanye Ye WANG",
+      "caption": null,
+      "credit": "CRAB member directory",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "portrait-zhuangtonghuang",
+      "url": "./assets/people/zhuangtonghuang.jpg",
+      "mimeType": "image/jpeg",
+      "alt": "Molly Zhuangtong HUANG",
+      "caption": null,
+      "credit": "CRAB member directory",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "portrait-jinchen-yu",
+      "url": "./assets/people/jinchen-yu.jpg",
+      "mimeType": "image/jpeg",
+      "alt": "Brian Jincheng YU",
+      "caption": null,
+      "credit": "CRAB member directory",
+      "width": null,
+      "height": null
+    }
+  ],
+  "people": [
+    {
+      "id": "pi",
+      "slug": "pi",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "http://www.ye.wang",
+      "name": "Kanye Ye WANG",
+      "preferredName": null,
+      "title": "Assistant Professor",
+      "affiliation": "University of Macau",
+      "portraitAssetId": "portrait-pi",
+      "bioMarkdown": "Assistant Professor in Computer Science and Finance at the University of Macau. Principal investigator of CASINO Lab, formerly Cyber and Crypto Lab (CRAB).\n\nDr. sc., ETH Zurich (2022), supervised by Prof. Roger Wattenhofer. MSc, ETH Zurich; BSc, Peking University.",
+      "researchAreaIds": [
+        "security",
+        "hci"
+      ],
+      "interests": [
+        "Information security",
+        "Human–computer interaction",
+        "Finance"
+      ],
+      "memberships": [
+        {
+          "role": "faculty",
+          "isCurrent": true,
+          "startedOn": null,
+          "endedOn": null
+        }
+      ],
+      "alumniDestination": null,
+      "publicEmail": "yewang.ethz@gmail.com",
+      "links": [
+        {
+          "label": "Original profile",
+          "url": "http://www.ye.wang"
+        }
+      ],
+      "sortOrder": 0
+    },
+    {
+      "id": "yangxin-chen",
+      "slug": "yangxin-chen",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/members/yangxin-chen",
+      "name": "Yangxin CHEN",
+      "preferredName": null,
+      "title": "PhD Student",
+      "affiliation": "University of Macau",
+      "portraitAssetId": "portrait-yangxin-chen",
+      "bioMarkdown": "PhD student at the University of Macau.",
+      "researchAreaIds": [
+        "hci"
+      ],
+      "interests": [
+        "HCI",
+        "Physical AI",
+        "Generative AI"
+      ],
+      "memberships": [
+        {
+          "role": "phd_student",
+          "isCurrent": true,
+          "startedOn": null,
+          "endedOn": null
+        }
+      ],
+      "alumniDestination": null,
+      "publicEmail": null,
+      "links": [
+        {
+          "label": "Original profile",
+          "url": "https://crab.ye.wang/members/yangxin-chen"
+        },
+        {
+          "label": "Personal website",
+          "url": "http://www.yangxin-chen.com"
+        }
+      ],
+      "sortOrder": 1
+    },
+    {
+      "id": "yongqi-guan",
+      "slug": "yongqi-guan",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/members/yongqi-guan",
+      "name": "Maggie Yongqi GUAN",
+      "preferredName": null,
+      "title": "PhD Student",
+      "affiliation": "University of Macau",
+      "portraitAssetId": "portrait-yongqi-guan",
+      "bioMarkdown": "PhD student at the University of Macau.",
+      "researchAreaIds": [
+        "security",
+        "hci"
+      ],
+      "interests": [
+        "Usable Security and Privacy",
+        "Multisensory in Metaverse"
+      ],
+      "memberships": [
+        {
+          "role": "phd_student",
+          "isCurrent": true,
+          "startedOn": null,
+          "endedOn": null
+        }
+      ],
+      "alumniDestination": null,
+      "publicEmail": "yc37963@um.edu.mo",
+      "links": [
+        {
+          "label": "Original profile",
+          "url": "https://crab.ye.wang/members/yongqi-guan"
+        }
+      ],
+      "sortOrder": 2
+    },
+    {
+      "id": "ben",
+      "slug": "ben",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/members/ben",
+      "name": "Chon Kit LAO, Ben",
+      "preferredName": "Ben",
+      "title": "PhD Student",
+      "affiliation": "University of Macau",
+      "portraitAssetId": "portrait-ben",
+      "bioMarkdown": "PhD student at the University of Macau.\n\nChinese name: 劉俊傑. Also known as Ben.",
+      "researchAreaIds": [
+        "security"
+      ],
+      "interests": [
+        "Ethereum Security",
+        "EVM Analyse"
+      ],
+      "memberships": [
+        {
+          "role": "phd_student",
+          "isCurrent": true,
+          "startedOn": null,
+          "endedOn": null
+        }
+      ],
+      "alumniDestination": null,
+      "publicEmail": "yc37494@um.edu.mo",
+      "links": [
+        {
+          "label": "Original profile",
+          "url": "https://crab.ye.wang/members/ben"
+        }
+      ],
+      "sortOrder": 3
+    },
+    {
+      "id": "wanyi-liu",
+      "slug": "wanyi-liu",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/members/wanyi-liu",
+      "name": "Alicia Wanyi LIU",
+      "preferredName": null,
+      "title": "PhD Student",
+      "affiliation": "University of Macau",
+      "portraitAssetId": "portrait-wanyi-liu",
+      "bioMarkdown": "PhD student at the University of Macau.",
+      "researchAreaIds": [
+        "hci"
+      ],
+      "interests": [
+        "HCI",
+        "Programming Education"
+      ],
+      "memberships": [
+        {
+          "role": "phd_student",
+          "isCurrent": true,
+          "startedOn": null,
+          "endedOn": null
+        }
+      ],
+      "alumniDestination": null,
+      "publicEmail": "yc67386@um.edu.mo",
+      "links": [
+        {
+          "label": "Original profile",
+          "url": "https://crab.ye.wang/members/wanyi-liu"
+        }
+      ],
+      "sortOrder": 4
+    },
+    {
+      "id": "sinong-lu",
+      "slug": "sinong-lu",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/members/sinong-lu",
+      "name": "Nora Sinong LU",
+      "preferredName": null,
+      "title": "PhD Student",
+      "affiliation": "University of Macau",
+      "portraitAssetId": "portrait-sinong-lu",
+      "bioMarkdown": "PhD student at the University of Macau.",
+      "researchAreaIds": [
+        "hci"
+      ],
+      "interests": [
+        "Rural HCI",
+        "Human-AI Relationship"
+      ],
+      "memberships": [
+        {
+          "role": "phd_student",
+          "isCurrent": true,
+          "startedOn": null,
+          "endedOn": null
+        }
+      ],
+      "alumniDestination": null,
+      "publicEmail": "yc57436@um.edu.mo",
+      "links": [
+        {
+          "label": "Original profile",
+          "url": "https://crab.ye.wang/members/sinong-lu"
+        }
+      ],
+      "sortOrder": 5
+    },
+    {
+      "id": "junjie-qing",
+      "slug": "junjie-qing",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/members/junjie-qing",
+      "name": "Maury Junjie QING",
+      "preferredName": null,
+      "title": "PhD Student",
+      "affiliation": "University of Macau",
+      "portraitAssetId": "portrait-junjie-qing",
+      "bioMarkdown": "PhD student at the University of Macau.",
+      "researchAreaIds": [
+        "security"
+      ],
+      "interests": [
+        "Security and Privacy",
+        "eBPF"
+      ],
+      "memberships": [
+        {
+          "role": "phd_student",
+          "isCurrent": true,
+          "startedOn": null,
+          "endedOn": null
+        }
+      ],
+      "alumniDestination": null,
+      "publicEmail": "yc67537@um.edu.mo",
+      "links": [
+        {
+          "label": "Original profile",
+          "url": "https://crab.ye.wang/members/junjie-qing"
+        }
+      ],
+      "sortOrder": 6
+    },
+    {
+      "id": "jianing-si",
+      "slug": "jianing-si",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/members/jianing-si",
+      "name": "Janice Jianing SI",
+      "preferredName": null,
+      "title": "PhD Student",
+      "affiliation": "University of Macau",
+      "portraitAssetId": "portrait-jianing-si",
+      "bioMarkdown": "PhD student at the University of Macau.",
+      "researchAreaIds": [
+        "security",
+        "hci"
+      ],
+      "interests": [
+        "Usable Security and Privacy",
+        "Web3",
+        "Children Programming"
+      ],
+      "memberships": [
+        {
+          "role": "phd_student",
+          "isCurrent": true,
+          "startedOn": null,
+          "endedOn": null
+        }
+      ],
+      "alumniDestination": null,
+      "publicEmail": "jianingsi.janice@connect.um.edu.mo",
+      "links": [
+        {
+          "label": "Original profile",
+          "url": "https://crab.ye.wang/members/jianing-si"
+        }
+      ],
+      "sortOrder": 7
+    },
+    {
+      "id": "chunlin-wang",
+      "slug": "chunlin-wang",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/members/chunlin-wang",
+      "name": "Green Chunlin WANG",
+      "preferredName": null,
+      "title": "PhD Student",
+      "affiliation": "University of Macau",
+      "portraitAssetId": "portrait-chunlin-wang",
+      "bioMarkdown": "PhD student at the University of Macau.",
+      "researchAreaIds": [
+        "hci"
+      ],
+      "interests": [
+        "HCI",
+        "Ubiquitous Computing",
+        "Artificial Intelligence and Virtual Reality"
+      ],
+      "memberships": [
+        {
+          "role": "phd_student",
+          "isCurrent": true,
+          "startedOn": null,
+          "endedOn": null
+        }
+      ],
+      "alumniDestination": null,
+      "publicEmail": "yc67537@um.edu.mo",
+      "links": [
+        {
+          "label": "Original profile",
+          "url": "https://crab.ye.wang/members/chunlin-wang"
+        }
+      ],
+      "sortOrder": 8
+    },
+    {
+      "id": "siyu-wang",
+      "slug": "siyu-wang",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/members/siyu-wang",
+      "name": "Rainie Siyu WANG",
+      "preferredName": null,
+      "title": "PhD Student",
+      "affiliation": "University of Macau",
+      "portraitAssetId": "portrait-siyu-wang",
+      "bioMarkdown": "PhD student at the University of Macau.",
+      "researchAreaIds": [
+        "hci"
+      ],
+      "interests": [
+        "HCI",
+        "Programming Education",
+        "Children Programming"
+      ],
+      "memberships": [
+        {
+          "role": "phd_student",
+          "isCurrent": true,
+          "startedOn": null,
+          "endedOn": null
+        }
+      ],
+      "alumniDestination": null,
+      "publicEmail": "yc67200@um.edu.mo",
+      "links": [
+        {
+          "label": "Original profile",
+          "url": "https://crab.ye.wang/members/siyu-wang"
+        }
+      ],
+      "sortOrder": 9
+    },
+    {
+      "id": "zhuangtonghuang",
+      "slug": "zhuangtonghuang",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/members/zhuangtonghuang",
+      "name": "Molly Zhuangtong HUANG",
+      "preferredName": null,
+      "title": "PhD alumnus",
+      "affiliation": "University of Macau",
+      "portraitAssetId": "portrait-zhuangtonghuang",
+      "bioMarkdown": "PhD alumnus · October 2026.\n\nAdditional work listed on the original profile:\nSafeguarding the Unseen: a Study on Data Privacy in DeFi Protocols\nZhuangtong Huang, Jiawei Zhu, Zhongyu Huang, Yixin Xu, Jerome Yen and Ye Wang\nBlockchain (year not specified).",
+      "researchAreaIds": [
+        "security",
+        "hci"
+      ],
+      "interests": [
+        "Security and Privacy",
+        "Web3 Auditing",
+        "Smart Tourism"
+      ],
+      "memberships": [
+        {
+          "role": "phd_student",
+          "isCurrent": false,
+          "startedOn": null,
+          "endedOn": null
+        }
+      ],
+      "alumniDestination": null,
+      "publicEmail": "yc37496@um.edu.mo",
+      "links": [
+        {
+          "label": "Original profile",
+          "url": "https://crab.ye.wang/members/zhuangtonghuang"
+        }
+      ],
+      "sortOrder": 10
+    },
+    {
+      "id": "jinchen-yu",
+      "slug": "jinchen-yu",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/members/jinchen-yu",
+      "name": "Brian Jincheng YU",
+      "preferredName": null,
+      "title": "MSc alumnus",
+      "affiliation": "University of Macau",
+      "portraitAssetId": "portrait-jinchen-yu",
+      "bioMarkdown": "MSc alumnus · June 2025.",
+      "researchAreaIds": [],
+      "interests": [],
+      "memberships": [
+        {
+          "role": "masters_student",
+          "isCurrent": false,
+          "startedOn": null,
+          "endedOn": null
+        }
+      ],
+      "alumniDestination": null,
+      "publicEmail": "mc35258@um.edu.mo",
+      "links": [
+        {
+          "label": "Original profile",
+          "url": "https://crab.ye.wang/members/jinchen-yu"
+        }
+      ],
+      "sortOrder": 11
+    }
+  ],
+  "researchAreas": [
+    {
+      "id": "security",
+      "slug": "security",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/home",
+      "title": "Information security",
+      "summary": "Usable security and privacy, digital safety, blockchains, and financial security.",
+      "bodyMarkdown": "We work on usable security and privacy, digital safety, blockchains, and financial security.",
+      "questions": [],
+      "tags": [
+        "Usable security and privacy",
+        "Digital safety",
+        "Blockchains",
+        "Financial security"
+      ],
+      "coverAssetId": null,
+      "sortOrder": 1
+    },
+    {
+      "id": "hci",
+      "slug": "hci",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/home",
+      "title": "Human–computer interaction",
+      "summary": "Digital economy, human–AI interaction, education and learning, and HCI4D.",
+      "bodyMarkdown": "Our human–computer interaction research spans the digital economy, human–AI interaction, education and learning, and HCI4D.",
+      "questions": [],
+      "tags": [
+        "Digital economy",
+        "Human–AI interaction",
+        "Education and learning",
+        "HCI4D"
+      ],
+      "coverAssetId": null,
+      "sortOrder": 2
+    }
+  ],
+  "publications": [
+    {
+      "id": "joseph-hypervisor-rdma-co-design-for-kernel-bypass-remote-microvm-snapstart",
+      "slug": "joseph-hypervisor-rdma-co-design-for-kernel-bypass-remote-microvm-snapstart",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Joseph: Hypervisor–RDMA Co-Design for Kernel-Bypass Remote MicroVM SnapStart",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Xinguo Pang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Muhan Song",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Chuang Hu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Dazhao Cheng",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 2026 ACM SIGOPS Annual Technical Conference (ATC 2026)",
+        "shortName": "ATC 2026"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "when-and-where-you-nudge-matters-multi-step-interface-interventions-against-address-poisoning-in-crypto-wallets",
+      "slug": "when-and-where-you-nudge-matters-multi-step-interface-interventions-against-address-poisoning-in-crypto-wallets",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "When and Where You Nudge Matters: Multi-Step Interface Interventions Against Address Poisoning in Crypto Wallets",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Yuqi Xu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "yongqi-guan",
+          "name": "Maggie Yongqi Guan",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yunlong Mao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xin Yi",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Wei Tong",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Sheng Zhong",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "ACM Symposium on User Interface Software and Technology (UIST 2026)",
+        "shortName": "UIST 2026"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "echo-replacing-the-compliance-proxy-with-response-harmfulness-in-optimization-based-jailbreak-attack",
+      "slug": "echo-replacing-the-compliance-proxy-with-response-harmfulness-in-optimization-based-jailbreak-attack",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "ECHO: Replacing the Compliance Proxy with Response Harmfulness in Optimization-Based Jailbreak Attack",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Yuanwei Wu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Lingdong Huang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yunlong Mao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Jingyu Hua",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Sheng Zhong",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 2026 Conference on Empirical Methods in Natural Language Processing (EMNLP 2026)",
+        "shortName": "EMNLP 2026"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "budget-constrained-resource-competition-with-directed-spillovers",
+      "slug": "budget-constrained-resource-competition-with-directed-spillovers",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Budget-Constrained Resource Competition with Directed Spillovers",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Renwei Dian",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Meng Qu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "jianing-si",
+          "name": "Janice Jianing Si",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "siyu-wang",
+          "name": "Rainie Siyu Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "International Joint Conference on Theoretical Computer Science – Frontier of Algorithmic Wisdom (IJTCS-FAW 2026)",
+        "shortName": "IJTCS-FAW 2026"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "facilitating-fuzzing-based-simulation-testing-of-autonomous-driving-system-through-inter-vehicle-interaction-modeling",
+      "slug": "facilitating-fuzzing-based-simulation-testing-of-autonomous-driving-system-through-inter-vehicle-interaction-modeling",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Facilitating Fuzzing-based Simulation Testing of Autonomous Driving System through Inter-Vehicle Interaction Modeling",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Wanqi Zhang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "IEEE Transactions on Computers (TC)",
+        "shortName": "TC"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "beyond-visibility-audience-interaction-and-digital-safety-around-undocumented-migration-in-pervasive-social-media-environments",
+      "slug": "beyond-visibility-audience-interaction-and-digital-safety-around-undocumented-migration-in-pervasive-social-media-environments",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Beyond Visibility: Audience Interaction and Digital Safety around Undocumented Migration in Pervasive Social Media Environments",
+      "authors": [
+        {
+          "personId": "zhuangtonghuang",
+          "name": "Molly Zhuangtong Huang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiwen Gu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Boyu Gao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yili Gong",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Chuang Hu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Dazhao Cheng",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "CCF Transactions on Pervasive Computing and Interaction (TPCI)",
+        "shortName": "TPCI"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "investigating-chinese-tourists-privacy-perceptions-and-management-of-smart-technology-applications-in-tourism",
+      "slug": "investigating-chinese-tourists-privacy-perceptions-and-management-of-smart-technology-applications-in-tourism",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Investigating Chinese Tourists' Privacy Perceptions and Management of Smart Technology Applications in Tourism",
+      "authors": [
+        {
+          "personId": "zhuangtonghuang",
+          "name": "Molly Zhuangtong Huang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yuanquan Hu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Fiona X. Yang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Chuang Hu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Dazhao Cheng",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Jingjie Li",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "International Journal of Human-Computer Interaction (IJHCI)",
+        "shortName": "IJHCI"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "designing-wallet-based-user-intervention-for-approval-phishing-mitigation",
+      "slug": "designing-wallet-based-user-intervention-for-approval-phishing-mitigation",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Designing Wallet-Based User Intervention for Approval Phishing Mitigation",
+      "authors": [
+        {
+          "personId": "yongqi-guan",
+          "name": "Maggie Yongqi Guan",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yuqi Xu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yunlong Mao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Wei Tong",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 35th USENIX Security Symposium (USENIX Sec 2026)",
+        "shortName": "USENIX Sec 2026"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "liquidity-mining-as-an-attack-surface-incentive-induced-liquidity-attacks-in-concentrated-liquidity-market-makers",
+      "slug": "liquidity-mining-as-an-attack-surface-incentive-induced-liquidity-attacks-in-concentrated-liquidity-market-makers",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Liquidity Mining as an Attack Surface: Incentive-Induced Liquidity Attacks in Concentrated Liquidity Market Makers",
+      "authors": [
+        {
+          "personId": "sinong-lu",
+          "name": "Nora Sinong Lu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "ben",
+          "name": "Chon Kit Lao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yunlong Mao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Ruizhe Jia",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 35th USENIX Security Symposium (USENIX Sec 2026)",
+        "shortName": "USENIX Sec 2026"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "diagnosing-performance-divergence-in-ethereum-execution-clients",
+      "slug": "diagnosing-performance-divergence-in-ethereum-execution-clients",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Diagnosing Performance Divergence in Ethereum Execution Clients",
+      "authors": [
+        {
+          "personId": "ben",
+          "name": "Chon Kit Lao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "sinong-lu",
+          "name": "Nora Sinong Lu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Jingyi Ning",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Lei Xie",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Meng Qu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 35th International Conference on Computer Communications and Networks (ICCCN 2026)",
+        "shortName": "ICCCN 2026"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "understanding-the-parental-involvement-in-their-children-s-programming-learning",
+      "slug": "understanding-the-parental-involvement-in-their-children-s-programming-learning",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Understanding the Parental Involvement in Their Children's Programming Learning",
+      "authors": [
+        {
+          "personId": "jianing-si",
+          "name": "Janice Jianing Si",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xin Lin",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "wanyi-liu",
+          "name": "Alicia Wanyi Liu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Shuhao Huang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yujun Zhu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Caishi Huang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yunlong Mao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 24th EUSSET Conference on Computer Supported Cooperative Work (ECSCW 2026)",
+        "shortName": "ECSCW 2026"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "counsellors-experiences-of-care-and-challenge-in-anonymous-gambling-helplines",
+      "slug": "counsellors-experiences-of-care-and-challenge-in-anonymous-gambling-helplines",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Counsellors' Experiences of Care and Challenge in Anonymous Gambling Helplines",
+      "authors": [
+        {
+          "personId": "zhuangtonghuang",
+          "name": "Molly Zhuangtong Huang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Jingjie Li",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Sio Hong Teng",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yunlong Mao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Sheng Zhong",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (UbiComp/IMWUT 2026)",
+        "shortName": "UbiComp/IMWUT 2026"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "tnt-breaking-the-privacy-barrier-of-federated-learning-via-targeted-neuron-stimulation",
+      "slug": "tnt-breaking-the-privacy-barrier-of-federated-learning-via-targeted-neuron-stimulation",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "TNT: Breaking the Privacy Barrier of Federated Learning via Targeted Neuron Stimulation",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Wanqi Zhang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "IEEE Transactions on Dependable and Secure Computing (TDSC)",
+        "shortName": "TDSC"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "user-perceptions-of-responsible-gambling-messages-as-nudges-for-gambling-safety",
+      "slug": "user-perceptions-of-responsible-gambling-messages-as-nudges-for-gambling-safety",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "User Perceptions of Responsible Gambling Messages as Nudges for Gambling Safety",
+      "authors": [
+        {
+          "personId": "yongqi-guan",
+          "name": "Maggie Yongqi Guan",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yaxing Yao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Sio Hong Teng",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "ACM CHI Conference on Human Factors in Computing Systems (CHI 2026)",
+        "shortName": "CHI 2026"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "exploring-the-impacts-and-challenges-of-vibe-coding-paradigm-to-children-s-programming-learning-and-practices",
+      "slug": "exploring-the-impacts-and-challenges-of-vibe-coding-paradigm-to-children-s-programming-learning-and-practices",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Exploring the Impacts and Challenges of Vibe Coding Paradigm to Children's Programming Learning and Practices",
+      "authors": [
+        {
+          "personId": "jianing-si",
+          "name": "Janice Janing Si",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Donglin Li",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Qiuning Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "wanyi-liu",
+          "name": "Alicia Wanyi Liu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xin Lin",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yujun Zhu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "April Yi Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "ACM CHI Conference on Human Factors in Computing Systems (CHI 2026)",
+        "shortName": "CHI 2026"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "perceived-impacts-and-challenges-of-agricultural-information-on-short-form-video-platforms-as-rural-infrastructure",
+      "slug": "perceived-impacts-and-challenges-of-agricultural-information-on-short-form-video-platforms-as-rural-infrastructure",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Perceived Impacts and Challenges of Agricultural Information on Short-Form Video Platforms as Rural Infrastructure",
+      "authors": [
+        {
+          "personId": "sinong-lu",
+          "name": "Nora Sinong Lu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "ACM CHI Conference on Human Factors in Computing Systems (CHI 2026)",
+        "shortName": "CHI 2026"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "privacy-across-the-boundary-examining-perceived-privacy-risk-across-data-transmission-and-sharing-ranges-of-smart-home-personal-assistants-in-china",
+      "slug": "privacy-across-the-boundary-examining-perceived-privacy-risk-across-data-transmission-and-sharing-ranges-of-smart-home-personal-assistants-in-china",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "“Privacy across the boundary”: Examining Perceived Privacy Risk Across Data Transmission and Sharing Ranges of Smart Home Personal Assistants in China",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Shuning Zhang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Shixuan Li",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Haobin Xing",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Jiarui Liu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yan Kong",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xin Yi",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Hewu Li",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "ACM CHI Conference on Human Factors in Computing Systems (CHI 2026)",
+        "shortName": "CHI 2026"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "differentiable-semantic-meta-learning-framework-for-long-tail-motion-forecasting-in-autonomous-driving",
+      "slug": "differentiable-semantic-meta-learning-framework-for-long-tail-motion-forecasting-in-autonomous-driving",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Differentiable Semantic Meta-Learning Framework for Long-Tail Motion Forecasting in Autonomous Driving",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Bin Rao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Chengyue Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Haicheng Liao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Qianfang Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yanchen Guan",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Jiaxun Zhang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xingcheng Liu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Meixin Zhu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Zhenning Li",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2026,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 40th Annual AAAI Conference on Artificial Intelligence (AAAI 2026)",
+        "shortName": "AAAI 2026"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "from-discussions-to-decisions-understanding-user-behavior-in-decentralized-autonomous-organizations",
+      "slug": "from-discussions-to-decisions-understanding-user-behavior-in-decentralized-autonomous-organizations",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "From Discussions to Decisions: Understanding User Behavior in Decentralized Autonomous Organizations",
+      "authors": [
+        {
+          "personId": "jianing-si",
+          "name": "Janice Jianing Si",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "siyu-wang",
+          "name": "Rainie Siyu Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Silvan Bruggmann",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Tanusree Sharma",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Roger Wattenhofer",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "ACM Transactions on the Web (TWEB)",
+        "shortName": "TWEB"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "lighttrace-a-versatile-ebpf-enabled-toolkit-for-lightweight-distributed-tracing",
+      "slug": "lighttrace-a-versatile-ebpf-enabled-toolkit-for-lightweight-distributed-tracing",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "LightTrace: A Versatile Ebpf-enabled Toolkit for Lightweight Distributed Tracing",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Yanze Zhang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Shufan Gong",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Huanghuang Liang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Chuang Hu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 31th IEEE International Conference on Parallel and Distributed Systems (ICPADS 2025)",
+        "shortName": "ICPADS 2025"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "digital-safety-for-children-with-intellectual-disabilities-when-using-mobile-devices-from-parents-and-teachers-perspectives",
+      "slug": "digital-safety-for-children-with-intellectual-disabilities-when-using-mobile-devices-from-parents-and-teachers-perspectives",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Digital Safety for Children with Intellectual Disabilities When Using Mobile Devices from Parents' and Teachers' Perspectives",
+      "authors": [
+        {
+          "personId": "jianing-si",
+          "name": "Janice Jianing Si",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xin Lin",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Haorui Cui",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 32nd ACM Conference on Computer and Communications Security (CCS 2025)",
+        "shortName": "CCS 2025"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "emotions-in-fandom-crowdfunding-investigating-how-online-interactions-affect-collaborative-monetary-activities",
+      "slug": "emotions-in-fandom-crowdfunding-investigating-how-online-interactions-affect-collaborative-monetary-activities",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Emotions in Fandom Crowdfunding: Investigating How Online Interactions Affect Collaborative Monetary Activities",
+      "authors": [
+        {
+          "personId": "zhuangtonghuang",
+          "name": "Molly Zhuangtong Huang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Zhicong Lu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Caishi Huang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Hantao Zhao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Zhenning Li",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Dazhao Cheng",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "ACM Transactions on Computer-Human Interaction (TOCHI)",
+        "shortName": "TOCHI"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "investigating-the-impact-of-online-community-involvement-on-safety-practices-and-perceived-risks-among-people-who-use-drugs",
+      "slug": "investigating-the-impact-of-online-community-involvement-on-safety-practices-and-perceived-risks-among-people-who-use-drugs",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Investigating the Impact of Online Community Involvement on Safety Practices and Perceived Risks Among People Who Use Drugs",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Jiliang Li",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "sinong-lu",
+          "name": "Nora Sinong Lu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Isaak Hanimann",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "jianing-si",
+          "name": "Janice Jianing Si",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Dazhao Cheng",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 34th USENIX Security Symposium (USENIX Sec 2025)",
+        "shortName": "USENIX Sec 2025"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "maximal-extractable-value-and-allocative-inefficiencies-in-public-blockchains",
+      "slug": "maximal-extractable-value-and-allocative-inefficiencies-in-public-blockchains",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Maximal Extractable Value and Allocative Inefficiencies in Public Blockchains",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Agostino Capponi",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Ruizhe Jia",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "Journal of Financial Economics (JFE)",
+        "shortName": "JFE"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "synthetic-tourist-experience",
+      "slug": "synthetic-tourist-experience",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Synthetic Tourist Experience",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Li Miao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Fiona X. Yang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Qiao Zhang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "Annals of Tourism Research (Ann. Tour. Res)",
+        "shortName": "Ann. Tour. Res"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "zero-shot-federated-unlearning-via-transforming-from-data-dependent-to-personalized-model-centric",
+      "slug": "zero-shot-federated-unlearning-via-transforming-from-data-dependent-to-personalized-model-centric",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Zero-shot Federated Unlearning via Transforming from Data-Dependent to Personalized Model-Centric",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Wenhan Wu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Huanghuang Liang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Jingling Yuan",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Jiawei Jiang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Chuang Hu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Dazhao Cheng",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 34th International Joint Conference on Artificial Intelligence (IJCAI 25)",
+        "shortName": "IJCAI 25"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "security-perceptions-of-users-in-stablecoins-advantages-and-risks-within-the-cryptocurrency-ecosystem",
+      "slug": "security-perceptions-of-users-in-stablecoins-advantages-and-risks-within-the-cryptocurrency-ecosystem",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Security Perceptions of Users in Stablecoins: Advantages and Risks within the Cryptocurrency Ecosystem",
+      "authors": [
+        {
+          "personId": "yongqi-guan",
+          "name": "Maggie Yongqi Guan",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yaman Yu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Tanusree Sharma",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "zhuangtonghuang",
+          "name": "Molly Zhuangtong Huang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Kaihua Qin",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yang Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 46th IEEE Symposium on Security and Privacy (IEEE S&P 2025)",
+        "shortName": "IEEE S&P 2025"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "using-affordance-to-understand-usability-of-web3-social-media",
+      "slug": "using-affordance-to-understand-usability-of-web3-social-media",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Using Affordance to Understand Usability of Web3 Social Media",
+      "authors": [
+        {
+          "personId": "yongqi-guan",
+          "name": "Maggie Yongqi Guan",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yaman Yu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "ACM CHI Conference on Human Factors in Computing Systems (CHI 2025)",
+        "shortName": "CHI 2025"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "understanding-the-challenges-students-face-in-non-english-programming-environments-due-to-the-programming-language-transition-a-case-study-of-keywords-in-the-chinese-version-of-scratch",
+      "slug": "understanding-the-challenges-students-face-in-non-english-programming-environments-due-to-the-programming-language-transition-a-case-study-of-keywords-in-the-chinese-version-of-scratch",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Understanding the Challenges Students Face in Non-English Programming Environments Due to the Programming Language Transition: A Case Study of Keywords in the Chinese Version of Scratch",
+      "authors": [
+        {
+          "personId": "siyu-wang",
+          "name": "Rainie Siyu Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "jianing-si",
+          "name": "Janice Jianing Si",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Huanghuang Liang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Chuang Hu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yujun Zhu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Dazhao Cheng",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "ACM CHI Conference on Human Factors in Computing Systems (CHI 2025)",
+        "shortName": "CHI 2025"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "exploring-the-impact-of-chatbot-design-on-student-engagement-and-cognitive-load-a-case-study-on-error-analysis-chatbots",
+      "slug": "exploring-the-impact-of-chatbot-design-on-student-engagement-and-cognitive-load-a-case-study-on-error-analysis-chatbots",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Exploring the Impact of Chatbot Design on Student Engagement and Cognitive Load: A Case Study on Error-Analysis Chatbots",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Xin Lin",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Haorui Cui",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "sinong-lu",
+          "name": "Nora Sinong Lu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "ACM CHI Conference on Human Factors in Computing Systems (CHI 2025, Late-Breaking Work)",
+        "shortName": "CHI 2025, Late-Breaking Work"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "cot-drive-efficient-motion-forecasting-for-autonomous-driving-with-llms-and-chain-of-thought-prompting",
+      "slug": "cot-drive-efficient-motion-forecasting-for-autonomous-driving-with-llms-and-chain-of-thought-prompting",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "CoT-Drive: Efficient Motion Forecasting for Autonomous Driving With LLMs and Chain-of-Thought Prompting",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Haicheng Liao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Hanlin Kong",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Bonan Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Chengyue Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Zhengbing He",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Chengzhong Xu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Zhenning Li",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "IEEE Transactions on Artificial Intelligence (TAI)",
+        "shortName": "TAI"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "intelligent-welding-system-for-aluminum-coils-by-adaptive-path-planning-with-real-world-dataset",
+      "slug": "intelligent-welding-system-for-aluminum-coils-by-adaptive-path-planning-with-real-world-dataset",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Intelligent Welding System for Aluminum Coils by Adaptive Path Planning with Real-world Dataset",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Xiaowei Huang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Huanghuang Liang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Zhili He",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Sihan Feng",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Jiawei Jiang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Chuang Hu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Dazhao Cheng",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The Web Conference (WWW 2025, Industry Track)",
+        "shortName": "WWW 2025, Industry Track"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "exploring-user-perceptions-of-security-auditing-in-the-web3-ecosystem",
+      "slug": "exploring-user-perceptions-of-security-auditing-in-the-web3-ecosystem",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Exploring User Perceptions of Security Auditing in the Web3 Ecosystem",
+      "authors": [
+        {
+          "personId": "zhuangtonghuang",
+          "name": "Molly Zhuangtong Huang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Rui Jiang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Tanusree Sharma",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "Network and Distributed System Security Symposium (NDSS 2025) / The Science of Blockchain Conference (SBC 2025)",
+        "shortName": "NDSS 2025"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "optimizing-resource-allocation-an-active-learning-approach-to-iterative-combinatorial-auctions",
+      "slug": "optimizing-resource-allocation-an-active-learning-approach-to-iterative-combinatorial-auctions",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Optimizing Resource Allocation: An Active Learning Approach to Iterative Combinatorial Auctions",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Benjamin Estermann",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Stefan Kramer",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Roger Wattenhofer",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2025,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "Theoretical Computer Science (TCS)",
+        "shortName": "TCS"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "prifairfed-a-local-differentially-private-federated-learning-algorithm-for-client-level-fairness",
+      "slug": "prifairfed-a-local-differentially-private-federated-learning-algorithm-for-client-level-fairness",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "PriFairFed: A Local Differentially Private Federated Learning Algorithm for Client-Level Fairness",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Chuang Hu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Nanxi Wu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Siping Shi",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xuan Liu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Bing Luo",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Jiawei Jiang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Dazhao Cheng",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2024,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "IEEE Transactions on Mobile Computing (IEEE TMC)",
+        "shortName": "IEEE TMC"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "unpacking-long-latency-transactions-in-ethereum",
+      "slug": "unpacking-long-latency-transactions-in-ethereum",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Unpacking Long-Latency Transactions in Ethereum",
+      "authors": [
+        {
+          "personId": "ben",
+          "name": "Chon Kit Lao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Sophie Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Luyao Zhang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Fan Zhang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2024,
+      "publicationDate": null,
+      "type": "workshop",
+      "publicationStatus": null,
+      "venue": {
+        "name": "ACM CCS Workshop on Decentralized Finance and Security (ACM DeFi 2024)",
+        "shortName": "ACM DeFi 2024"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "from-digital-art-to-crypto-art-the-evolution-of-art-brought-by-nft",
+      "slug": "from-digital-art-to-crypto-art-the-evolution-of-art-brought-by-nft",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "From Digital Art to Crypto Art: The Evolution of Art Brought by NFT",
+      "authors": [
+        {
+          "personId": "yongqi-guan",
+          "name": "Maggie Yongqi Guan",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Jiliang Li",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Junjie Hu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Zhenqing Gu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yuyi Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Zhicong Lu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2024,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "International Journal of Human-Computer Interaction (IJHCI)",
+        "shortName": "IJHCI"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "active-learning-supported-iterative-combinatorial-auctions",
+      "slug": "active-learning-supported-iterative-combinatorial-auctions",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Active Learning Supported Iterative Combinatorial Auctions",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Benjamin Estermann",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Stefan Kramer",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Roger Wattenhofer",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2024,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "International Joint Conference on Theoretical Computer Science – Frontier of Algorithmic Wisdom (IJTCS-FAW 2024)",
+        "shortName": "IJTCS-FAW 2024"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "understanding-user-perceived-security-risks-and-mitigation-strategies-in-the-web3-ecosystem",
+      "slug": "understanding-user-perceived-security-risks-and-mitigation-strategies-in-the-web3-ecosystem",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Understanding User-Perceived Security Risks and Mitigation Strategies in the Web3 Ecosystem",
+      "authors": [
+        {
+          "personId": "jianing-si",
+          "name": "Janice Jianing Si",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Tanusree Sharma",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2024,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "ACM CHI Conference on Human Factors in Computing Systems (CHI 2024)",
+        "shortName": "CHI 2024"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "sense-of-place-of-tourism-destinations-in-a-metaverse-paradigm",
+      "slug": "sense-of-place-of-tourism-destinations-in-a-metaverse-paradigm",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Sense of Place of Tourism Destinations in a Metaverse Paradigm",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Li Miao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Fiona X. Yang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Jingjing Hu",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Qiao Zhang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2024,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "Tourism Management (TM)",
+        "shortName": "TM"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "the-impact-of-core-constraints-on-truthful-bidding-in-combinatorial-auctions",
+      "slug": "the-impact-of-core-constraints-on-truthful-bidding-in-combinatorial-auctions",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "The Impact of Core Constraints on Truthful Bidding in Combinatorial Auctions",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Robin Fritsch",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Youn Joo Lee",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Adrian Meier",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Kanye Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Roger Wattenhofer",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2024,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "Theoretical Computer Science (TCS)",
+        "shortName": "TCS"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "a-unified-hybrid-memory-system-for-scalable-deep-learning-and-big-data-applications",
+      "slug": "a-unified-hybrid-memory-system-for-scalable-deep-learning-and-big-data-applications",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "A Unified Hybrid Memory System for Scalable Deep Learning and Big Data Applications",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Wei Rang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Huanghuang Liang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xiaobo Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Dazhao Cheng",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2024,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "Journal of Parallel and Distributed Computing (JPDC)",
+        "shortName": "JPDC"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "to-broadcast-or-not-to-broadcast-decision-making-strategies-for-mining-empty-blocks",
+      "slug": "to-broadcast-or-not-to-broadcast-decision-making-strategies-for-mining-empty-blocks",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "To Broadcast or Not to Broadcast: Decision-Making Strategies for Mining Empty Blocks",
+      "authors": [
+        {
+          "personId": "ben",
+          "name": "Chon Kit Lao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Rui Jiang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Luyao Zhang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Fan Zhang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2023,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 29th IEEE International Conference on Parallel and Distributed Systems (ICPADS 2023)",
+        "shortName": "ICPADS 2023"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "what-determines-the-price-of-nfts",
+      "slug": "what-determines-the-price-of-nfts",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "What Determines the Price of NFTs?",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Vivian Ziemke",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Benjamin Estermann",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Roger Wattenhofer",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2023,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 29th IEEE International Conference on Parallel and Distributed Systems (ICPADS 2023)",
+        "shortName": "ICPADS 2023"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "do-private-transaction-pools-mitigate-frontrunning-risk",
+      "slug": "do-private-transaction-pools-mitigate-frontrunning-risk",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Do Private Transaction Pools Mitigate Frontrunning Risk?",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Agostino Capponi",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Ruizhe Jia",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2023,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 19th Conference on Web and InterNet Economics (WINE 2023)",
+        "shortName": "WINE 2023"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "understanding-the-relationship-between-core-constraints-and-core-selecting-payment-rules-in-combinatorial-auctions",
+      "slug": "understanding-the-relationship-between-core-constraints-and-core-selecting-payment-rules-in-combinatorial-auctions",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Understanding the Relationship Between Core Constraints and Core-Selecting Payment Rules in Combinatorial Auctions",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Robin Fritsch",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Youn Joo Lee",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Adrian Meier",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Roger Wattenhofer",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2023,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "International Joint Conference on Theoretical Computer Science – Frontier of Algorithmic Wisdom (IJTCS-FAW 2023)",
+        "shortName": "IJTCS-FAW 2023"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "decentralized-finance-defi-auditing-mechanisms-effectiveness-and-user-perceptions",
+      "slug": "decentralized-finance-defi-auditing-mechanisms-effectiveness-and-user-perceptions",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Decentralized Finance (DeFi) Auditing: Mechanisms, Effectiveness, and User Perceptions",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Ding Feng",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Rupert Hitsch",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Kaihua Qin",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Arthur Gervais",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Roger Wattenhofer",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yaxing Yao",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2023,
+      "publicationDate": null,
+      "type": "workshop",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 3rd Workshop on Decentralized Finance (DeFi 2023)",
+        "shortName": "DeFi 2023"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "print-your-money-cash-like-experiences-with-digital-money",
+      "slug": "print-your-money-cash-like-experiences-with-digital-money",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Print Your Money: Cash-Like Experiences with Digital Money",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Chenhang Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Yu Chen",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Roger Wattenhofer",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2023,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "ACM CHI Conference on Human Factors in Computing Systems (CHI 2023, Late-Breaking Work)",
+        "shortName": "CHI 2023, Late-Breaking Work"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "rethinking-metaverse-tourism-a-taxonomy-and-an-agenda-for-future-research",
+      "slug": "rethinking-metaverse-tourism-a-taxonomy-and-an-agenda-for-future-research",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Rethinking Metaverse Tourism: A Taxonomy and An Agenda for Future Research",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Fiona X. Yang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2023,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "Journal of Hospitality & Tourism Research (JHTR)",
+        "shortName": "JHTR"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "deep-learning-powered-iterative-combinatorial-auctions-with-active-learning",
+      "slug": "deep-learning-powered-iterative-combinatorial-auctions-with-active-learning",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Deep Learning-Powered Iterative Combinatorial Auctions with Active Learning",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Benjamin Estermann",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Stefan Kramer",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Roger Wattenhofer",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2023,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 22nd International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2023)",
+        "shortName": "AAMAS 2023"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "blockchain-private-pools-and-price-discovery",
+      "slug": "blockchain-private-pools-and-price-discovery",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "Blockchain Private Pools and Price Discovery",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Agostino Capponi",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Ruizhe Jia",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2023,
+      "publicationDate": null,
+      "type": "journal",
+      "publicationStatus": null,
+      "venue": {
+        "name": "AEA Papers and Proceedings (AEA P&P)",
+        "shortName": "AEA P&P"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    },
+    {
+      "id": "sok-decentralized-finance-defi-attacks",
+      "slug": "sok-decentralized-finance-defi-attacks",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/publications",
+      "title": "SoK: Decentralized Finance (DeFi) Attacks",
+      "authors": [
+        {
+          "personId": null,
+          "name": "Liyi Zhou",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Xihan Xiong",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Jens Ernstberger",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Stefanos Chaliasos",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Zhipeng Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": "pi",
+          "name": "Ye Wang",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Kaihua Qin",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Roger Wattenhofer",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Dawn Song",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        },
+        {
+          "personId": null,
+          "name": "Arthur Gervais",
+          "affiliation": null,
+          "isCorresponding": null,
+          "equalContribution": null
+        }
+      ],
+      "year": 2023,
+      "publicationDate": null,
+      "type": "conference",
+      "publicationStatus": null,
+      "venue": {
+        "name": "The 44th IEEE Symposium on Security and Privacy (IEEE S&P 2023)",
+        "shortName": "IEEE S&P 2023"
+      },
+      "abstract": null,
+      "researchAreaIds": [],
+      "keywords": [],
+      "thumbnailAssetId": null,
+      "doi": null,
+      "pdfAssetId": null,
+      "pdfUrl": null,
+      "projectUrl": null,
+      "codeUrl": null,
+      "videoUrl": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "awards": [],
+      "bibtex": null,
+      "featured": false
+    }
+  ],
+  "news": [],
+  "opportunities": [
+    {
+      "id": "um-students",
+      "slug": "um-students",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/info",
+      "title": "University of Macau students",
+      "kind": "phd",
+      "availability": "open",
+      "summary": "RA experience before PhD admission.",
+      "bodyMarkdown": "Students interested in pursuing a PhD with the principal investigator are required to first apply for a Research Assistant position.\n\nA minimum of one year of research collaboration, such as RA work and thesis supervision, is required before formal PhD admission.\n\nSend your CV and UM transcript directly by email.",
+      "requirements": [
+        "An A grade in at least one course taught by the principal investigator, or an overall UM GPA of at least 3.7.",
+        "Strong commitment and dedication to research."
+      ],
+      "applicationChecklist": [
+        "CV",
+        "Academic transcript",
+        "Research interests and proposed collaboration"
+      ],
+      "deadlineAt": null,
+      "contactEmail": "yewang.ethz@gmail.com",
+      "applicationUrl": null,
+      "guidanceUrl": "https://crab.ye.wang/info",
+      "researchAreaIds": [
+        "security",
+        "hci"
+      ],
+      "sortOrder": 0
+    },
+    {
+      "id": "external-students",
+      "slug": "external-students",
+      "publishState": "published",
+      "isDemo": false,
+      "createdAt": "2026-11-04T12:24:12+00:00",
+      "updatedAt": "2026-11-04T12:24:12+00:00",
+      "publishedAt": "2026-11-04T12:24:12+00:00",
+      "sourceUrl": "https://crab.ye.wang/info",
+      "title": "Applicants from other institutions",
+      "kind": "phd",
+      "availability": "open",
+      "summary": "Direct PhD admission through an advisor recommendation.",
+      "bodyMarkdown": "External candidates are not recruited for RA positions. In principle, external PhD applicants are not accepted; exceptions may be considered when recommended by their advisor.\n\nA short-term collaborative research project may be required to assess compatibility with the group.",
+      "requirements": [
+        "Recommendation from your advisor.",
+        "Strong research potential and commitment."
+      ],
+      "applicationChecklist": [
+        "CV",
+        "Academic transcript",
+        "Research interests and proposed collaboration"
+      ],
+      "deadlineAt": null,
+      "contactEmail": "yewang.ethz@gmail.com",
+      "applicationUrl": null,
+      "guidanceUrl": "https://crab.ye.wang/info",
+      "researchAreaIds": [
+        "security",
+        "hci"
+      ],
+      "sortOrder": 1
+    }
+  ],
+  "siteSettings": {
+    "name": "CASINO Lab",
+    "fullName": "Collaborative Security and Interaction Group",
+    "institution": "University of Macau",
+    "introduction": "Research in information security, human–computer interaction, and the intersection of computing and society.",
+    "aboutMarkdown": "CASINO Lab, formerly Cyber and Crypto Lab (CRAB), is headed by Kanye Ye Wang at the University of Macau.\n\nDepartment of Computer and Information Science\nDepartment of Finance and Business Economics\n\nIn 2025, the group achieved the top-four security “grand slam”. We welcome interdisciplinary collaborations.",
+    "recruitmentMarkdown": "Application timeline\nFall intake: apply by mid-March. Spring intake: apply by the end of July of the previous year. Confirm the current university deadlines before applying. Contact the principal investigator before applying through the university system.\n\nProgram structure\nExpected duration: four years, including a qualifying exam at the end of the first year.\n\nFunding\nThe lab’s published guidance lists a monthly stipend of MOP 12,500–20,000. Each advisor may nominate one student per year for the MOP 20,000 scholarship; the guidance reports that fewer than 5% receive this top-tier scholarship. Check the current call for eligibility and funding details.",
+    "publicationArchiveUrl": "https://disco.ethz.ch/alumni/wangye",
+    "logoAssetId": "symbol",
+    "darkLogoAssetId": null,
+    "heroPhotoAssetIds": [
+      "group"
+    ],
+    "publicEmail": "yewang.ethz@gmail.com",
+    "address": "University of Macau",
+    "links": [
+      {
+        "label": "Original lab website",
+        "url": "https://crab.ye.wang/home"
+      },
+      {
+        "label": "Principal investigator",
+        "url": "https://www.ye.wang/"
+      }
+    ],
+    "featuredPublicationIds": [],
+    "updatedAt": "2026-11-04T12:24:12+00:00"
+  }
+}

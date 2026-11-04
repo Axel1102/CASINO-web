@@ -1,136 +1,163 @@
-const topics = [
-  { id: 'security', title: 'Usable Security & Privacy', description: 'Understanding how people make security and privacy decisions in everyday digital life.', tags: ['Privacy', 'Human factors', 'Digital safety'], questions: ['How do people understand security and privacy risks?', 'How can security mechanisms fit everyday practices?', 'How do social relationships shape digital safety?'] },
-  { id: 'ai', title: 'Human–AI Interaction', description: 'Studying how people understand, work with, and make decisions alongside AI systems.', tags: ['Human–AI interaction', 'Agency', 'Collaboration'], questions: ['How do people make sense of AI-generated information?', 'What supports meaningful human control?', 'How can interfaces support collaboration with AI?'] },
-  { id: 'society', title: 'Learning & Society', description: 'Exploring education, learning, and HCI for development through the experiences of people and communities.', tags: ['Education', 'HCI4D', 'Communities'], questions: ['How can technology support learning?', 'Whose needs are represented in the design process?', 'How do local contexts shape technology use?'] },
-  { id: 'finance', title: 'Financial & Digital Security', description: 'Investigating security at the intersection of computing, blockchains, and the digital economy.', tags: ['Blockchains', 'Financial security', 'Digital economy'], questions: ['How do people navigate digital financial systems?', 'What risks arise in decentralized systems?', 'How can secure systems support informed decisions?'] }
-];
-// Clearly labeled examples exercise the prototype; these are not lab publications.
-const papers = [
-  { id:'p1', title:'Understanding everyday privacy decisions', year:2026, venue:'Conference', topic:'security', authors:'Sample Author A, Sample Author B', abstract:'Sample abstract for testing the publication detail view. This record illustrates a qualitative study of privacy decisions; it is not a published lab paper.' },
-  { id:'p2', title:'Human agency in AI-assisted work', year:2026, venue:'Journal', topic:'ai', authors:'Sample Author C, Sample Author D', abstract:'Sample abstract for a human–AI interaction study. Use this record to explore search, topic filters, and citation export.' },
-  { id:'p3', title:'Learning technologies in community settings', year:2025, venue:'Conference', topic:'society', authors:'Sample Author A, Sample Author E', abstract:'Sample abstract illustrating how a learning and HCI4D project could be presented. This is demonstration content.' },
-  { id:'p4', title:'Risk communication in digital finance', year:2025, venue:'Journal', topic:'finance', authors:'Sample Author B, Sample Author D', abstract:'Sample abstract for a digital finance study. It demonstrates a publication record connected to a research theme.' },
-  { id:'p5', title:'Making security interfaces understandable', year:2024, venue:'Conference', topic:'security', authors:'Sample Author C, Sample Author E', abstract:'Sample abstract for testing an older publication record and the year filter. No paper or award is claimed.' }
-];
-const members = [
-  {id:'pi',name:'Kanye Ye Wang',role:'Faculty',initials:'YW',topic:'Information security · HCI · Finance',bio:'Assistant Professor in Computer Science and Finance at the University of Macau. Principal investigator of the group.',url:'https://www.ye.wang/'},
-  {id:'student',name:'Doctoral researcher',role:'PhD students',initials:'PhD',topic:'Usable security & privacy',sample:true,bio:'Sample member profile. A full profile will include a name, portrait, research interests, personal website, and related publications.'},
-  {id:'ra',name:'Research assistant',role:'Research assistants',initials:'RA',topic:'Human–AI interaction',sample:true,bio:'Sample research assistant profile. Member information and links will be supplied by the group.'},
-  {id:'alumni',name:'Alumni profile',role:'Alumni',initials:'AL',topic:'Learning & society',sample:true,bio:'Sample alumni profile. The final directory can include years in the group and the next institution or role.'}
-];
-const news = [
-  {id:'identity',category:'Lab news',date:'Lab update',title:'Introducing CASINO Lab',summary:'Our new name: Collaborative Security and Interaction Group.',body:'CASINO is the new identity of our research group. This website brings together our research themes, people, publications, and opportunities.'},
-  {id:'life',category:'Lab life',date:'Photo journal',title:'From the group',summary:'A moment together, beyond our research.',body:'A group photograph shared by the lab.',photo:true},
-  {id:'seminar',category:'Events',date:'Sample event',title:'Research seminar',summary:'An example event entry with a date, location, and speaker.',body:'Sample event. The final event detail will include the speaker, abstract, date, location, and registration link when available.',sample:true}
-];
 const content = document.querySelector('#content');
 const dialog = document.querySelector('#detail-dialog');
-let previousFocus;
-const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const sampleTag = '<span class="sample-tag">Sample</span>';
-const topicName = id => topics.find(t => t.id === id)?.title || '';
-const heading = (title,description,kicker='CASINO LAB') => `<header class="page-heading"><p class="eyebrow">${kicker}</p><h1>${title}</h1>${description ? `<p>${description}</p>` : ''}</header>`;
-const photo = `<figure><button class="photo-button" data-photo aria-label="View full group photo"><img class="group-photo" src="./assets/group-photo.png" alt="CASINO lab group gathered for a photograph" width="1177" height="662" fetchpriority="high"></button><figcaption class="photo-caption"><span>Our group · University of Macau</span><button data-photo>View full photo ↗</button></figcaption></figure>`;
-const researchCard = (t,i) => `<a class="research-card" href="#research/${t.id}"><span class="number">0${i+1}</span><h3>${t.title}</h3><p>${t.description}</p><span class="text-link">Explore this area ↗</span></a>`;
-const newsRow = n => `<article class="news-row"><span class="news-date">${n.date}</span><div><span class="news-type">${n.category}</span> ${n.sample?sampleTag:''}<h3><a href="#news/${n.id}">${n.title}</a></h3><p>${n.summary}</p><a href="#news/${n.id}">Read more ↗</a></div></article>`;
+let data, previousFocus;
+const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const label = value => ({faculty:'Faculty',phd_student:'PhD students',masters_student:'Master’s students',research_assistant:'Research assistants',postdoc:'Postdocs',undergraduate:'Undergraduates',visiting_researcher:'Visitors',conference:'Conference',journal:'Journal',workshop:'Workshop',preprint:'Preprint',book_chapter:'Book chapter',thesis:'Thesis',other:'Other',lab_news:'Lab news',lab_life:'Lab life',publication:'Publication',event:'Event',award:'Award'}[value] || value);
+const isCurrent = person => person.memberships.some(m => m.isCurrent);
+const publicRecord = item => item.publishState === 'published' && !item.isDemo && item.publishedAt && Date.parse(item.publishedAt) <= Date.now();
+function safeUrl(value, asset=false) {
+  if (!value) return '';
+  if (asset && /^(?:\.\/|\/)assets\/[a-z0-9_./-]+$/i.test(value) && !value.includes('..')) return value;
+  try { const url=new URL(value); return ['http:','https:'].includes(url.protocol) ? url.href : ''; } catch { return ''; }
+}
+const link = (url, title, cls='text-link') => safeUrl(url) ? `<a class="${cls}" href="${esc(safeUrl(url))}" target="_blank" rel="noopener">${esc(title)} ↗</a>` : '';
+const asset = id => data.assets.find(a => a.id === id);
+function image(id, cls='', priority=false) {
+  const a=asset(id), url=safeUrl(a?.url,true);
+  return url ? `<img class="${cls}" src="${esc(url)}" alt="${esc(a.alt)}" ${a.width?`width="${a.width}"`:''} ${a.height?`height="${a.height}"`:''} ${priority?'fetchpriority="high"':'loading="lazy"'}>` : '';
+}
+// Paragraphs, line breaks and bullet lists. Raw HTML remains escaped text.
+function prose(value) {
+  return String(value || '').split(/\n\s*\n/).filter(Boolean).map(block => block.split('\n').every(line=>line.startsWith('- ')) ? `<ul>${block.split('\n').map(line=>`<li>${esc(line.slice(2))}</li>`).join('')}</ul>` : `<p>${esc(block).replaceAll('\n','<br>')}</p>`).join('');
+}
+const heading = (title,description='',kicker='CASINO LAB') => `<header class="page-heading"><p class="eyebrow">${esc(kicker)}</p><h1>${esc(title)}</h1>${description?`<p>${esc(description)}</p>`:''}</header>`;
+function photo(id=data.siteSettings.heroPhotoAssetIds[0]) {
+  if (!asset(id)) return '';
+  return `<figure><button class="photo-button" data-photo="${esc(id)}" aria-label="View full group photo">${image(id,'group-photo',true)}</button><figcaption class="photo-caption"><span>${esc(asset(id).caption || 'Our group')}</span><button data-photo="${esc(id)}">View full photo ↗</button></figcaption></figure>`;
+}
+const researchCard = (t,i) => `<a class="research-card" href="#research/${encodeURIComponent(t.id)}"><span class="number">0${i+1}</span><h3>${esc(t.title)}</h3><p>${esc(t.summary)}</p><span class="text-link">Explore this area ↗</span></a>`;
+const authors = paper => paper.authors.map(a => a.personId && data.people.some(p=>p.id===a.personId) ? `<a class="author-link" href="#people/${encodeURIComponent(a.personId)}">${esc(a.name)}</a>` : esc(a.name)).join(', ');
+function paperActions(p) {
+  const pdf=safeUrl(p.pdfUrl || asset(p.pdfAssetId)?.url,true);
+  return [p.abstract?`<button data-abstract="${esc(p.id)}">Abstract</button>`:'',p.bibtex?`<button data-citation="${esc(p.id)}">Cite / BibTeX</button>`:'',pdf?`<a href="${esc(pdf)}" target="_blank" rel="noopener">PDF ↗</a>`:'',p.doi?link('https://doi.org/'+encodeURIComponent(p.doi),'DOI'):'',link(p.projectUrl,'Project'),link(p.codeUrl,'Code'),link(p.videoUrl,'Video')].join('');
+}
+const paperRow = p => `<article class="paper"><span class="paper-year">${p.year}</span><div><div class="paper-meta">${esc(label(p.type))} ${p.venue.shortName?'· '+esc(p.venue.shortName):''}</div><h3><a href="#publications/${encodeURIComponent(p.id)}">${esc(p.title)}</a></h3><p>${authors(p)}</p><p>${esc(p.venue.name)}</p><div class="paper-actions">${paperActions(p)}</div></div></article>`;
+const newsRow = n => `<article class="news-row"><span class="news-date">${esc(n.date)}</span><div><span class="news-type">${esc(label(n.category))}</span><h3><a href="#news/${encodeURIComponent(n.id)}">${esc(n.title)}</a></h3><p>${esc(n.summary)}</p><a href="#news/${encodeURIComponent(n.id)}">Read more ↗</a></div></article>`;
 
 function home() {
-  content.innerHTML = `<section class="home-intro"><div><p class="eyebrow">CASINO LAB · UNIVERSITY OF MACAU</p><h1>Collaborative Security<br>and Interaction Group</h1></div><div><p>We study usable security, privacy, human–AI interaction, and the role of technology in society.</p><div class="intro-links"><a href="#research">Explore our research ↗</a><a href="#people">Meet the group ↗</a></div></div></section>${photo}<section class="section"><div class="section-heading"><h2>Research areas</h2><a class="text-link" href="#research">All research ↗</a></div><div class="research-grid">${topics.map(researchCard).join('')}</div></section><section class="home-bottom"><div><div class="section-heading"><h2>From the lab</h2><a class="text-link" href="#news">All news ↗</a></div><div class="compact-news">${newsRow(news[0])}</div></div><aside class="quiet-callout"><p class="eyebrow">WORK WITH US</p><h2>Join the group</h2><p>Explore PhD and research assistant opportunities, research interests, and application information.</p><a class="button secondary" href="#join">Opportunities ↗</a></aside></section>`;
+  const s=data.siteSettings;
+  const selected=s.featuredPublicationIds.map(id=>data.publications.find(p=>p.id===id)).filter(Boolean);
+  const latest=(selected.length?selected:[...data.publications].sort((a,b)=>b.year-a.year)).slice(0,3);
+  content.innerHTML=`<section class="hm-hero"><div class="hm-copy"><p class="eyebrow">${esc(s.institution)} · Research group</p><h1>${esc(s.name)}</h1><h2>${esc(s.fullName)}</h2><p class="hm-summary">${esc(s.introduction)}</p><div class="hm-actions"><a href="#research">Explore our research</a><a href="#people">Meet the group ↗</a></div></div><div class="hm-group-photo">${photo()}</div></section>
+    <section class="hm-about"><div><p class="eyebrow">ABOUT THE LAB</p><h2>Research at<br>${esc(s.institution)}</h2></div><div class="about-text">${prose(s.aboutMarkdown || s.introduction)}</div></section>
+    <section class="hm-research"><header class="hm-section-heading"><p class="eyebrow">WHAT WE WORK ON</p><h2>Research areas</h2></header><div class="hm-card-grid">${data.researchAreas.map((t,i)=>`<article class="hm-card ${i%2?'card-gold':'card-green'}"><span>0${i+1}</span><h3>${esc(t.title)}</h3><p>${esc(t.summary)}</p><a href="#research/${encodeURIComponent(t.id)}">Explore ↗</a></article>`).join('')}<article class="hm-card card-cream"><span>0${data.researchAreas.length+1}</span><h3>Work with us</h3><p>PhD study, research assistantships, and interdisciplinary collaboration.</p><a href="#join">Opportunities ↗</a></article></div></section>
+    <section class="hm-stories"><div class="hm-stories-title"><p class="eyebrow">FROM THE LAB</p><h2>Recent publications</h2><a class="text-link" href="#publications">View all ${data.publications.length} publications ↗</a></div><div class="hm-story-list">${latest.map(p=>`<article><small>${p.year} · ${esc(p.venue.shortName || label(p.type))}</small><h3>${esc(p.title)}</h3><a href="#publications/${encodeURIComponent(p.id)}">Publication details ↗</a></article>`).join('')}</div></section>
+    <section class="hm-join-section"><h2>Join CASINO</h2><p>Find out about our research, application requirements, and opportunities to collaborate.</p><a class="button" href="#join">PhD &amp; RA information ↗</a></section>`;
 }
 
 function research(id) {
-  const t = topics.find(t => t.id === id);
-  if (id && !t) return notFound();
-  if (!t) {
-    content.innerHTML = heading('Research','Our work connects information security, human–computer interaction, and society.') + `<div class="research-grid bottom-space">${topics.map(researchCard).join('')}</div>`;
-    return;
-  }
-  content.innerHTML = `<a class="breadcrumb" href="#research">← Research areas</a>${heading(t.title,t.description,'RESEARCH AREA')}<div class="topic-layout"><section><h2>Questions we explore</h2><ul>${t.questions.map(q=>`<li>${q}</li>`).join('')}</ul><div class="tag-row">${t.tags.map(tag=>`<span class="tag">${tag}</span>`).join('')}</div></section><aside><h2>Explore related work</h2><p>Browse the publication archive by research area.</p><a class="button secondary" href="#publications?topic=${t.id}">Related publications ↗</a><p><a class="text-link" href="#join">Discuss a collaboration ↗</a></p></aside></div>`;
+  const t=data.researchAreas.find(t=>t.id===id || t.slug===id);
+  if(id&&!t)return notFound();
+  if(!t){content.innerHTML=heading('Research','Information security, human–computer interaction, and interdisciplinary collaboration.')+`<div class="research-grid bottom-space">${data.researchAreas.map(researchCard).join('')}</div>`;return;}
+  const related=data.publications.filter(p=>p.researchAreaIds.includes(t.id));
+  content.innerHTML=`<a class="breadcrumb" href="#research">← Research areas</a>${heading(t.title,t.summary,'RESEARCH')}<div class="topic-layout"><section><div class="prose">${prose(t.bodyMarkdown)}</div>${t.questions.length?`<h2>Research questions</h2><ul>${t.questions.map(q=>`<li>${esc(q)}</li>`).join('')}</ul>`:''}<div class="tag-row">${t.tags.map(tag=>`<span class="tag">${esc(tag)}</span>`).join('')}</div></section><aside><h2>Explore our work</h2><p>Read the group’s publications and meet our researchers.</p><a class="button secondary" href="#publications${related.length?'?topic='+encodeURIComponent(t.id):''}">${related.length?'Related publications':'Publication archive'} ↗</a><p><a class="text-link" href="#people?area=${encodeURIComponent(t.id)}">Meet the researchers ↗</a></p></aside></div>`;
 }
 
-function people() {
-  content.innerHTML = heading('People','Meet the researchers behind CASINO.') + `<p class="sample-note">Directory preview. Profiles marked Sample await member information.</p><div class="toolbar"><label class="field grow">Find a person<input type="search" id="people-search" placeholder="Name or research interest"></label></div><div class="chips" id="people-chips" aria-label="Filter people by role">${['All','Faculty','PhD students','Research assistants','Alumni'].map((r,i)=>`<button class="chip" data-role="${r}" aria-pressed="${i===0}">${r}</button>`).join('')}</div><p class="results-line" id="people-count" aria-live="polite"></p><div class="people-grid" id="people-results"></div>`;
-  let role='All';
+function people(id, params) {
+  if(id){
+    const p=data.people.find(p=>p.id===id||p.slug===id);if(!p)return notFound();
+    const related=data.publications.filter(paper=>paper.authors.some(a=>a.personId===p.id));
+    content.innerHTML=`<a class="breadcrumb" href="#people">← All people</a>${heading(p.name,p.title,isCurrent(p)?'OUR PEOPLE':'ALUMNI')}<div class="profile-layout"><aside>${image(p.portraitAssetId,'profile-portrait')}</aside><section><div class="prose">${prose(p.bioMarkdown)}</div>${p.interests.length?`<h2>Research interests</h2><div class="tag-row">${p.interests.map(i=>`<span class="tag">${esc(i)}</span>`).join('')}</div>`:''}${emailLink(p.publicEmail)}<div class="profile-links">${p.links.map(l=>link(l.url,l.label)).join('')}</div>${p.alumniDestination?`<p>${esc(p.alumniDestination)}</p>`:''}${related.length?`<a class="button secondary" href="#publications?personId=${encodeURIComponent(p.id)}">${related.length} related publications ↗</a>`:''}</section></div>`;return;
+  }
+  const area=params.get('area')||'';
+  const roles=[...new Set(data.people.flatMap(p=>p.memberships.filter(m=>m.isCurrent).map(m=>m.role)))];
+  content.innerHTML=heading('People','Meet the researchers behind CASINO.')+`<div class="toolbar"><label class="field grow">Find a person<input type="search" id="people-search" placeholder="Name or research interest"></label></div><div class="chips" id="people-chips" aria-label="Filter people"><button class="chip" data-role="all" aria-pressed="true">All</button>${roles.map(r=>`<button class="chip" data-role="${r}" aria-pressed="false">${esc(label(r))}</button>`).join('')}<button class="chip" data-role="alumni" aria-pressed="false">Alumni</button></div>${area?`<p class="source-note">Research area: ${esc(data.researchAreas.find(a=>a.id===area)?.title||area)} · <a href="#people">Show everyone</a></p>`:''}<p class="results-line" id="people-count" aria-live="polite"></p><div class="people-grid" id="people-results"></div>`;
+  let role='all';
   const update=()=>{
     const q=document.querySelector('#people-search').value.trim().toLowerCase();
-    const visible=members.filter(m=>(role==='All'||m.role===role)&&`${m.name} ${m.topic}`.toLowerCase().includes(q));
-    document.querySelector('#people-count').textContent=`${visible.length} profile${visible.length===1?'':'s'}`;
-    document.querySelector('#people-results').innerHTML=visible.length?visible.map(m=>`<article class="person"><div class="avatar" aria-hidden="true">${m.initials}</div><span class="news-type">${m.role}</span> ${m.sample?sampleTag:''}<h3>${m.name}</h3><p>${m.topic}</p><button data-member="${m.id}">View profile ↗</button></article>`).join(''):'<div class="empty"><h3>No profiles found</h3><p>Try a different name or category.</p></div>';
+    const visible=data.people.filter(p=>(!area||p.researchAreaIds.includes(area))&&(role==='all'||(role==='alumni'?!isCurrent(p):p.memberships.some(m=>m.role===role&&m.isCurrent)))&&`${p.name} ${p.preferredName||''} ${p.interests.join(' ')}`.toLowerCase().includes(q));
+    document.querySelector('#people-count').textContent=`${visible.length} people`;
+    document.querySelector('#people-results').innerHTML=visible.length?visible.map(p=>`<article class="person"><div class="avatar">${image(p.portraitAssetId)}</div><span class="news-type">${esc(isCurrent(p)?p.title:'Alumni')}</span><h3>${esc(p.name)}</h3><p>${esc(p.interests.slice(0,2).join(' · '))}</p><a class="text-link" href="#people/${encodeURIComponent(p.id)}">View profile ↗</a></article>`).join(''):'<div class="empty"><h3>No profiles found</h3><p>Try a different name or category.</p></div>';
   };
   document.querySelector('#people-search').addEventListener('input',update);
-  document.querySelector('#people-chips').addEventListener('click',e=>{const b=e.target.closest('[data-role]');if(!b)return;role=b.dataset.role;document.querySelectorAll('[data-role]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.role===role)));update();});
-  update();
+  document.querySelector('#people-chips').addEventListener('click',e=>{const b=e.target.closest('[data-role]');if(!b)return;role=b.dataset.role;document.querySelectorAll('[data-role]').forEach(c=>c.setAttribute('aria-pressed',String(c===b)));update();});update();
 }
 
-function publications(params) {
-  content.innerHTML=heading('Publications','Search by title, author, year, or research area.')+`<p class="sample-note">Sample records for exploring the archive. These are not lab publications.</p><div class="toolbar"><label class="field grow">Search publications<input id="paper-search" type="search" placeholder="Title, author, or keyword"></label><label class="field">Year<select id="paper-year"><option value="">All years</option>${[2026,2025,2024].map(y=>`<option>${y}</option>`).join('')}</select></label><label class="field">Type<select id="paper-type"><option value="">All types</option><option>Conference</option><option>Journal</option></select></label><label class="field">Sort<select id="paper-sort"><option value="new">Newest first</option><option value="old">Oldest first</option></select></label></div><div class="chips" id="paper-topics" aria-label="Filter publications by topic"><button class="chip" data-topic="" aria-pressed="true">All areas</button>${topics.map(t=>`<button class="chip" data-topic="${t.id}" aria-pressed="false">${t.title}</button>`).join('')}</div><div class="results-line"><span id="paper-count" aria-live="polite"></span><button class="text-link" id="clear-filters">Clear filters</button></div><div class="bottom-space" id="paper-results"></div>`;
-  let topic=params.get('topic')||'';
-  if(!topics.some(t=>t.id===topic))topic='';
+function publications(id, params) {
+  if(id){
+    const p=data.publications.find(p=>p.id===id||p.slug===id);if(!p)return notFound();
+    content.innerHTML=`<a class="breadcrumb" href="#publications">← All publications</a>${heading(p.title,`${p.year} · ${p.venue.name}`,label(p.type))}<article class="prose"><p>${authors(p)}</p>${p.abstract?`<h2>Abstract</h2>${prose(p.abstract)}`:''}<div class="paper-actions">${paperActions(p)}</div>${p.sourceUrl?`<p class="source-note">${link(p.sourceUrl,'Original publication listing')}</p>`:''}</article>`;return;
+  }
+  const years=[...new Set(data.publications.map(p=>p.year))].sort((a,b)=>b-a);
+  const types=[...new Set(data.publications.map(p=>p.type))];
+  const taggedAreas=data.researchAreas.filter(t=>data.publications.some(p=>p.researchAreaIds.includes(t.id)));
+  let topic=params.get('topic')||'',personId=params.get('personId')||'',page=1;
+  content.innerHTML=heading('Publications','Research from the group, with the original author order and publication venues.')+`<div class="toolbar"><label class="field grow">Search publications<input id="paper-search" type="search" placeholder="Title, author, or keyword"></label><label class="field">Year<select id="paper-year"><option value="">All years</option>${years.map(y=>`<option>${y}</option>`).join('')}</select></label><label class="field">Type<select id="paper-type"><option value="">All types</option>${types.map(t=>`<option value="${t}">${esc(label(t))}</option>`).join('')}</select></label><label class="field">Sort<select id="paper-sort"><option value="new">Newest first</option><option value="old">Oldest first</option></select></label></div>${taggedAreas.length?`<div class="chips" id="paper-topics"><button class="chip" data-topic="" aria-pressed="true">All areas</button>${taggedAreas.map(t=>`<button class="chip" data-topic="${esc(t.id)}" aria-pressed="false">${esc(t.title)}</button>`).join('')}</div>`:''}<div class="results-line"><span id="paper-count" aria-live="polite"></span><button class="text-link" id="clear-filters">Clear filters</button></div><div id="paper-results"></div><div class="pagination" id="pagination"></div>${data.siteSettings.publicationArchiveUrl?`<p class="source-note">Before 2023: ${link(data.siteSettings.publicationArchiveUrl,'Earlier publication archive')}</p>`:''}`;
+  for(const [param,field] of [['q','paper-search'],['year','paper-year'],['type','paper-type'],['sort','paper-sort']])if(params.has(param))document.getElementById(field).value=params.get(param);
   const update=()=>{
-    const q=document.querySelector('#paper-search').value.trim().toLowerCase();
-    const year=document.querySelector('#paper-year').value,type=document.querySelector('#paper-type').value;
-    const list=papers.filter(p=>(!topic||p.topic===topic)&&(!year||String(p.year)===year)&&(!type||p.venue===type)&&`${p.title} ${p.authors} ${p.year} ${topicName(p.topic)}`.toLowerCase().includes(q)).sort((a,b)=>document.querySelector('#paper-sort').value==='new'?b.year-a.year:a.year-b.year);
+    const q=document.querySelector('#paper-search').value.trim().toLowerCase(),year=document.querySelector('#paper-year').value,type=document.querySelector('#paper-type').value,sort=document.querySelector('#paper-sort').value;
+    const list=data.publications.filter(p=>(!topic||p.researchAreaIds.includes(topic))&&(!personId||p.authors.some(a=>a.personId===personId))&&(!year||String(p.year)===year)&&(!type||p.type===type)&&`${p.title} ${p.authors.map(a=>a.name).join(' ')} ${p.year} ${p.venue.name} ${p.keywords.join(' ')}`.toLowerCase().includes(q)).sort((a,b)=>sort==='old'?a.year-b.year:b.year-a.year);
+    const pages=Math.ceil(list.length/12);page=Math.min(page,pages||1);
     document.querySelectorAll('[data-topic]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.topic===topic)));
-    document.querySelector('#paper-count').textContent=`${list.length} result${list.length===1?'':'s'}`;
-    document.querySelector('#paper-results').innerHTML=list.length?list.map(p=>`<article class="paper"><span class="paper-year">${p.year}</span><div><div class="paper-meta">${p.venue} ${sampleTag}</div><h3>${p.title}</h3><p>${p.authors}</p><p>${topicName(p.topic)}</p><div class="paper-actions"><button data-abstract="${p.id}">Abstract</button><button data-citation="${p.id}">Cite / BibTeX</button><a class="text-link" href="#research/${p.topic}">Research area ↗</a></div></div></article>`).join(''):'<div class="empty"><h3>No publications match these filters.</h3><p>Try a broader search or clear the filters.</p><button class="button secondary" data-reset-papers>Clear filters</button></div>';
+    document.querySelector('#paper-count').textContent=`${list.length} result${list.length===1?'':'s'}${personId?' · '+(data.people.find(p=>p.id===personId)?.name||'Selected author'):''}`;
+    document.querySelector('#paper-results').innerHTML=list.length?list.slice((page-1)*12,page*12).map(paperRow).join(''):'<div class="empty"><h3>No publications match these filters.</h3><p>Try a broader search or clear the filters.</p><button class="button secondary" data-reset-papers>Clear filters</button></div>';
+    document.querySelector('#pagination').innerHTML=pages>1?`<button class="button secondary" data-page="${page-1}" ${page===1?'disabled':''}>← Previous</button><span>Page ${page} of ${pages}</span><button class="button secondary" data-page="${page+1}" ${page===pages?'disabled':''}>Next →</button>`:'';
+    const query=new URLSearchParams();for(const [k,v] of Object.entries({q,year,type,topic,personId,sort:sort==='old'?'old':''}))if(v)query.set(k,v);
+    history.replaceState(null,'',`#publications${query.size?'?'+query:''}`);
   };
-  const reset=()=>{topic='';document.querySelector('#paper-search').value='';document.querySelector('#paper-year').value='';document.querySelector('#paper-type').value='';document.querySelector('#paper-sort').value='new';update();};
-  ['paper-search','paper-year','paper-type','paper-sort'].forEach(id=>document.getElementById(id).addEventListener(id==='paper-search'?'input':'change',update));
-  document.querySelector('#paper-topics').addEventListener('click',e=>{const b=e.target.closest('[data-topic]');if(b){topic=b.dataset.topic;update();}});
+  const reset=()=>{topic='';personId='';page=1;['paper-search','paper-year','paper-type'].forEach(id=>document.getElementById(id).value='');document.querySelector('#paper-sort').value='new';update();};
+  ['paper-search','paper-year','paper-type','paper-sort'].forEach(id=>document.getElementById(id).addEventListener(id==='paper-search'?'input':'change',()=>{page=1;update();}));
+  document.querySelector('#paper-topics')?.addEventListener('click',e=>{const b=e.target.closest('[data-topic]');if(b){topic=b.dataset.topic;page=1;update();}});
   document.querySelector('#clear-filters').addEventListener('click',reset);
   document.querySelector('#paper-results').addEventListener('click',e=>{if(e.target.closest('[data-reset-papers]'))reset();});
-  update();
+  document.querySelector('#pagination').addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(!b||b.disabled)return;page=Number(b.dataset.page);update();document.querySelector('#paper-count').scrollIntoView({block:'start'});});update();
 }
 
 function newsPage(id) {
-  if(id){const n=news.find(n=>n.id===id);if(!n)return notFound();content.innerHTML=`<a class="breadcrumb" href="#news">← All news</a>${heading(n.title,n.date,n.category)}<article class="prose">${n.sample?sampleTag:''}<p>${n.body}</p>${n.photo?photo:''}<a class="text-link" href="#people">Meet the group ↗</a></article>`;return;}
-  content.innerHTML=heading('News & lab life','Research updates, events, and moments from the group.')+`<div class="chips" aria-label="Filter news by category">${['All','Lab news','Lab life','Events'].map((c,i)=>`<button class="chip" data-news-category="${c}" aria-pressed="${i===0}">${c}</button>`).join('')}</div><div id="news-results" class="bottom-space">${news.map(newsRow).join('')}</div>`;
-  document.querySelectorAll('[data-news-category]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-news-category]').forEach(c=>c.setAttribute('aria-pressed',String(c===b)));document.querySelector('#news-results').innerHTML=news.filter(n=>b.dataset.newsCategory==='All'||n.category===b.dataset.newsCategory).map(newsRow).join('');}));
+  if(id){const n=data.news.find(n=>n.id===id||n.slug===id);if(!n)return notFound();content.innerHTML=`<a class="breadcrumb" href="#news">← All news</a>${heading(n.title,n.date,label(n.category))}<article class="prose">${image(n.coverAssetId)}${prose(n.bodyMarkdown)}${n.galleryAssetIds.map(id=>photo(id)).join('')}</article>`;return;}
+  content.innerHTML=heading('News & lab life','Updates and moments from the group.')+`<div class="bottom-space">${data.news.length?data.news.map(newsRow).join(''):'<p class="source-note">News updates will appear here.</p>'}${data.siteSettings.heroPhotoAssetIds.map(id=>photo(id)).join('')}</div>`;
 }
-
+function emailLink(value) {
+  const valid=value&&/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(value);
+  return valid?`<a class="contact-email" href="mailto:${esc(value)}">${esc(value)}</a>`:'';
+}
 function join() {
-  content.innerHTML=heading('Join CASINO','PhD study, research assistantships, and interdisciplinary collaboration.')+`<div class="join-grid"><section><h2>Find your path</h2><details open><summary>University of Macau students</summary><p>The published recruitment guidance asks prospective PhD students at UM to begin with an RA position. Contact the principal investigator with your CV and UM transcript, and review the full eligibility requirements.</p></details><details><summary>Applicants from other institutions</summary><p>The current guidance focuses on direct PhD admission rather than external RA recruitment. Advisor recommendations and research fit are important. Read the full guidance before contacting the group.</p></details><details><summary>Research collaboration</summary><p>We welcome interdisciplinary conversations across information security, HCI, learning, and finance. Introduce your research interests and a possible point of connection.</p></details><p style="margin-top:24px"><a class="text-link" href="https://crab.ye.wang/info" target="_blank" rel="noopener">Full recruitment guidance ↗</a></p><section class="section"><h2>Prepare your enquiry</h2><ul class="checklist"><li><label><input type="checkbox">CV / academic background</label></li><li><label><input type="checkbox">Academic transcript</label></li><li><label><input type="checkbox">Research interests and fit</label></li><li><label><input type="checkbox">Relevant project or writing sample, if available</label></li></ul><p class="check-count" id="check-count" aria-live="polite">0 of 4 items reviewed</p></section></section><aside><p class="eyebrow">GET IN TOUCH</p><h2>Kanye Ye Wang</h2><p>Principal investigator<br>University of Macau</p><a class="contact-email" href="mailto:yewang.ethz@gmail.com">yewang.ethz@gmail.com</a><div class="join-actions"><a class="button" href="mailto:yewang.ethz@gmail.com?subject=CASINO%20Lab%20research%20enquiry">Email the PI ↗</a><button class="button secondary" id="copy-email">Copy email</button></div><p id="email-status" class="dialog-status" role="status"></p><a class="text-link" href="https://www.ye.wang/" target="_blank" rel="noopener">Faculty website ↗</a></aside></div>`;
-  document.querySelectorAll('.checklist input').forEach(input=>input.addEventListener('change',()=>{document.querySelector('#check-count').textContent=`${document.querySelectorAll('.checklist input:checked').length} of 4 items reviewed`;}));
-  document.querySelector('#copy-email').addEventListener('click',async()=>{try{await navigator.clipboard.writeText('yewang.ethz@gmail.com');document.querySelector('#email-status').textContent='Email address copied.';}catch{document.querySelector('#email-status').textContent='Select the email address above to copy it.';}});
+  const s=data.siteSettings,opportunities=data.opportunities.filter(o=>o.availability==='open'&&(!o.deadlineAt||Date.parse(o.deadlineAt)>=Date.now()));
+  const checklist=[...new Set(opportunities.flatMap(o=>o.applicationChecklist))];
+  content.innerHTML=heading('Join CASINO','PhD study, research assistantships, and interdisciplinary collaboration.')+`<div class="join-grid"><section><h2>Application information</h2>${opportunities.map((o,i)=>`<details ${i===0?'open':''}><summary>${esc(o.title)}</summary>${prose(o.bodyMarkdown)}${o.requirements.length?`<ul class="requirements">${o.requirements.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>`:''}${link(o.applicationUrl,'Apply')}${link(o.guidanceUrl,'Original guidance')}</details>`).join('')}${s.recruitmentMarkdown?`<details><summary>Timeline, program &amp; funding</summary>${prose(s.recruitmentMarkdown)}</details>`:''}${checklist.length?`<section class="section"><h2>Prepare your enquiry</h2><ul class="checklist">${checklist.map(c=>`<li><label><input type="checkbox">${esc(c)}</label></li>`).join('')}</ul><p class="check-count" id="check-count" aria-live="polite">0 of ${checklist.length} items reviewed</p></section>`:''}</section><aside><p class="eyebrow">GET IN TOUCH</p><h2>${esc(data.people.find(p=>p.memberships.some(m=>m.role==='faculty'))?.name||s.name)}</h2><p>${esc(s.institution)}</p>${emailLink(s.publicEmail)}<div class="join-actions"><button class="button secondary" id="copy-email">Copy email</button></div><p id="email-status" class="dialog-status" role="status"></p><div class="profile-links">${s.links.map(l=>link(l.url,l.label)).join('')}</div></aside></div>`;
+  document.querySelectorAll('.checklist input').forEach(input=>input.addEventListener('change',()=>{document.querySelector('#check-count').textContent=`${document.querySelectorAll('.checklist input:checked').length} of ${checklist.length} items reviewed`;}));
+  document.querySelector('#copy-email').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(s.publicEmail);document.querySelector('#email-status').textContent='Email address copied.';}catch{document.querySelector('#email-status').textContent='Select the email address above to copy it.';}});
 }
 
 function openDialog(html) {
-  previousFocus=document.activeElement;
-  document.querySelector('#dialog-body').innerHTML=`<div class="dialog-content">${html}</div>`;
-  dialog.showModal();
-  document.body.style.overflow='hidden';
-  dialog.querySelector('.dialog-close').focus();
+  previousFocus=document.activeElement;document.querySelector('#dialog-body').innerHTML=`<div class="dialog-content">${html}</div>`;dialog.showModal();document.body.style.overflow='hidden';dialog.querySelector('.dialog-close').focus();
 }
 dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
 dialog.addEventListener('close',()=>{document.body.style.overflow='';if(previousFocus?.isConnected)previousFocus.focus();});
-
 content.addEventListener('click',e=>{
-  if(e.target.closest('[data-photo]')){openDialog('<h2 id="dialog-title">Our group</h2><img src="./assets/group-photo.png" alt="Full CASINO lab group photograph" width="1177" height="662">');return;}
-  const member=e.target.closest('[data-member]');
-  if(member){const m=members.find(m=>m.id===member.dataset.member);openDialog(`<p class="eyebrow">${m.role} ${m.sample?'· SAMPLE':''}</p><h2 id="dialog-title">${m.name}</h2><p>${m.bio}</p><p>${m.topic}</p>${m.url?`<a class="button secondary" href="${m.url}" target="_blank" rel="noopener">Personal website ↗</a>`:''}`);return;}
-  const abstract=e.target.closest('[data-abstract]');
-  if(abstract){const p=papers.find(p=>p.id===abstract.dataset.abstract);openDialog(`${sampleTag}<h2 id="dialog-title">${p.title}</h2><p>${p.authors} · ${p.year}</p><p>${p.abstract}</p>`);return;}
-  const citation=e.target.closest('[data-citation]');
-  if(citation){const p=papers.find(p=>p.id===citation.dataset.citation);const bib=`% SAMPLE RECORD — not an actual lab publication\n@misc{casino_sample_${p.id},\n  title = {${p.title}},\n  author = {${p.authors.replaceAll(', ',' and ')}},\n  year = {${p.year}},\n  note = {Demonstration record only}\n}`;openDialog(`${sampleTag}<h2 id="dialog-title">Citation</h2><label for="bibtex">BibTeX</label><textarea id="bibtex" readonly spellcheck="false">${esc(bib)}</textarea><div class="actions"><button class="button" id="copy-citation">Copy BibTeX</button><button class="button secondary" id="download-citation">Download .bib</button></div><p class="dialog-status" id="citation-status" role="status"></p>`);
-    document.querySelector('#copy-citation').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(bib);document.querySelector('#citation-status').textContent='Citation copied.';}catch{document.querySelector('#bibtex').select();document.querySelector('#citation-status').textContent='Text selected. Use your keyboard to copy.';}});
-    document.querySelector('#download-citation').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([bib],{type:'application/x-bibtex'}));const a=document.createElement('a');a.href=url;a.download=`casino-sample-${p.id}.bib`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+  const photoButton=e.target.closest('[data-photo]');if(photoButton){openDialog(`<h2 id="dialog-title">${esc(asset(photoButton.dataset.photo)?.caption||'Our group')}</h2>${image(photoButton.dataset.photo)}`);return;}
+  const abstract=e.target.closest('[data-abstract]');if(abstract){const p=data.publications.find(p=>p.id===abstract.dataset.abstract);openDialog(`<h2 id="dialog-title">${esc(p.title)}</h2>${prose(p.abstract)}`);return;}
+  const citation=e.target.closest('[data-citation]');if(citation){const p=data.publications.find(p=>p.id===citation.dataset.citation);openDialog(`<h2 id="dialog-title">Citation</h2><label for="bibtex">BibTeX</label><textarea id="bibtex" readonly spellcheck="false">${esc(p.bibtex)}</textarea><div class="actions"><button class="button" id="copy-citation">Copy BibTeX</button><button class="button secondary" id="download-citation">Download .bib</button></div><p class="dialog-status" id="citation-status" role="status"></p>`);
+    document.querySelector('#copy-citation').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(p.bibtex);document.querySelector('#citation-status').textContent='Citation copied.';}catch{document.querySelector('#bibtex').select();document.querySelector('#citation-status').textContent='Text selected. Use your keyboard to copy.';}});
+    document.querySelector('#download-citation').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([p.bibtex],{type:'application/x-bibtex'}));const a=document.createElement('a');a.href=url;a.download=`${p.slug}.bib`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
   }
 });
-
 function notFound(){content.innerHTML=heading('Page not found','The requested page is not available.')+'<div class="bottom-space"><a class="button secondary" href="#home">Return home</a></div>';}
 function route(){
-  if(dialog.open)dialog.close();
+  if(!data)return;if(dialog.open)dialog.close();
   const [path,query='']=location.hash.slice(1).split('?');
-  const [page='home',id]= (path||'home').split('/');
-  const routes={home,people,join};
-  if(routes[page])routes[page]();else if(page==='research')research(id);else if(page==='publications')publications(new URLSearchParams(query));else if(page==='news')newsPage(id);else notFound();
+  const [page='home',rawId]=(path||'home').split('/');
+  let id;try{id=rawId?decodeURIComponent(rawId):undefined;}catch{return notFound();}
+  const params=new URLSearchParams(query);content.className=page==='home'?'home-main':'wrap';
+  if(page==='home')home();else if(page==='people')people(id,params);else if(page==='join')join();else if(page==='research')research(id);else if(page==='publications')publications(id,params);else if(page==='news')newsPage(id);else notFound();
   document.querySelectorAll('#navigation a').forEach(a=>{if(a.hash===`#${page}`)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
   document.querySelector('#navigation').classList.remove('open');document.querySelector('#menu-toggle').setAttribute('aria-expanded','false');
-  document.title=`${content.querySelector('h1')?.textContent||'CASINO'} · CASINO Lab`;
-  window.scrollTo(0,0);
+  document.title=`${content.querySelector('h1')?.textContent||'CASINO'} · CASINO Lab`;window.scrollTo(0,0);
 }
 document.querySelector('#menu-toggle').addEventListener('click',()=>{const open=document.querySelector('#navigation').classList.toggle('open');document.querySelector('#menu-toggle').setAttribute('aria-expanded',String(open));});
 document.querySelector('.skip').addEventListener('click',event=>{event.preventDefault();content.focus();content.scrollIntoView();});
 window.addEventListener('hashchange',()=>{route();content.focus({preventScroll:true});});
-route();
+async function start(){
+  try{
+    const response=await fetch('./data/lab.json',{cache:'no-cache'});if(!response.ok)throw new Error(`HTTP ${response.status}`);
+    const loaded=await response.json();if(loaded.schemaVersion!=='1.0')throw new Error('Unsupported data schema');
+    for(const name of ['people','researchAreas','publications','news','opportunities'])loaded[name]=loaded[name].filter(publicRecord);
+    data=loaded;data.people.sort((a,b)=>a.sortOrder-b.sortOrder);data.researchAreas.sort((a,b)=>a.sortOrder-b.sortOrder);data.opportunities.sort((a,b)=>a.sortOrder-b.sortOrder);
+    const logo=safeUrl(asset(data.siteSettings.logoAssetId)?.url,true);
+    if(logo){document.querySelector('.header-symbol img').src=logo;document.querySelector('link[rel=icon]').href=logo;}
+    document.querySelector('#footer-links').innerHTML='<a href="#join">Contact &amp; opportunities ↗</a>'+data.siteSettings.links.map(l=>link(l.url,l.label)).join('');
+    route();
+  }catch(error){content.innerHTML=heading('The content could not be loaded',location.protocol==='file:'?'Open this website through a local web server or the hosted link. JSON loading is unavailable from a file:// preview.':'Please reload the page to try again.')+'<button class="button" id="retry">Reload</button>';document.querySelector('#retry').onclick=()=>location.reload();console.error('Lab data loading failed:',error);}
+}
+start();

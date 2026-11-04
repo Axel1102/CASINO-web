@@ -1,26 +1,25 @@
 # CASINO website prototype
 
-The selected third direction now opens `dist/lab.html`. The original Ivory and Forest concepts remain accessible from the footer. The site is English-only and works as static files or through hosting.
+The selected third direction opens `dist/lab.html`, with its original warm-paper, green and gold palette, larger typography and a symbol-only header logo. The original Ivory and Forest concepts remain accessible from the footer. The website uses English interface text and loads `dist/data/lab.json` over HTTP.
 
 | Page | Implemented interactions |
 | --- | --- |
 | Home | Supplied group photo, full-image dialog, research links, news and recruitment entry points |
 | Research | Four topic pages with questions, tags, and links to pre-filtered publications |
-| People | Name/interest search, role filters, member profile dialogs, PI website link |
-| Publications | Text search; year, type and topic filters; chronological sorting; empty state; abstract dialog; BibTeX copy/download |
-| News | Category filters and individual story pages, including the supplied group photo |
+| People | 12 real profiles and portraits, name/interest search, current-role/alumni filters, profile deep links, related publications |
+| Publications | 52 real records; text/year/type filters, chronological sorting, 12-item pagination, author/profile links, publication detail pages; optional abstract/BibTeX/PDF controls appear only when supplied |
+| News | JSON-backed story pages and the supplied group photo; the source has no dated news records |
 | Join us | Applicant-specific accordions, preparation checklist, email link/copy and full recruitment guidance |
 
-Shared: mobile menu, active navigation, hash deep links, browser Back/Forward, keyboard focus and Escape dismissal for dialogs. Every page has the full logo. Main text is 18–20px; page backgrounds are ivory and pale sage.
+Shared: mobile menu, active navigation, hash deep links, browser Back/Forward, keyboard focus and Escape dismissal for dialogs. Every page has the vector emblem in its header. Main text is 20–22px. Layout uses the original third direction's rounded cards and green/gold sections.
 
 ## Content to supply
 
-- Actual publication records: title, authors, year, venue, abstract, topic, DOI/PDF/project links and BibTeX. Existing records are explicitly labeled Sample and export as samples.
-- Member names, roles, portraits, biographies, personal websites and alumni destinations. Only the PI profile is factual; the remaining profiles are labeled Sample.
-- Real event and news entries. The example seminar is labeled Sample.
+- Optional publication enrichment: abstracts, reviewed research-area assignments, DOI/PDF/project links and verified BibTeX. Missing metadata stays null and has no placeholder buttons.
+- New event/news entries and future member updates. Review the source email discrepancies in `CONTENT-MIGRATION.md`.
 - The original group photograph if available: the supplied screenshot includes left/right gallery arrows as image pixels. The image is displayed intact and opens at full size.
 
-Data lives in the small arrays at the beginning of `dist/lab.js`. No CMS, database or submission backend has been added. Application checkboxes are local to the current view; the email button opens the visitor's mail client. External links are actual sources, not fake download buttons.
+Content lives in `dist/data/lab.json`; images use local paths in its assets collection. No CMS, database or submission backend has been added. Application checkboxes are local to the current view; email links open the visitor's mail client. See `CONTENT-MIGRATION.md` for source coverage and content-editing instructions.
 
 ## Verified sources
 
@@ -30,4 +29,4 @@ Data lives in the small arrays at the beginning of `dist/lab.js`. No CMS, databa
 
 ## Browser checks
 
-`node qa-lab.mjs` checks the local site at port 4173 using a local Chrome debugging endpoint at port 9224. It exercises page navigation, desktop/mobile width, combined publication filters, empty results, profile/citation dialogs, restored focus, cross-page topic links, browser Back, news filters, the checklist and mobile navigation. Screenshots are saved under `previews/nov04/`.
+`node qa-lab.mjs` checks the local site at port 4173 using a Chrome debugging endpoint at port 9224. It covers desktop/mobile routes, JSON loading, portraits, search, combined filters, pagination, empty results, author/profile navigation, photo-dialog focus, browser Back, the checklist, mobile navigation and text escaping. Screenshots are saved under `previews/gold-json/`.
