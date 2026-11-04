@@ -4,6 +4,10 @@ const jumpButtons = [...document.querySelectorAll('[data-jump]')];
 const validConcepts = new Set(pages.map((page) => page.dataset.page));
 
 function selectConcept(name, updateHistory = true) {
+  if (name === 'human') {
+    location.replace('./lab.html#home');
+    return;
+  }
   if (!validConcepts.has(name)) return;
 
   document.body.dataset.concept = name;
@@ -47,4 +51,4 @@ window.addEventListener('hashchange', () => {
   selectConcept(location.hash.slice(1) || 'overview', false);
 });
 
-selectConcept(validConcepts.has(location.hash.slice(1)) ? location.hash.slice(1) : 'overview', false);
+selectConcept(validConcepts.has(location.hash.slice(1)) ? location.hash.slice(1) : 'human', false);
