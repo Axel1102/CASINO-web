@@ -131,5 +131,6 @@ function route(){
   window.scrollTo(0,0);
 }
 document.querySelector('#menu-toggle').addEventListener('click',()=>{const open=document.querySelector('#navigation').classList.toggle('open');document.querySelector('#menu-toggle').setAttribute('aria-expanded',String(open));});
+document.querySelector('.skip').addEventListener('click',event=>{event.preventDefault();content.focus();content.scrollIntoView();});
 window.addEventListener('hashchange',()=>{route();content.focus({preventScroll:true});});
 route();
