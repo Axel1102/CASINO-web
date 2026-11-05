@@ -1,6 +1,6 @@
 # CASINO 数据与接口约定 v1
 
-字段名与网站内容使用英文。此方案适用于现有 Home、Research、People、Publications、News、Join us 页面，后端框架和数据库可自行选择。
+字段名与网站内容使用英文。此方案适用于现有 Home、Research、Member、Publications、News、Contact 页面，后端框架和数据库可自行选择。
 
 交付：`models.ts` 是完整字段定义；`example.ts` 是经过类型检查的示例源文件；`example.json` 可直接供后端或 Mock 服务使用。示例成员、论文、活动与招聘均为演示数据，状态为 draft。当前网站已改为读取 `dist/data/lab.json`，其中是从旧站迁移的公开内容，图片通过 `assets[].url` 的本地路径读取。
 
@@ -28,6 +28,8 @@ SiteSettings ──→ Asset / Publication
 
 ### People
 
+前端类定义在 `dist/models.js`：每条 `people` 记录创建一个 `Member` 实例，每条 `publications` 记录创建一个 `Paper` 实例。JSON/API 继续使用 `people` / `publications` 集合名，与现有 Person / Publication 字段契约兼容。`member.getPapers(papers)` 通过 `authors[].personId` 返回该成员的全部论文，按年份降序显示在个人主页；不复制维护第二份论文列表。
+
 - `memberships` 保留角色历史。例如先 RA 后 PhD，只更新履历，不新增一个人。
 - 有任一 `isCurrent: true` 即 Current；所有履历都是 false 即 Alumni。Alumni 不是 role。
 - 当前成员按当前履历的 role 筛选；Alumni 按历史 role 筛选。多角色成员在列表中只出现一次。
@@ -35,6 +37,8 @@ SiteSettings ──→ Asset / Publication
 - `alumniDestination` 保存离组后的去向；`publicEmail` 只存已同意公开的邮箱。
 
 ### Publications
+
+- `pageUrl` 必填，是点击论文标题打开的页面：可为外部 `https://...`，或站内 `#publications/{id}`。现有迁移记录使用真实可打开的站内详情页，待核对出版社／项目链接后替换；它不同于 PDF 下载链接。
 
 - `authors` 数组顺序就是论文署名顺序。`name` 保存发表时的署名；`personId` 可为空，支持外部合作者。
 - `type` 表示 conference / journal 等；`venue.name` 是完整会议或期刊名称，`shortName` 是 CHI、CSCW 等简称。
@@ -47,6 +51,10 @@ SiteSettings ──→ Asset / Publication
 - `featured` 用于论文页的精选标记；首页展示哪些论文及其顺序由 `SiteSettings.featuredPublicationIds` 决定。
 
 ## 2. 通用字段与校验
+
+`pageUrl` 是下述链接规则的特例：额外允许已存在的站内 `#publications/{id}`。页面已移除全部搜索框；下文 API 的 q 参数为后端预留，并不对应当前页面搜索功能。
+
+`siteSettings.logoAssetId` 指向左上角纯图形 Logo；`wordmarkAssetId` 指向首页标题和页脚的文字版 Logo；`heroPhotoAssetIds` 为首页堆叠相册的有序图片 ID 列表。图片路径来自 `assets[].url`，当前为从旧站下载的四张原始照片。Member 目录不显示研究兴趣；个人主页保留兴趣并直接列出论文。
 
 `id` 为服务端生成的不可变 ID（建议 UUID），示例使用可读 ID。`slug` 是可读 URL 标识，在每个实体集合内唯一，只用小写英文、数字及连字符。外键始终引用 id，不引用 slug。修改 slug 时为原地址维护跳转。
 

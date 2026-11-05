@@ -162,7 +162,7 @@ for section in page('/publications').select('section'):
     type = 'journal' if re.search(r'Transactions|Journal|Annals|Tourism Management|Theoretical Computer Science \(TCS|AEA Papers|IMWUT',venue) else 'workshop' if 'Workshop' in venue else 'conference'
     short = re.findall(r'\(([^()]+)\)', venue)
     id = re.sub('[^a-z0-9]+','-',title.lower()).strip('-')
-    publications.append(dict(**base(id, BASE+'/publications'), title=title,
+    publications.append(dict(**base(id, BASE+'/publications'), title=title, pageUrl='#publications/'+id,
         authors=[dict(personId=aliases.get(n.lower()),name=n,affiliation=None,isCorresponding=None,equalContribution=None) for n in authors],
         year=year, publicationDate=None, type=type, publicationStatus=None,
         venue=dict(name=venue,shortName=short[0] if short else None),abstract=None,researchAreaIds=[],keywords=[],

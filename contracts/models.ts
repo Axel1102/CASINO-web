@@ -88,6 +88,8 @@ export type PublicationType = 'conference' | 'journal' | 'workshop' | 'preprint'
 
 export interface Publication extends Content {
   title: string;
+  /** Public paper page: HTTP(S) publisher/project URL, or #publications/{id}. */
+  pageUrl: string;
   /** Array order is the authoritative author order. Never alphabetize. */
   authors: PublicationAuthor[];
   year: number;
@@ -161,6 +163,7 @@ export interface SiteSettings {
   recruitmentMarkdown?: string;
   publicationArchiveUrl?: HttpUrl;
   logoAssetId: ID;
+  wordmarkAssetId?: ID;
   darkLogoAssetId: ID | null;
   heroPhotoAssetIds: ID[];
   publicEmail: string | null;

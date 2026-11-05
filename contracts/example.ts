@@ -40,6 +40,7 @@ export default {
   ],
   publications: [{
     ...common, id: 'pub-example', slug: 'example-everyday-privacy', title: '[Sample] Everyday privacy decisions',
+    pageUrl: '#publications/pub-example',
     authors: [
       { personId: 'person-alex', name: 'Alex Example', affiliation: 'Example University', isCorresponding: true, equalContribution: false },
       { personId: null, name: 'External Example', affiliation: 'Another University', isCorresponding: false, equalContribution: false },

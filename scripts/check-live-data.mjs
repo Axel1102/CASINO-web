@@ -3,6 +3,7 @@ import { readFileSync, existsSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { resolve, join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { Member, Paper } from '../dist/models.js';
 
 const root=resolve(import.meta.dirname,'..');
 const raw=readFileSync(join(root,'dist/data/lab.json'),'utf8');
@@ -30,6 +31,7 @@ for(const person of data.people){
   assert(person.memberships.length);for(const m of person.memberships)assert(!m.isCurrent||m.endedOn===null);
 }
 for(const paper of data.publications){
+  assert(paper.pageUrl===`#publications/${paper.id}` || /^https?:\/\//.test(paper.pageUrl),'Paper requires an openable pageUrl');
   assert(paper.authors.length);refs(paper.researchAreaIds,'researchAreas');
   for(const a of paper.authors){assert(a.name.trim());ref(a.personId,'people');}
   assert.equal(paper.authors.filter(a=>a.personId==='pi').length,1);
@@ -41,6 +43,13 @@ for(const a of data.assets){
   assert(!a.url.includes('..'));assert(existsSync(join(root,'dist',a.url)),a.url);
 }
 ref(data.siteSettings.logoAssetId,'assets');refs(data.siteSettings.heroPhotoAssetIds,'assets');
+ref(data.siteSettings.wordmarkAssetId,'assets');
+assert.equal(data.siteSettings.heroPhotoAssetIds.length,4);
+const papers=data.publications.map(record=>new Paper(record));
+const member=new Member(data.people.find(person=>person.id==='yongqi-guan'));
+assert.equal(member.getPapers(papers).length,6);
+assert(member.getPapers(papers).every(paper=>paper instanceof Paper));
+assert.equal(new Member({id:'no-papers'}).getPapers(papers).length,0);
 refs(data.siteSettings.featuredPublicationIds,'publications');
 assert.equal(data.people.find(p=>p.id==='yangxin-chen').publicEmail,null);
 const checkDir=mkdtempSync(join(tmpdir(),'casino-typecheck-'));

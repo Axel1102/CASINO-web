@@ -134,6 +134,7 @@
       "id": "pub-example",
       "slug": "example-everyday-privacy",
       "title": "[Sample] Everyday privacy decisions",
+      "pageUrl": "#publications/pub-example",
       "authors": [
         {
           "personId": "person-alex",

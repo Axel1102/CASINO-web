@@ -4,7 +4,9 @@
 
 - `dist/data/lab.json`: the live content file, matching `contracts/models.ts`.
 - `dist/assets/people/`: 12 downloaded member portraits, with original image bytes.
-- `dist/assets/group-photo.png`: the group photograph supplied in this chat.
+- `dist/assets/gallery/`: four original carousel photos from the old homepage, ordered by `siteSettings.heroPhotoAssetIds`.
+- `dist/models.js`: Member and Paper classes; member papers are linked through author personId.
+- `dist/assets/casino-wordmark.svg`: homepage and footer text logo.
 - `dist/assets/casino-symbol.svg`: the symbol-only logo selected by `siteSettings.logoAssetId`.
 - `dist/assets/casino-logo.svg`: the full vector logo, also available in the assets collection.
 
@@ -32,7 +34,7 @@ The live HTML was checked on 4 November 2026. The source pages are:
 
 Current branding is CASINO; the former CRAB name remains in the historical description. Main publication-page metadata takes precedence over duplicate entries on member pages. Author order and author spelling are preserved; recognized name variants link to a stable person ID. Venue type is normalized to conference, journal or workshop. Publication dates, DOI, abstracts, contributions, publication status, PDF links and BibTeX absent from the source remain null.
 
-Research areas retain the source's two categories. Member-area associations are inferred from their explicitly listed interests. The source does not assign research areas to each paper, so `researchAreaIds` remains empty for papers; fill it after lab review. The frontend displays topic filters once tagged papers exist. The source has no dated news feed, so `news` is empty; the News & lab life page displays the supplied group photograph.
+Research areas retain the source's two categories. Member-area associations are inferred from their explicitly listed interests. The source does not assign research areas to each paper, so `researchAreaIds` remains empty for papers; fill it after lab review. The frontend displays topic filters once tagged papers exist. The source has no dated news feed, so `news` is empty; the News & lab life page displays the first original group photograph.
 
 ## Source discrepancies to review
 
@@ -43,7 +45,7 @@ Research areas retain the source's two categories. Member-area associations are 
 5. “Janice Janing Si” appears in one paper's author line. The spelling remains as published on the source page and is linked to Janice Jianing Si's profile.
 6. “Exploring User Perceptions of Security Auditing in the Web3 Ecosystem” lists both NDSS and SBC. Both venues are kept in the same record, as on the original main archive.
 7. Recruitment deadlines and stipend figures come from the published guidance; visitors are directed to the current call before applying. No specific-year deadline was inferred.
-8. The supplied group photograph is a screenshot with baked-in gallery arrows. It is displayed intact; an original photo can replace the file later.
+8. On 5 November 2026, all four original homepage carousel images were downloaded from CSS background URLs. These replace the screenshot with baked-in arrows. Each paper now has a pageUrl pointing to its working internal detail page; verified external paper pages can replace this field later.
 
 ## Checks and re-import
 
@@ -52,6 +54,6 @@ node scripts/check-live-data.mjs
 node qa-lab.mjs
 ```
 
-The data check validates the actual JSON against TypeScript types, record counts, public visibility, relationships and local image files. It runs TypeScript through npx. Browser QA uses the site on port 4173 and a Chrome debugging endpoint on port 9224; it checks desktop/mobile routes, portraits, filters, pagination, author links, photo dialogs, keyboard focus, application checklists and text escaping. Screenshots go to `previews/gold-json/`.
+The data check validates TypeScript types, record counts, public visibility, relationships, Member/Paper instances, paper page links and local image files. Browser QA uses port 4173 and Chrome debugging port 9224; it checks desktop/mobile routes, portraits, filters, pagination, inline member papers, four-photo switching, dialogs, keyboard focus, checklists and legacy routes. Screenshots go to `previews/gold-json/`. `scripts/import-group-photos.py` downloads the old homepage's four original carousel images; JSON photo order is maintained separately.
 
 `scripts/migrate-crab.py` reproduces the initial migration using BeautifulSoup and a source cache under `/tmp/casino-crab-import-20261104`. Running it replaces `dist/data/lab.json` and imported portraits: use it only before manual content edits, or review its output in a separate checkout. The cache freezes this migration's source snapshot; re-importing new website changes requires deliberately refreshing that cache and reviewing source differences.

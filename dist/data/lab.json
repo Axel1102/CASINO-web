@@ -2,6 +2,36 @@
   "schemaVersion": "1.0",
   "assets": [
     {
+      "id": "group-01", "url": "./assets/gallery/group-01.jpg", "mimeType": "image/jpeg",
+      "alt": "Lab group photograph 1", "caption": "Our group · University of Macau",
+      "credit": "CRAB lab website", "width": 2048, "height": 1536
+    },
+    {
+      "id": "group-02", "url": "./assets/gallery/group-02.png", "mimeType": "image/png",
+      "alt": "Lab group photograph 2", "caption": "Our group · University of Macau",
+      "credit": "CRAB lab website", "width": 2048, "height": 1346
+    },
+    {
+      "id": "group-03", "url": "./assets/gallery/group-03.jpg", "mimeType": "image/jpeg",
+      "alt": "Lab group photograph 3", "caption": "Our group · University of Macau",
+      "credit": "CRAB lab website", "width": 2048, "height": 1152
+    },
+    {
+      "id": "group-04", "url": "./assets/gallery/group-04.jpg", "mimeType": "image/jpeg",
+      "alt": "Lab group photograph 4", "caption": "Our group · University of Macau",
+      "credit": "CRAB lab website", "width": 1614, "height": 863
+    },
+    {
+      "id": "wordmark",
+      "url": "./assets/casino-wordmark.svg",
+      "mimeType": "image/svg+xml",
+      "alt": "CASINO",
+      "caption": null,
+      "credit": "CASINO Lab",
+      "width": null,
+      "height": null
+    },
+    {
       "id": "logo",
       "url": "./assets/casino-logo.svg",
       "mimeType": "image/svg+xml",
@@ -700,6 +730,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Joseph: Hypervisor–RDMA Co-Design for Kernel-Bypass Remote MicroVM SnapStart",
+      "pageUrl": "#publications/joseph-hypervisor-rdma-co-design-for-kernel-bypass-remote-microvm-snapstart",
       "authors": [
         {
           "personId": null,
@@ -779,6 +810,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "When and Where You Nudge Matters: Multi-Step Interface Interventions Against Address Poisoning in Crypto Wallets",
+      "pageUrl": "#publications/when-and-where-you-nudge-matters-multi-step-interface-interventions-against-address-poisoning-in-crypto-wallets",
       "authors": [
         {
           "personId": null,
@@ -872,6 +904,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "ECHO: Replacing the Compliance Proxy with Response Harmfulness in Optimization-Based Jailbreak Attack",
+      "pageUrl": "#publications/echo-replacing-the-compliance-proxy-with-response-harmfulness-in-optimization-based-jailbreak-attack",
       "authors": [
         {
           "personId": null,
@@ -951,6 +984,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Budget-Constrained Resource Competition with Directed Spillovers",
+      "pageUrl": "#publications/budget-constrained-resource-competition-with-directed-spillovers",
       "authors": [
         {
           "personId": null,
@@ -1030,6 +1064,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Facilitating Fuzzing-based Simulation Testing of Autonomous Driving System through Inter-Vehicle Interaction Modeling",
+      "pageUrl": "#publications/facilitating-fuzzing-based-simulation-testing-of-autonomous-driving-system-through-inter-vehicle-interaction-modeling",
       "authors": [
         {
           "personId": null,
@@ -1088,6 +1123,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Beyond Visibility: Audience Interaction and Digital Safety around Undocumented Migration in Pervasive Social Media Environments",
+      "pageUrl": "#publications/beyond-visibility-audience-interaction-and-digital-safety-around-undocumented-migration-in-pervasive-social-media-environments",
       "authors": [
         {
           "personId": "zhuangtonghuang",
@@ -1174,6 +1210,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Investigating Chinese Tourists' Privacy Perceptions and Management of Smart Technology Applications in Tourism",
+      "pageUrl": "#publications/investigating-chinese-tourists-privacy-perceptions-and-management-of-smart-technology-applications-in-tourism",
       "authors": [
         {
           "personId": "zhuangtonghuang",
@@ -1267,6 +1304,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Designing Wallet-Based User Intervention for Approval Phishing Mitigation",
+      "pageUrl": "#publications/designing-wallet-based-user-intervention-for-approval-phishing-mitigation",
       "authors": [
         {
           "personId": "yongqi-guan",
@@ -1346,6 +1384,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Liquidity Mining as an Attack Surface: Incentive-Induced Liquidity Attacks in Concentrated Liquidity Market Makers",
+      "pageUrl": "#publications/liquidity-mining-as-an-attack-surface-incentive-induced-liquidity-attacks-in-concentrated-liquidity-market-makers",
       "authors": [
         {
           "personId": "sinong-lu",
@@ -1425,6 +1464,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Diagnosing Performance Divergence in Ethereum Execution Clients",
+      "pageUrl": "#publications/diagnosing-performance-divergence-in-ethereum-execution-clients",
       "authors": [
         {
           "personId": "ben",
@@ -1511,6 +1551,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Understanding the Parental Involvement in Their Children's Programming Learning",
+      "pageUrl": "#publications/understanding-the-parental-involvement-in-their-children-s-programming-learning",
       "authors": [
         {
           "personId": "jianing-si",
@@ -1611,6 +1652,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Counsellors' Experiences of Care and Challenge in Anonymous Gambling Helplines",
+      "pageUrl": "#publications/counsellors-experiences-of-care-and-challenge-in-anonymous-gambling-helplines",
       "authors": [
         {
           "personId": "zhuangtonghuang",
@@ -1697,6 +1739,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "TNT: Breaking the Privacy Barrier of Federated Learning via Targeted Neuron Stimulation",
+      "pageUrl": "#publications/tnt-breaking-the-privacy-barrier-of-federated-learning-via-targeted-neuron-stimulation",
       "authors": [
         {
           "personId": null,
@@ -1755,6 +1798,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "User Perceptions of Responsible Gambling Messages as Nudges for Gambling Safety",
+      "pageUrl": "#publications/user-perceptions-of-responsible-gambling-messages-as-nudges-for-gambling-safety",
       "authors": [
         {
           "personId": "yongqi-guan",
@@ -1827,6 +1871,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Exploring the Impacts and Challenges of Vibe Coding Paradigm to Children's Programming Learning and Practices",
+      "pageUrl": "#publications/exploring-the-impacts-and-challenges-of-vibe-coding-paradigm-to-children-s-programming-learning-and-practices",
       "authors": [
         {
           "personId": "jianing-si",
@@ -1927,6 +1972,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Perceived Impacts and Challenges of Agricultural Information on Short-Form Video Platforms as Rural Infrastructure",
+      "pageUrl": "#publications/perceived-impacts-and-challenges-of-agricultural-information-on-short-form-video-platforms-as-rural-infrastructure",
       "authors": [
         {
           "personId": "sinong-lu",
@@ -1985,6 +2031,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "“Privacy across the boundary”: Examining Perceived Privacy Risk Across Data Transmission and Sharing Ranges of Smart Home Personal Assistants in China",
+      "pageUrl": "#publications/privacy-across-the-boundary-examining-perceived-privacy-risk-across-data-transmission-and-sharing-ranges-of-smart-home-personal-assistants-in-china",
       "authors": [
         {
           "personId": null,
@@ -2078,6 +2125,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Differentiable Semantic Meta-Learning Framework for Long-Tail Motion Forecasting in Autonomous Driving",
+      "pageUrl": "#publications/differentiable-semantic-meta-learning-framework-for-long-tail-motion-forecasting-in-autonomous-driving",
       "authors": [
         {
           "personId": null,
@@ -2185,6 +2233,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "From Discussions to Decisions: Understanding User Behavior in Decentralized Autonomous Organizations",
+      "pageUrl": "#publications/from-discussions-to-decisions-understanding-user-behavior-in-decentralized-autonomous-organizations",
       "authors": [
         {
           "personId": "jianing-si",
@@ -2271,6 +2320,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "LightTrace: A Versatile Ebpf-enabled Toolkit for Lightweight Distributed Tracing",
+      "pageUrl": "#publications/lighttrace-a-versatile-ebpf-enabled-toolkit-for-lightweight-distributed-tracing",
       "authors": [
         {
           "personId": null,
@@ -2350,6 +2400,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Digital Safety for Children with Intellectual Disabilities When Using Mobile Devices from Parents' and Teachers' Perspectives",
+      "pageUrl": "#publications/digital-safety-for-children-with-intellectual-disabilities-when-using-mobile-devices-from-parents-and-teachers-perspectives",
       "authors": [
         {
           "personId": "jianing-si",
@@ -2422,6 +2473,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Emotions in Fandom Crowdfunding: Investigating How Online Interactions Affect Collaborative Monetary Activities",
+      "pageUrl": "#publications/emotions-in-fandom-crowdfunding-investigating-how-online-interactions-affect-collaborative-monetary-activities",
       "authors": [
         {
           "personId": "zhuangtonghuang",
@@ -2515,6 +2567,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Investigating the Impact of Online Community Involvement on Safety Practices and Perceived Risks Among People Who Use Drugs",
+      "pageUrl": "#publications/investigating-the-impact-of-online-community-involvement-on-safety-practices-and-perceived-risks-among-people-who-use-drugs",
       "authors": [
         {
           "personId": null,
@@ -2601,6 +2654,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Maximal Extractable Value and Allocative Inefficiencies in Public Blockchains",
+      "pageUrl": "#publications/maximal-extractable-value-and-allocative-inefficiencies-in-public-blockchains",
       "authors": [
         {
           "personId": null,
@@ -2659,6 +2713,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Synthetic Tourist Experience",
+      "pageUrl": "#publications/synthetic-tourist-experience",
       "authors": [
         {
           "personId": null,
@@ -2724,6 +2779,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Zero-shot Federated Unlearning via Transforming from Data-Dependent to Personalized Model-Centric",
+      "pageUrl": "#publications/zero-shot-federated-unlearning-via-transforming-from-data-dependent-to-personalized-model-centric",
       "authors": [
         {
           "personId": null,
@@ -2817,6 +2873,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Security Perceptions of Users in Stablecoins: Advantages and Risks within the Cryptocurrency Ecosystem",
+      "pageUrl": "#publications/security-perceptions-of-users-in-stablecoins-advantages-and-risks-within-the-cryptocurrency-ecosystem",
       "authors": [
         {
           "personId": "yongqi-guan",
@@ -2903,6 +2960,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Using Affordance to Understand Usability of Web3 Social Media",
+      "pageUrl": "#publications/using-affordance-to-understand-usability-of-web3-social-media",
       "authors": [
         {
           "personId": "yongqi-guan",
@@ -2961,6 +3019,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Understanding the Challenges Students Face in Non-English Programming Environments Due to the Programming Language Transition: A Case Study of Keywords in the Chinese Version of Scratch",
+      "pageUrl": "#publications/understanding-the-challenges-students-face-in-non-english-programming-environments-due-to-the-programming-language-transition-a-case-study-of-keywords-in-the-chinese-version-of-scratch",
       "authors": [
         {
           "personId": "siyu-wang",
@@ -3054,6 +3113,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Exploring the Impact of Chatbot Design on Student Engagement and Cognitive Load: A Case Study on Error-Analysis Chatbots",
+      "pageUrl": "#publications/exploring-the-impact-of-chatbot-design-on-student-engagement-and-cognitive-load-a-case-study-on-error-analysis-chatbots",
       "authors": [
         {
           "personId": null,
@@ -3119,6 +3179,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "CoT-Drive: Efficient Motion Forecasting for Autonomous Driving With LLMs and Chain-of-Thought Prompting",
+      "pageUrl": "#publications/cot-drive-efficient-motion-forecasting-for-autonomous-driving-with-llms-and-chain-of-thought-prompting",
       "authors": [
         {
           "personId": null,
@@ -3212,6 +3273,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Intelligent Welding System for Aluminum Coils by Adaptive Path Planning with Real-world Dataset",
+      "pageUrl": "#publications/intelligent-welding-system-for-aluminum-coils-by-adaptive-path-planning-with-real-world-dataset",
       "authors": [
         {
           "personId": null,
@@ -3305,6 +3367,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Exploring User Perceptions of Security Auditing in the Web3 Ecosystem",
+      "pageUrl": "#publications/exploring-user-perceptions-of-security-auditing-in-the-web3-ecosystem",
       "authors": [
         {
           "personId": "zhuangtonghuang",
@@ -3370,6 +3433,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Optimizing Resource Allocation: An Active Learning Approach to Iterative Combinatorial Auctions",
+      "pageUrl": "#publications/optimizing-resource-allocation-an-active-learning-approach-to-iterative-combinatorial-auctions",
       "authors": [
         {
           "personId": null,
@@ -3435,6 +3499,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "PriFairFed: A Local Differentially Private Federated Learning Algorithm for Client-Level Fairness",
+      "pageUrl": "#publications/prifairfed-a-local-differentially-private-federated-learning-algorithm-for-client-level-fairness",
       "authors": [
         {
           "personId": null,
@@ -3528,6 +3593,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Unpacking Long-Latency Transactions in Ethereum",
+      "pageUrl": "#publications/unpacking-long-latency-transactions-in-ethereum",
       "authors": [
         {
           "personId": "ben",
@@ -3600,6 +3666,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "From Digital Art to Crypto Art: The Evolution of Art Brought by NFT",
+      "pageUrl": "#publications/from-digital-art-to-crypto-art-the-evolution-of-art-brought-by-nft",
       "authors": [
         {
           "personId": "yongqi-guan",
@@ -3686,6 +3753,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Active Learning Supported Iterative Combinatorial Auctions",
+      "pageUrl": "#publications/active-learning-supported-iterative-combinatorial-auctions",
       "authors": [
         {
           "personId": null,
@@ -3751,6 +3819,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Understanding User-Perceived Security Risks and Mitigation Strategies in the Web3 Ecosystem",
+      "pageUrl": "#publications/understanding-user-perceived-security-risks-and-mitigation-strategies-in-the-web3-ecosystem",
       "authors": [
         {
           "personId": "jianing-si",
@@ -3809,6 +3878,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Sense of Place of Tourism Destinations in a Metaverse Paradigm",
+      "pageUrl": "#publications/sense-of-place-of-tourism-destinations-in-a-metaverse-paradigm",
       "authors": [
         {
           "personId": null,
@@ -3881,6 +3951,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "The Impact of Core Constraints on Truthful Bidding in Combinatorial Auctions",
+      "pageUrl": "#publications/the-impact-of-core-constraints-on-truthful-bidding-in-combinatorial-auctions",
       "authors": [
         {
           "personId": null,
@@ -3953,6 +4024,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "A Unified Hybrid Memory System for Scalable Deep Learning and Big Data Applications",
+      "pageUrl": "#publications/a-unified-hybrid-memory-system-for-scalable-deep-learning-and-big-data-applications",
       "authors": [
         {
           "personId": null,
@@ -4025,6 +4097,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "To Broadcast or Not to Broadcast: Decision-Making Strategies for Mining Empty Blocks",
+      "pageUrl": "#publications/to-broadcast-or-not-to-broadcast-decision-making-strategies-for-mining-empty-blocks",
       "authors": [
         {
           "personId": "ben",
@@ -4097,6 +4170,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "What Determines the Price of NFTs?",
+      "pageUrl": "#publications/what-determines-the-price-of-nfts",
       "authors": [
         {
           "personId": null,
@@ -4162,6 +4236,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Do Private Transaction Pools Mitigate Frontrunning Risk?",
+      "pageUrl": "#publications/do-private-transaction-pools-mitigate-frontrunning-risk",
       "authors": [
         {
           "personId": null,
@@ -4220,6 +4295,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Understanding the Relationship Between Core Constraints and Core-Selecting Payment Rules in Combinatorial Auctions",
+      "pageUrl": "#publications/understanding-the-relationship-between-core-constraints-and-core-selecting-payment-rules-in-combinatorial-auctions",
       "authors": [
         {
           "personId": null,
@@ -4292,6 +4368,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Decentralized Finance (DeFi) Auditing: Mechanisms, Effectiveness, and User Perceptions",
+      "pageUrl": "#publications/decentralized-finance-defi-auditing-mechanisms-effectiveness-and-user-perceptions",
       "authors": [
         {
           "personId": null,
@@ -4378,6 +4455,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Print Your Money: Cash-Like Experiences with Digital Money",
+      "pageUrl": "#publications/print-your-money-cash-like-experiences-with-digital-money",
       "authors": [
         {
           "personId": null,
@@ -4443,6 +4521,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Rethinking Metaverse Tourism: A Taxonomy and An Agenda for Future Research",
+      "pageUrl": "#publications/rethinking-metaverse-tourism-a-taxonomy-and-an-agenda-for-future-research",
       "authors": [
         {
           "personId": null,
@@ -4494,6 +4573,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Deep Learning-Powered Iterative Combinatorial Auctions with Active Learning",
+      "pageUrl": "#publications/deep-learning-powered-iterative-combinatorial-auctions-with-active-learning",
       "authors": [
         {
           "personId": null,
@@ -4559,6 +4639,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "Blockchain Private Pools and Price Discovery",
+      "pageUrl": "#publications/blockchain-private-pools-and-price-discovery",
       "authors": [
         {
           "personId": null,
@@ -4617,6 +4698,7 @@
       "publishedAt": "2026-11-04T12:24:12+00:00",
       "sourceUrl": "https://crab.ye.wang/publications",
       "title": "SoK: Decentralized Finance (DeFi) Attacks",
+      "pageUrl": "#publications/sok-decentralized-finance-defi-attacks",
       "authors": [
         {
           "personId": null,
@@ -4793,9 +4875,10 @@
     "recruitmentMarkdown": "Application timeline\nFall intake: apply by mid-March. Spring intake: apply by the end of July of the previous year. Confirm the current university deadlines before applying. Contact the principal investigator before applying through the university system.\n\nProgram structure\nExpected duration: four years, including a qualifying exam at the end of the first year.\n\nFunding\nThe lab’s published guidance lists a monthly stipend of MOP 12,500–20,000. Each advisor may nominate one student per year for the MOP 20,000 scholarship; the guidance reports that fewer than 5% receive this top-tier scholarship. Check the current call for eligibility and funding details.",
     "publicationArchiveUrl": "https://disco.ethz.ch/alumni/wangye",
     "logoAssetId": "symbol",
+    "wordmarkAssetId": "wordmark",
     "darkLogoAssetId": null,
     "heroPhotoAssetIds": [
-      "group"
+      "group-01", "group-02", "group-03", "group-04"
     ],
     "publicEmail": "yewang.ethz@gmail.com",
     "address": "University of Macau",
