@@ -13,6 +13,7 @@ const navigate=async hash=>{await evaluate(`location.hash=${JSON.stringify(hash)
 const check=async(expression,label)=>{assert(await evaluate(expression),label);console.log('PASS '+label);};
 const waitFor=async expression=>{for(let i=0;i<60;i++){if(await evaluate(expression))return;await new Promise(r=>setTimeout(r,100));}throw new Error('Timed out: '+expression);};
 await send('Runtime.enable');await send('Page.enable');await send('Network.enable');
+await send('Network.setCacheDisabled',{cacheDisabled:true});
 await send('Page.navigate',{url:'about:blank'});await waitFor("location.href==='about:blank'");
 errors.length=0;
 await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1080,deviceScaleFactor:1,mobile:false});
@@ -24,6 +25,14 @@ await check("getComputedStyle(document.body).fontSize==='20px'",'larger body typ
 await check("document.querySelector('.brand img').src.endsWith('casino-symbol.svg') && document.querySelector('.brand').getBoundingClientRect().left < innerWidth/2",'symbol-only logo at top left');
 await check("document.querySelectorAll('.stack-sheet').length===4 && document.querySelectorAll('.acronym-letter').length===6 && document.querySelector('.hero-wordmark img').src.endsWith('casino-wordmark.svg')",'four-photo stack and CASINO wordmark');
 await check("document.querySelector('.site-footer img').src.endsWith('casino-wordmark.svg') && !document.querySelector('.footer-links')",'wordmark footer without link collection');
+await check("!document.querySelector('.hm-research') && !document.querySelector('a[href^=\"#research\"]')",'Research page links and homepage section removed');
+await check("[...document.querySelectorAll('.acronym-letter')].every(el=>getComputedStyle(el).textDecorationLine==='none')",'full-name initials without underlines');
+await check("document.querySelector('.about-text a').href==='https://www.ye.wang/' && document.querySelector('.footer-bottom').textContent==='CASINO@UMAC'",'PI homepage link and abbreviated footer');
+await check("Math.abs(document.querySelector('.hm-story-list').getBoundingClientRect().left-document.querySelector('.hm-stories-title').getBoundingClientRect().left)<2 && document.querySelector('.hm-story-list').getBoundingClientRect().top>=document.querySelector('.hm-stories-title').getBoundingClientRect().bottom",'recent papers below heading without empty left column');
+await check("document.querySelector('.hm-copy').getBoundingClientRect().top<document.querySelector('.hm-gallery').getBoundingClientRect().top+20 && [...document.querySelectorAll('.stack-sheet')].every(el=>{const m=new DOMMatrix(getComputedStyle(el).transform);return Math.abs(Math.atan2(m.b,m.a)*180/Math.PI)<3;})",'top-aligned hero and subtle photo angles');
+await evaluate('window.scrollTo(0,700)');await settle();
+await check("Math.abs(document.querySelector('.site-header').getBoundingClientRect().top)<1",'navigation remains visible while scrolling');
+await evaluate('window.scrollTo(0,0)');
 for(let i=0;i<4;i++)await evaluate("document.querySelector('[data-gallery-step=\"1\"]').click()");
 await check("document.querySelector('.gallery-count').textContent==='1 / 4'",'next photo wraps');
 await evaluate("document.querySelector('[data-gallery-step=\"-1\"]').click()");
@@ -33,8 +42,9 @@ await check("document.querySelector('dialog').open",'full photo dialog');
 await check("document.querySelector('dialog img').src.endsWith('group-04.jpg')",'dialog opens selected photo');
 await evaluate("document.querySelector('.dialog-close').click()");await settle();
 await check("document.activeElement.hasAttribute('data-photo')",'dialog focus restoration');
+await evaluate("document.querySelector('[data-gallery-step=\"1\"]').click()");
 await mkdir('previews/gold-json',{recursive:true});
-for(const route of ['home','research','member','publications','news','contact']){
+for(const route of ['home','member','publications','news','contact']){
   await navigate(route);await check('document.documentElement.scrollWidth <= innerWidth',route+' desktop width');
   await check("!document.querySelector('input[type=search]')",route+' has no search box');
   await evaluate("Promise.all([...document.images].map(i=>{i.loading='eager';return i.decode().catch(()=>{});} ))");
@@ -42,6 +52,7 @@ for(const route of ['home','research','member','publications','news','contact'])
   const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(`previews/gold-json/${route}.png`,Buffer.from(shot.data,'base64'));
 }
 await navigate('member');await check("document.querySelectorAll('.person').length===12 && !document.querySelector('.person .tag-row') && !document.querySelector('#people-results').textContent.includes('View profile')",'all real members without interests or profile buttons');
+await check("!document.querySelector('.page-heading p:not(.eyebrow)') && document.querySelector('.person h3 a').href==='https://www.ye.wang/'",'simplified member heading and external PI homepage');
 await evaluate("document.querySelector('[data-role=alumni]').click()");
 await check("document.querySelectorAll('.person').length===2 && document.querySelector('#people-results').textContent.includes('Molly')",'current source alumni classification');
 await navigate('member/yongqi-guan');await check("document.querySelector('h1').textContent==='Maggie Yongqi GUAN' && document.querySelectorAll('.member-papers .paper').length===6",'member deep link and inline paper list');
@@ -49,6 +60,7 @@ await evaluate("document.querySelector('.member-papers .paper h3 a').click()");a
 await check("location.hash.startsWith('#publications/')",'member paper opens detail page');
 await evaluate('history.back()');await settle();await check("document.querySelector('h1').textContent==='Maggie Yongqi GUAN'",'browser Back returns to profile');
 await navigate('publications');await check("document.querySelector('#paper-count').textContent==='52 results' && document.querySelectorAll('.paper').length===12",'real publication count and pagination');
+await check("!document.querySelector('.page-heading p:not(.eyebrow)') && document.querySelector('.author-link[href=\"https://www.ye.wang/\"]')",'simplified publications heading and linked PI author name');
 await evaluate("document.querySelector('[data-page=\"2\"]').click()");await check("document.querySelector('#pagination').textContent.includes('Page 2 of 5')",'publication next page');
 await evaluate("document.querySelector('#paper-year').value='2024';document.querySelector('#paper-year').dispatchEvent(new Event('change'));document.querySelector('#paper-type').value='journal';document.querySelector('#paper-type').dispatchEvent(new Event('change'))");
 const expected=fixture.publications.filter(p=>p.year===2024&&p.type==='journal').length;
@@ -57,11 +69,14 @@ await navigate('publications');
 await check("!document.querySelector('[data-citation]')&&!document.querySelector('[data-abstract]')",'no fabricated citation or abstract actions');
 const firstTitle=await evaluate("document.querySelector('.paper h3 a').textContent");
 await evaluate("document.querySelector('.paper h3 a').click()");await settle();assert.equal(await evaluate("document.querySelector('h1').textContent"),firstTitle);
-await navigate('contact');await evaluate("document.querySelector('.checklist input').click()");await check("document.querySelector('#check-count').textContent==='1 of 3 items reviewed'",'JSON-backed application checklist');
+await navigate('contact');await evaluate("document.querySelectorAll('.join-grid details')[1].open=true");
+await check("!document.querySelector('input[type=checkbox]') && !document.querySelector('#check-count') && document.querySelectorAll('.application-materials')[0].children.length===2 && document.querySelectorAll('.application-materials')[1].children.length===3",'source application materials as scoped bullet lists');
+await check("getComputedStyle(document.querySelector('#navigation .join-link'),'::after').content==='none'",'Contact active state without underline');
 await check("document.querySelector('#content').textContent.includes('12,500')",'source recruitment details retained');
 for(const width of [390,768]){
   await send('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:true});
-  for(const route of ['home','research','research/hci','member','member/zhuangtonghuang','publications','news','contact']){await navigate(route);await check('document.documentElement.scrollWidth <= innerWidth',route+' '+width+'px width');}
+  for(const route of ['home','member','member/zhuangtonghuang','publications','news','contact']){await navigate(route);await check('document.documentElement.scrollWidth <= innerWidth',route+' '+width+'px width');}
+  await navigate('home');await evaluate('window.scrollTo(0,700)');await settle();await check("Math.abs(document.querySelector('.site-header').getBoundingClientRect().top)<1",width+'px sticky navigation');await evaluate('window.scrollTo(0,0)');
   await navigate('home');await evaluate("document.querySelector('#menu-toggle').click()");await check("document.querySelector('#menu-toggle').getAttribute('aria-expanded')==='true'",width+'px mobile menu');await evaluate("document.querySelector('#navigation a[href=\"#member\"]').click()");await settle();await check("document.querySelector('#menu-toggle').getAttribute('aria-expanded')==='false' && document.querySelector('h1').textContent==='Member'",'menu closes on navigation');
   await navigate('home');const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(`previews/gold-json/mobile-${width}.png`,Buffer.from(shot.data,'base64'));
 }

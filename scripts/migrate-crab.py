@@ -174,13 +174,13 @@ page('/info')  # Preserve the checked recruitment source alongside the other HTM
 opportunities = []
 for id,title,summary,body,requirements in [
     ('um-students','University of Macau students','RA experience before PhD admission.',
-     'Students interested in pursuing a PhD with the principal investigator are required to first apply for a Research Assistant position.\n\nA minimum of one year of research collaboration, such as RA work and thesis supervision, is required before formal PhD admission.\n\nSend your CV and UM transcript directly by email.',
+     'Students interested in pursuing a PhD with the principal investigator are required to first apply for a Research Assistant position.\n\nA minimum of one year of research collaboration, such as RA work and thesis supervision, is required before formal PhD admission.\n\nSend your application materials directly by email.',
      ['An A grade in at least one course taught by the principal investigator, or an overall UM GPA of at least 3.7.','Strong commitment and dedication to research.']),
     ('external-students','Applicants from other institutions','Direct PhD admission through an advisor recommendation.',
      'External candidates are not recruited for RA positions. In principle, external PhD applicants are not accepted; exceptions may be considered when recommended by their advisor.\n\nA short-term collaborative research project may be required to assess compatibility with the group.',
      ['Recommendation from your advisor.','Strong research potential and commitment.'])]:
     opportunities.append(dict(**base(id,BASE+'/info'),title=title,kind='phd',availability='open',summary=summary,bodyMarkdown=body,
-        requirements=requirements,applicationChecklist=['CV','Academic transcript','Research interests and proposed collaboration'],
+        requirements=requirements,applicationChecklist=['CV','UM transcript'] if id=='um-students' else ['CV','Academic transcript','Research interests and proposed collaboration'],
         deadlineAt=None,contactEmail='yewang.ethz@gmail.com',applicationUrl=None,guidanceUrl=BASE+'/info',researchAreaIds=['security','hci'],sortOrder=len(opportunities)))
 recruitment = 'Application timeline\nFall intake: apply by mid-March. Spring intake: apply by the end of July of the previous year. Confirm the current university deadlines before applying. Contact the principal investigator before applying through the university system.\n\nProgram structure\nExpected duration: four years, including a qualifying exam at the end of the first year.\n\nFunding\nThe lab’s published guidance lists a monthly stipend of MOP 12,500–20,000. Each advisor may nominate one student per year for the MOP 20,000 scholarship; the guidance reports that fewer than 5% receive this top-tier scholarship. Check the current call for eligibility and funding details.'
 dataset = dict(schemaVersion='1.0',assets=assets,people=members,researchAreas=areas,publications=publications,news=[],opportunities=opportunities,

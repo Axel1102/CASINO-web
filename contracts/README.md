@@ -1,6 +1,6 @@
 # CASINO 数据与接口约定 v1
 
-字段名与网站内容使用英文。此方案适用于现有 Home、Research、Member、Publications、News、Contact 页面，后端框架和数据库可自行选择。
+字段名与网站内容使用英文。此方案适用于现有 Home、Member、Publications、News、Contact 页面，后端框架和数据库可自行选择。Research 页面已移除，researchAreas 数据继续保留为内容元数据。
 
 交付：`models.ts` 是完整字段定义；`example.ts` 是经过类型检查的示例源文件；`example.json` 可直接供后端或 Mock 服务使用。示例成员、论文、活动与招聘均为演示数据，状态为 draft。当前网站已改为读取 `dist/data/lab.json`，其中是从旧站迁移的公开内容，图片通过 `assets[].url` 的本地路径读取。
 
@@ -55,6 +55,8 @@ SiteSettings ──→ Asset / Publication
 `pageUrl` 是下述链接规则的特例：额外允许已存在的站内 `#publications/{id}`。页面已移除全部搜索框；下文 API 的 q 参数为后端预留，并不对应当前页面搜索功能。
 
 `siteSettings.logoAssetId` 指向左上角纯图形 Logo；`wordmarkAssetId` 指向首页标题和页脚的文字版 Logo；`heroPhotoAssetIds` 为首页堆叠相册的有序图片 ID 列表。图片路径来自 `assets[].url`，当前为从旧站下载的四张原始照片。Member 目录不显示研究兴趣；个人主页保留兴趣并直接列出论文。
+
+Opportunity.applicationChecklist 保留现有字段名，但前端按各申请类别显示普通材料列表，不提供复选框或进度计数。UM 学生需要 CV 和 UM transcript；外校申请人需要 CV、academic transcript、research interests and proposed collaboration，均来自旧站申请说明。
 
 `id` 为服务端生成的不可变 ID（建议 UUID），示例使用可读 ID。`slug` 是可读 URL 标识，在每个实体集合内唯一，只用小写英文、数字及连字符。外键始终引用 id，不引用 slug。修改 slug 时为原地址维护跳转。
 

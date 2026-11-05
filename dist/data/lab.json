@@ -220,7 +220,7 @@
       "links": [
         {
           "label": "Original profile",
-          "url": "http://www.ye.wang"
+          "url": "https://www.ye.wang/"
         }
       ],
       "sortOrder": 0
@@ -4812,15 +4812,14 @@
       "kind": "phd",
       "availability": "open",
       "summary": "RA experience before PhD admission.",
-      "bodyMarkdown": "Students interested in pursuing a PhD with the principal investigator are required to first apply for a Research Assistant position.\n\nA minimum of one year of research collaboration, such as RA work and thesis supervision, is required before formal PhD admission.\n\nSend your CV and UM transcript directly by email.",
+      "bodyMarkdown": "Students interested in pursuing a PhD with the principal investigator are required to first apply for a Research Assistant position.\n\nA minimum of one year of research collaboration, such as RA work and thesis supervision, is required before formal PhD admission.\n\nSend your application materials directly by email.",
       "requirements": [
         "An A grade in at least one course taught by the principal investigator, or an overall UM GPA of at least 3.7.",
         "Strong commitment and dedication to research."
       ],
       "applicationChecklist": [
         "CV",
-        "Academic transcript",
-        "Research interests and proposed collaboration"
+        "UM transcript"
       ],
       "deadlineAt": null,
       "contactEmail": "yewang.ethz@gmail.com",
