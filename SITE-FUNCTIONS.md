@@ -10,7 +10,7 @@ The selected third direction opens `dist/lab.html`, with its original warm-paper
 | News | JSON-backed story pages and a group photo; the source has no dated news records |
 | Contact | Applicant-specific accordions, source application materials as bullet lists, email link/copy and recruitment guidance |
 
-Shared: sticky sage navigation with the logo on an ivory backing, mobile menu, hash deep links, browser Back/Forward, keyboard focus and Escape dismissal for dialogs. Contact has no active-state underline. Every page has the vector emblem in its header; the bottom footer reads CASINO@UMAC. Main text is 20–22px. Layout uses the original third direction's rounded cards and green/gold sections. The Research page and homepage research-area section have been removed; research metadata remains available in JSON.
+Shared: sticky sage navigation with a transparent SVG logo and no extra backing, mobile menu, hash deep links, browser Back/Forward, keyboard focus and Escape dismissal for dialogs. Contact has no active-state underline. Every page has the vector emblem in its header; the bottom footer reads CASINO@UMAC. Main text is 20–22px. Layout uses the original third direction's rounded cards and green/gold sections. The Research page and homepage research-area section have been removed; research metadata remains available in JSON.
 
 ## Content to supply
 
