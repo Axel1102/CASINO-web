@@ -23,6 +23,7 @@ assert(requests.some(url=>url.includes('/data/lab.json')),'JSON requested');
 await check("getComputedStyle(document.body).backgroundColor==='rgb(242, 234, 219)'",'original third-direction palette');
 await check("getComputedStyle(document.body).fontSize==='20px'",'larger body type');
 await check("document.querySelector('.brand img').src.endsWith('casino-symbol.svg') && document.querySelector('.brand').getBoundingClientRect().left < innerWidth/2",'symbol-only logo at top left');
+await check("getComputedStyle(document.querySelector('.site-header')).backgroundColor==='rgb(226, 232, 220)' && getComputedStyle(document.querySelector('.brand')).backgroundColor==='rgb(250, 246, 235)' && document.querySelector('.brand img').getBoundingClientRect().bottom<=document.querySelector('.site-header').getBoundingClientRect().bottom",'sage navigation with unobscured logo on ivory backing');
 await check("document.querySelectorAll('.stack-sheet').length===4 && document.querySelectorAll('.acronym-letter').length===6 && document.querySelector('.hero-wordmark img').src.endsWith('casino-wordmark.svg')",'four-photo stack and CASINO wordmark');
 await check("document.querySelector('.site-footer img').src.endsWith('casino-wordmark.svg') && !document.querySelector('.footer-links')",'wordmark footer without link collection');
 await check("!document.querySelector('.hm-research') && !document.querySelector('a[href^=\"#research\"]')",'Research page links and homepage section removed');
@@ -35,8 +36,14 @@ await check("Math.abs(document.querySelector('.site-header').getBoundingClientRe
 await evaluate('window.scrollTo(0,0)');
 for(let i=0;i<4;i++)await evaluate("document.querySelector('[data-gallery-step=\"1\"]').click()");
 await check("document.querySelector('.gallery-count').textContent==='1 / 4'",'next photo wraps');
+await check("document.querySelector('.stack-sheet:not([aria-hidden])').getAnimations().some(a=>a.id==='photo-switch')",'photo switch animation starts');
 await evaluate("document.querySelector('[data-gallery-step=\"-1\"]').click()");
 await check("document.querySelector('.gallery-count').textContent==='4 / 4' && document.querySelectorAll('.stack-sheet[aria-hidden=true] [tabindex=\"-1\"]').length===3",'previous photo and inactive-frame keyboard behavior');
+await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+await evaluate("document.querySelector('[data-gallery-step=\"-1\"]').click()");
+await check("!document.querySelector('.photo-stack').getAnimations({subtree:true}).length",'reduced-motion setting disables album animations');
+await evaluate("document.querySelector('[data-gallery-step=\"1\"]').click()");
+await send('Emulation.setEmulatedMedia',{features:[]});
 await evaluate("document.querySelector('.gallery-expand').focus();document.querySelector('.gallery-expand').click()");
 await check("document.querySelector('dialog').open",'full photo dialog');
 await check("document.querySelector('dialog img').src.endsWith('group-04.jpg')",'dialog opens selected photo');
@@ -48,6 +55,7 @@ for(const route of ['home','member','publications','news','contact']){
   await navigate(route);await check('document.documentElement.scrollWidth <= innerWidth',route+' desktop width');
   await check("!document.querySelector('input[type=search]')",route+' has no search box');
   await evaluate("Promise.all([...document.images].map(i=>{i.loading='eager';return i.decode().catch(()=>{});} ))");
+  await evaluate("Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{})))");
   await check("[...document.images].every(i=>i.complete&&i.naturalWidth>0)",route+' images');
   const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(`previews/gold-json/${route}.png`,Buffer.from(shot.data,'base64'));
 }
@@ -77,6 +85,11 @@ for(const width of [390,768]){
   await send('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:true});
   for(const route of ['home','member','member/zhuangtonghuang','publications','news','contact']){await navigate(route);await check('document.documentElement.scrollWidth <= innerWidth',route+' '+width+'px width');}
   await navigate('home');await evaluate('window.scrollTo(0,700)');await settle();await check("Math.abs(document.querySelector('.site-header').getBoundingClientRect().top)<1",width+'px sticky navigation');await evaluate('window.scrollTo(0,0)');
+  await evaluate("document.querySelector('.photo-stack').scrollIntoView({block:'center',behavior:'instant'})");await settle();
+  await check("[...document.querySelectorAll('.gallery-arrow')].every(button=>{const r=button.getBoundingClientRect(),stack=document.querySelector('.photo-stack').getBoundingClientRect();return r.width>=44 && r.height>=44 && Math.abs(r.top+r.height/2-stack.top-stack.height/2)<2 && document.elementFromPoint(r.left+r.width/2,r.top+r.height/2)?.closest('.gallery-arrow')===button;})",width+'px side arrows are large and clickable');
+  await evaluate("document.querySelector('.gallery-next').click()");await check("document.querySelector('.gallery-count').textContent==='2 / 4'",width+'px next photo works');await evaluate("document.querySelector('.gallery-prev').click()");
+  await evaluate("Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{})))");
+  const albumShot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(`previews/gold-json/album-${width}.png`,Buffer.from(albumShot.data,'base64'));
   await navigate('home');await evaluate("document.querySelector('#menu-toggle').click()");await check("document.querySelector('#menu-toggle').getAttribute('aria-expanded')==='true'",width+'px mobile menu');await evaluate("document.querySelector('#navigation a[href=\"#member\"]').click()");await settle();await check("document.querySelector('#menu-toggle').getAttribute('aria-expanded')==='false' && document.querySelector('h1').textContent==='Member'",'menu closes on navigation');
   await navigate('home');const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(`previews/gold-json/mobile-${width}.png`,Buffer.from(shot.data,'base64'));
 }

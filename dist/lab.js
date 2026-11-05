@@ -39,7 +39,7 @@ function photoStack() {
   const ids=data.siteSettings.heroPhotoAssetIds.filter(id=>asset(id));
   if(!ids.length)return '';
   galleryIndex=((galleryIndex%ids.length)+ids.length)%ids.length;
-  return `<div class="photo-stack" aria-label="Lab photo album">${ids.map((id,i)=>{const depth=(i-galleryIndex+ids.length)%ids.length;return `<div class="stack-sheet" style="--depth:${depth}" ${depth?'aria-hidden="true"':''}><button class="stack-photo" data-photo="${esc(id)}" aria-label="View group photo ${i+1}" ${depth?'tabindex="-1"':''}>${image(id,'group-photo',depth===0)}</button></div>`;}).join('')}</div><div class="gallery-controls">${ids.length>1?'<button data-gallery-step="-1" aria-label="Previous photo">←</button>':''}<span class="gallery-count" role="status" aria-live="polite">${galleryIndex+1} / ${ids.length}</span>${ids.length>1?'<button data-gallery-step="1" aria-label="Next photo">→</button>':''}<button class="gallery-expand" data-photo="${esc(ids[galleryIndex])}">View full photo ↗</button></div>`;
+  return `<div class="photo-stack" aria-label="Lab photo album">${ids.map((id,i)=>{const depth=(i-galleryIndex+ids.length)%ids.length;return `<div class="stack-sheet" style="--depth:${depth}" ${depth?'aria-hidden="true"':''}><button class="stack-photo" data-photo="${esc(id)}" aria-label="View group photo ${i+1}" ${depth?'tabindex="-1"':''}>${image(id,'group-photo',depth===0)}</button></div>`;}).join('')}${ids.length>1?'<button class="gallery-arrow gallery-prev" data-gallery-step="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button><button class="gallery-arrow gallery-next" data-gallery-step="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>':''}</div><div class="gallery-controls"><span class="gallery-count" role="status" aria-live="polite">${galleryIndex+1} / ${ids.length}</span><button class="gallery-expand" data-photo="${esc(ids[galleryIndex])}">View full photo ↗</button></div>`;
 }
 function photo(id=data.siteSettings.heroPhotoAssetIds[0]) {
   if (!asset(id)) return '';
@@ -140,7 +140,26 @@ dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoun
 dialog.addEventListener('close',()=>{document.body.style.overflow='';if(previousFocus?.isConnected)previousFocus.focus();});
 content.addEventListener('click',e=>{
   const galleryControl=e.target.closest('[data-gallery-step]');
-  if(galleryControl){galleryIndex+=Number(galleryControl.dataset.galleryStep);document.querySelector('#home-gallery').innerHTML=photoStack();document.querySelector(`[data-gallery-step="${galleryControl.dataset.galleryStep}"]`).focus({preventScroll:true});return;}
+  if(galleryControl){
+    const gallery=document.querySelector('#home-gallery'),sheets=[...gallery.querySelectorAll('.stack-sheet')];
+    const step=Number(galleryControl.dataset.galleryStep);
+    galleryIndex=(galleryIndex+step+sheets.length)%sheets.length;
+    sheets.forEach((sheet,i)=>{
+      sheet.getAnimations().filter(a=>a.id==='photo-switch').forEach(a=>a.cancel());
+      const depth=(i-galleryIndex+sheets.length)%sheets.length;
+      sheet.style.setProperty('--depth',depth);
+      if(depth)sheet.setAttribute('aria-hidden','true');else sheet.removeAttribute('aria-hidden');
+      sheet.querySelector('.stack-photo').tabIndex=depth?-1:0;
+    });
+    const front=sheets[galleryIndex];
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+      const animation=front.animate([{opacity:.2,translate:`${step*20}px 0`},{opacity:1,translate:'0 0'}],{duration:360,easing:'ease-out'});
+      animation.id='photo-switch';
+    }
+    gallery.querySelector('.gallery-count').textContent=`${galleryIndex+1} / ${sheets.length}`;
+    gallery.querySelector('.gallery-expand').dataset.photo=front.querySelector('.stack-photo').dataset.photo;
+    galleryControl.focus({preventScroll:true});return;
+  }
   const photoButton=e.target.closest('[data-photo]');if(photoButton){openDialog(`<h2 id="dialog-title">${esc(asset(photoButton.dataset.photo)?.caption||'Our group')}</h2>${image(photoButton.dataset.photo)}`);return;}
   const abstract=e.target.closest('[data-abstract]');if(abstract){const p=data.publications.find(p=>p.id===abstract.dataset.abstract);openDialog(`<h2 id="dialog-title">${esc(p.title)}</h2>${prose(p.abstract)}`);return;}
   const citation=e.target.closest('[data-citation]');if(citation){const p=data.publications.find(p=>p.id===citation.dataset.citation);openDialog(`<h2 id="dialog-title">Citation</h2><label for="bibtex">BibTeX</label><textarea id="bibtex" readonly spellcheck="false">${esc(p.bibtex)}</textarea><div class="actions"><button class="button" id="copy-citation">Copy BibTeX</button><button class="button secondary" id="download-citation">Download .bib</button></div><p class="dialog-status" id="citation-status" role="status"></p>`);

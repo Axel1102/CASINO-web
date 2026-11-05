@@ -4,13 +4,13 @@ The selected third direction opens `dist/lab.html`, with its original warm-paper
 
 | Page | Implemented interactions |
 | --- | --- |
-| Home | Four photos with subtle stacking angles; top-aligned wordmark and full name; recent papers below their heading; PI name links to his personal website |
+| Home | Four subtly stacked photos; large previous/next arrows on both sides; short slide/fade transitions respecting reduced-motion preferences; top-aligned branding and recent papers below their heading |
 | Member | 12 real profiles and portraits; role/alumni filters; clickable names; personal pages directly list papers; no directory interests or profile buttons |
 | Publications | 52 records; year/type filters, chronological sorting, pagination; titles open Paper.pageUrl; optional abstract/BibTeX/PDF controls appear only when supplied |
 | News | JSON-backed story pages and a group photo; the source has no dated news records |
 | Contact | Applicant-specific accordions, source application materials as bullet lists, email link/copy and recruitment guidance |
 
-Shared: sticky navigation, mobile menu, hash deep links, browser Back/Forward, keyboard focus and Escape dismissal for dialogs. Contact has no active-state underline. Every page has the vector emblem in its header; the bottom footer reads CASINO@UMAC. Main text is 20–22px. Layout uses the original third direction's rounded cards and green/gold sections. The Research page and homepage research-area section have been removed; research metadata remains available in JSON.
+Shared: sticky sage navigation with the logo on an ivory backing, mobile menu, hash deep links, browser Back/Forward, keyboard focus and Escape dismissal for dialogs. Contact has no active-state underline. Every page has the vector emblem in its header; the bottom footer reads CASINO@UMAC. Main text is 20–22px. Layout uses the original third direction's rounded cards and green/gold sections. The Research page and homepage research-area section have been removed; research metadata remains available in JSON.
 
 ## Content to supply
 
