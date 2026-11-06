@@ -24,3 +24,11 @@ html{scroll-padding-top:140px}.site-header{position:sticky;top:0;z-index:40;box-
 .site-header{background:#e2e8dc}.brand{display:inline-flex;align-items:center;justify-content:center;justify-self:start}.brand img{display:block}.gallery-arrow{position:absolute;top:50%;z-index:15;transform:translateY(-50%);display:grid;place-items:center;width:54px;height:54px;padding:0;border:3px solid #faf6eb;border-radius:50%;background:var(--green);color:#fff;box-shadow:0 4px 16px rgba(0,54,39,.2)}.gallery-arrow svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.gallery-arrow:hover{background:#173d32;box-shadow:0 4px 18px rgba(0,54,39,.3)}.gallery-arrow:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.gallery-prev{left:-6px}.gallery-next{right:6px}.stack-sheet{transition:transform .36s ease}
 @media(max-width:600px){.gallery-arrow{width:44px;height:44px}.gallery-arrow svg{width:22px;height:22px}.gallery-prev{left:-3px}.gallery-next{right:5px}}
 @media(prefers-reduced-motion:reduce){.stack-sheet{transition:none}}
+
+/* Preview one font family across the entire lab site, including controls. */
+:root{--site-font:Arial,Helvetica,sans-serif}
+:root[data-font=times]{--site-font:"Times New Roman",Times,serif}
+:root *{font-family:var(--site-font)!important}
+#font-preview{width:auto;min-width:0;padding:6px 9px;border:1px solid var(--line);border-radius:6px;background:var(--white);color:var(--ink);font-size:16px}
+.hm-about .recruiting-call{margin-top:18px}
+@media(max-width:900px){#font-preview{align-self:flex-start;margin:6px 10px}}

@@ -197,7 +197,7 @@
       "title": "Assistant Professor",
       "affiliation": "University of Macau",
       "portraitAssetId": "portrait-pi",
-      "bioMarkdown": "Assistant Professor in Computer Science and Finance at the University of Macau. Principal investigator of CASINO Lab, formerly Cyber and Crypto Lab (CRAB).\n\nDr. sc., ETH Zurich (2022), supervised by Prof. Roger Wattenhofer. MSc, ETH Zurich; BSc, Peking University.",
+      "bioMarkdown": "Assistant Professor in Computer Science and Finance at the University of Macau. Principal investigator of CASINO Lab.\n\nDr. sc., ETH Zurich (2022), supervised by Prof. Roger Wattenhofer. MSc, ETH Zurich; BSc, Peking University.",
       "researchAreaIds": [
         "security",
         "hci"
@@ -260,10 +260,6 @@
       "publicEmail": null,
       "links": [
         {
-          "label": "Original profile",
-          "url": "https://crab.ye.wang/members/yangxin-chen"
-        },
-        {
           "label": "Personal website",
           "url": "http://www.yangxin-chen.com"
         }
@@ -303,12 +299,7 @@
       ],
       "alumniDestination": null,
       "publicEmail": "yc37963@um.edu.mo",
-      "links": [
-        {
-          "label": "Original profile",
-          "url": "https://crab.ye.wang/members/yongqi-guan"
-        }
-      ],
+      "links": [],
       "sortOrder": 2
     },
     {
@@ -343,12 +334,7 @@
       ],
       "alumniDestination": null,
       "publicEmail": "yc37494@um.edu.mo",
-      "links": [
-        {
-          "label": "Original profile",
-          "url": "https://crab.ye.wang/members/ben"
-        }
-      ],
+      "links": [],
       "sortOrder": 3
     },
     {
@@ -383,12 +369,7 @@
       ],
       "alumniDestination": null,
       "publicEmail": "yc67386@um.edu.mo",
-      "links": [
-        {
-          "label": "Original profile",
-          "url": "https://crab.ye.wang/members/wanyi-liu"
-        }
-      ],
+      "links": [],
       "sortOrder": 4
     },
     {
@@ -423,12 +404,7 @@
       ],
       "alumniDestination": null,
       "publicEmail": "yc57436@um.edu.mo",
-      "links": [
-        {
-          "label": "Original profile",
-          "url": "https://crab.ye.wang/members/sinong-lu"
-        }
-      ],
+      "links": [],
       "sortOrder": 5
     },
     {
@@ -463,12 +439,7 @@
       ],
       "alumniDestination": null,
       "publicEmail": "yc67537@um.edu.mo",
-      "links": [
-        {
-          "label": "Original profile",
-          "url": "https://crab.ye.wang/members/junjie-qing"
-        }
-      ],
+      "links": [],
       "sortOrder": 6
     },
     {
@@ -505,12 +476,7 @@
       ],
       "alumniDestination": null,
       "publicEmail": "jianingsi.janice@connect.um.edu.mo",
-      "links": [
-        {
-          "label": "Original profile",
-          "url": "https://crab.ye.wang/members/jianing-si"
-        }
-      ],
+      "links": [],
       "sortOrder": 7
     },
     {
@@ -546,12 +512,7 @@
       ],
       "alumniDestination": null,
       "publicEmail": "yc67537@um.edu.mo",
-      "links": [
-        {
-          "label": "Original profile",
-          "url": "https://crab.ye.wang/members/chunlin-wang"
-        }
-      ],
+      "links": [],
       "sortOrder": 8
     },
     {
@@ -587,12 +548,7 @@
       ],
       "alumniDestination": null,
       "publicEmail": "yc67200@um.edu.mo",
-      "links": [
-        {
-          "label": "Original profile",
-          "url": "https://crab.ye.wang/members/siyu-wang"
-        }
-      ],
+      "links": [],
       "sortOrder": 9
     },
     {
@@ -629,12 +585,7 @@
       ],
       "alumniDestination": null,
       "publicEmail": "yc37496@um.edu.mo",
-      "links": [
-        {
-          "label": "Original profile",
-          "url": "https://crab.ye.wang/members/zhuangtonghuang"
-        }
-      ],
+      "links": [],
       "sortOrder": 10
     },
     {
@@ -664,12 +615,7 @@
       ],
       "alumniDestination": null,
       "publicEmail": "mc35258@um.edu.mo",
-      "links": [
-        {
-          "label": "Original profile",
-          "url": "https://crab.ye.wang/members/jinchen-yu"
-        }
-      ],
+      "links": [],
       "sortOrder": 11
     }
   ],
@@ -4824,7 +4770,7 @@
       "deadlineAt": null,
       "contactEmail": "yewang.ethz@gmail.com",
       "applicationUrl": null,
-      "guidanceUrl": "https://crab.ye.wang/info",
+      "guidanceUrl": null,
       "researchAreaIds": [
         "security",
         "hci"
@@ -4857,7 +4803,7 @@
       "deadlineAt": null,
       "contactEmail": "yewang.ethz@gmail.com",
       "applicationUrl": null,
-      "guidanceUrl": "https://crab.ye.wang/info",
+      "guidanceUrl": null,
       "researchAreaIds": [
         "security",
         "hci"
@@ -4870,9 +4816,8 @@
     "fullName": "Collaborative Security and Interaction Group",
     "institution": "University of Macau",
     "introduction": "Research in information security, human–computer interaction, and the intersection of computing and society.",
-    "aboutMarkdown": "CASINO Lab, formerly Cyber and Crypto Lab (CRAB), is headed by Kanye Ye Wang at the University of Macau.\n\nDepartment of Computer and Information Science\nDepartment of Finance and Business Economics\n\nIn 2025, the group achieved the top-four security “grand slam”. We welcome interdisciplinary collaborations.",
+    "aboutMarkdown": "CASINO Lab is headed by Kanye Ye Wang at the University of Macau.\n\nDepartment of Computer and Information Science\nDepartment of Finance and Business Economics\n\nIn 2025, the group achieved the top-four security “grand slam”. We welcome interdisciplinary collaborations.",
     "recruitmentMarkdown": "Application timeline\nFall intake: apply by mid-March. Spring intake: apply by the end of July of the previous year. Confirm the current university deadlines before applying. Contact the principal investigator before applying through the university system.\n\nProgram structure\nExpected duration: four years, including a qualifying exam at the end of the first year.\n\nFunding\nThe lab’s published guidance lists a monthly stipend of MOP 12,500–20,000. Each advisor may nominate one student per year for the MOP 20,000 scholarship; the guidance reports that fewer than 5% receive this top-tier scholarship. Check the current call for eligibility and funding details.",
-    "publicationArchiveUrl": "https://disco.ethz.ch/alumni/wangye",
     "logoAssetId": "symbol",
     "wordmarkAssetId": "wordmark",
     "darkLogoAssetId": null,
@@ -4882,10 +4827,6 @@
     "publicEmail": "yewang.ethz@gmail.com",
     "address": "University of Macau",
     "links": [
-      {
-        "label": "Original lab website",
-        "url": "https://crab.ye.wang/home"
-      },
       {
         "label": "Principal investigator",
         "url": "https://www.ye.wang/"

@@ -32,7 +32,7 @@ The live HTML was checked on 4 November 2026. The source pages are:
 - [Applicant information](https://crab.ye.wang/info): UM/external applicant requirements, timeline, program structure and funding guidance.
 - [Principal investigator](https://www.ye.wang/): biography and contact address.
 
-Current branding is CASINO; the former CRAB name remains in the historical description. Main publication-page metadata takes precedence over duplicate entries on member pages. Author order and author spelling are preserved; recognized name variants link to a stable person ID. Venue type is normalized to conference, journal or workshop. Publication dates, DOI, abstracts, contributions, publication status, PDF links and BibTeX absent from the source remain null.
+Current branding is CASINO. Legacy source URLs are retained as provenance metadata; the only visitor-facing link to the old lab site is the homepage recruitment call. Main publication-page metadata takes precedence over duplicate entries on member pages. Author order and author spelling are preserved; recognized name variants link to a stable person ID. Venue type is normalized to conference, journal or workshop. Publication dates, DOI, abstracts, contributions, publication status, PDF links and BibTeX absent from the source remain null.
 
 Research areas retain the source's two categories. Member-area associations are inferred from their explicitly listed interests. The source does not assign research areas to each paper, so `researchAreaIds` remains empty for papers; fill it after lab review. The frontend displays topic filters once tagged papers exist. The source has no dated news feed, so `news` is empty; the News & lab life page displays the first original group photograph.
 

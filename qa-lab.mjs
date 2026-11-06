@@ -29,6 +29,17 @@ await check("document.querySelector('.site-footer img').src.endsWith('casino-wor
 await check("!document.querySelector('.hm-research') && !document.querySelector('a[href^=\"#research\"]')",'Research page links and homepage section removed');
 await check("[...document.querySelectorAll('.acronym-letter')].every(el=>getComputedStyle(el).textDecorationLine==='none')",'full-name initials without underlines');
 await check("document.querySelector('.about-text a').href==='https://www.ye.wang/' && document.querySelector('.footer-bottom').textContent==='CASINO@UMAC'",'PI homepage link and abbreviated footer');
+await check("document.querySelector('.hm-about h2').textContent==='Contact' && document.querySelector('.recruiting-call').textContent==='Are you looking for a PhD/RA position? We are currently recruiting, and our latest call is available here.' && document.querySelector('.recruiting-call a').href==='https://crab.ye.wang/info'",'requested homepage recruitment copy and link');
+const setFont=font=>evaluate(`(()=>{const s=document.querySelector('#font-preview');s.value=${JSON.stringify(font)};s.dispatchEvent(new Event('change'));})()`);
+for(const [font,family] of [['times','Times New Roman'],['arial','Arial']]){
+  await setFont(font);
+  for(const page of ['home','member','member/pi','publications','news','contact']){
+    await navigate(page);
+    await check(`[...document.querySelectorAll('body *')].every(el=>getComputedStyle(el).fontFamily.includes(${JSON.stringify(family)})) && document.documentElement.scrollWidth<=innerWidth`,font+' throughout '+page);
+    await check(`!document.querySelector('#content').textContent.includes('formerly Cyber') && document.querySelectorAll('a[href*="crab.ye.wang"],a[href*="disco.ethz.ch"]').length===${page==='home'?1:0}`,page+' only uses intended links and current name');
+  }
+}
+await navigate('home');
 await check("Math.abs(document.querySelector('.hm-story-list').getBoundingClientRect().left-document.querySelector('.hm-stories-title').getBoundingClientRect().left)<2 && document.querySelector('.hm-story-list').getBoundingClientRect().top>=document.querySelector('.hm-stories-title').getBoundingClientRect().bottom",'recent papers below heading without empty left column');
 await check("document.querySelector('.hm-copy').getBoundingClientRect().top<document.querySelector('.hm-gallery').getBoundingClientRect().top+20 && [...document.querySelectorAll('.stack-sheet')].every(el=>{const m=new DOMMatrix(getComputedStyle(el).transform);return Math.abs(Math.atan2(m.b,m.a)*180/Math.PI)<3;})",'top-aligned hero and subtle photo angles');
 await evaluate('window.scrollTo(0,700)');await settle();

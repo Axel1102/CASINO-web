@@ -2,6 +2,13 @@ import { Member, Paper } from './models.js';
 
 const content = document.querySelector('#content');
 const dialog = document.querySelector('#detail-dialog');
+const fontPreview = document.querySelector('#font-preview');
+try { fontPreview.value = localStorage.getItem('casino-font') === 'times' ? 'times' : 'arial'; } catch {}
+document.documentElement.dataset.font = fontPreview.value;
+fontPreview.addEventListener('change', () => {
+  document.documentElement.dataset.font = fontPreview.value;
+  try { localStorage.setItem('casino-font', fontPreview.value); } catch {}
+});
 let data, previousFocus, galleryIndex=0;
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const label = value => ({faculty:'Faculty',phd_student:'PhD students',masters_student:'Master’s students',research_assistant:'Research assistants',postdoc:'Postdocs',undergraduate:'Undergraduates',visiting_researcher:'Visitors',conference:'Conference',journal:'Journal',workshop:'Workshop',preprint:'Preprint',book_chapter:'Book chapter',thesis:'Thesis',other:'Other',lab_news:'Lab news',lab_life:'Lab life',publication:'Publication',event:'Event',award:'Award'}[value] || value);
@@ -64,9 +71,8 @@ function home() {
   const selected=s.featuredPublicationIds.map(id=>data.publications.find(p=>p.id===id)).filter(Boolean);
   const latest=(selected.length?selected:[...data.publications].sort((a,b)=>b.year-a.year)).slice(0,3);
   content.innerHTML=`<section class="hm-hero"><div class="hm-copy"><p class="eyebrow">${esc(s.institution)} · Research group</p><h1 class="hero-wordmark">${image(s.wordmarkAssetId,'wordmark',true)}<span class="sr-only">${esc(s.name)}</span></h1><h2 class="lab-full-name">${fullName(s.fullName)}</h2><p class="hm-summary">${esc(s.introduction)}</p><div class="hm-actions"><a href="#publications">Our publications</a><a href="#member">Meet the group ↗</a></div></div><div id="home-gallery" class="hm-gallery">${photoStack()}</div></section>
-    <section class="hm-about"><div><p class="eyebrow">ABOUT THE LAB</p><h2>Research at<br>${esc(s.institution)}</h2></div><div class="about-text">${about}</div></section>
-    <section class="hm-stories"><header class="hm-stories-title"><p class="eyebrow">FROM THE LAB</p><h2>Recent publications</h2></header><div class="hm-story-list">${latest.map(p=>`<article><small>${p.year} · ${esc(p.venue.shortName || label(p.type))}</small><h3>${paperLink(p)}</h3></article>`).join('')}</div><a class="text-link" href="#publications">View all ${data.publications.length} publications ↗</a></section>
-    <section class="hm-join-section"><h2>Contact</h2><p>Get in touch about our research, collaboration, and opportunities.</p><a class="button" href="#contact">Contact the lab ↗</a></section>`;
+    <section class="hm-about"><div><p class="eyebrow">ABOUT THE LAB</p><h2>Contact</h2><p class="recruiting-call">Are you looking for a PhD/RA position? We are currently recruiting, and our latest call is available <a href="https://crab.ye.wang/info" target="_blank" rel="noopener">here</a>.</p></div><div class="about-text">${about}</div></section>
+    <section class="hm-stories"><header class="hm-stories-title"><p class="eyebrow">FROM THE LAB</p><h2>Recent publications</h2></header><div class="hm-story-list">${latest.map(p=>`<article><small>${p.year} · ${esc(p.venue.shortName || label(p.type))}</small><h3>${paperLink(p)}</h3></article>`).join('')}</div><a class="text-link" href="#publications">View all ${data.publications.length} publications ↗</a></section>`;
 }
 
 function people(id, params) {
@@ -90,7 +96,7 @@ function people(id, params) {
 function publications(id, params) {
   if(id){
     const p=data.publications.find(p=>p.id===id||p.slug===id);if(!p)return notFound();
-    content.innerHTML=`<a class="breadcrumb" href="#publications">← All publications</a>${heading(p.title,`${p.year} · ${p.venue.name}`,label(p.type))}<article class="prose"><p>${authors(p)}</p>${p.abstract?`<h2>Abstract</h2>${prose(p.abstract)}`:''}<div class="paper-actions">${paperActions(p)}</div>${p.sourceUrl?`<p class="source-note">${link(p.sourceUrl,'Original publication listing')}</p>`:''}</article>`;return;
+    content.innerHTML=`<a class="breadcrumb" href="#publications">← All publications</a>${heading(p.title,`${p.year} · ${p.venue.name}`,label(p.type))}<article class="prose"><p>${authors(p)}</p>${p.abstract?`<h2>Abstract</h2>${prose(p.abstract)}`:''}<div class="paper-actions">${paperActions(p)}</div></article>`;return;
   }
   const years=[...new Set(data.publications.map(p=>p.year))].sort((a,b)=>b-a);
   const types=[...new Set(data.publications.map(p=>p.type))];

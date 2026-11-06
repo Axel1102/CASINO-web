@@ -1,5 +1,7 @@
 # CASINO website prototype
 
+The navigation's Arial / Times control previews one font family across the lab site. It remembers the selection in the browser; the SVG logos are unchanged. The homepage Contact section includes the sole link to the former lab site, for the current recruitment call.
+
 The selected third direction opens `dist/lab.html`, with its original warm-paper, green and gold palette, larger typography and a symbol-only top-left logo. Homepage and footer use the CASINO wordmark. The website uses English interface text and loads `dist/data/lab.json` over HTTP.
 
 | Page | Implemented interactions |
