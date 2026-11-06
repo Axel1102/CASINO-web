@@ -12,7 +12,6 @@ fontPreview.addEventListener('change', () => {
 let data, previousFocus, galleryIndex=0;
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const label = value => ({faculty:'Faculty',phd_student:'PhD students',masters_student:'Master’s students',research_assistant:'Research assistants',postdoc:'Postdocs',undergraduate:'Undergraduates',visiting_researcher:'Visitors',conference:'Conference',journal:'Journal',workshop:'Workshop',preprint:'Preprint',book_chapter:'Book chapter',thesis:'Thesis',other:'Other',lab_news:'Lab news',lab_life:'Lab life',publication:'Publication',event:'Event',award:'Award'}[value] || value);
-const isCurrent = person => person.memberships.some(m => m.isCurrent);
 const publicRecord = item => item.publishState === 'published' && !item.isDemo && item.publishedAt && Date.parse(item.publishedAt) <= Date.now();
 function safeUrl(value, asset=false) {
   if (!value) return '';
@@ -75,22 +74,14 @@ function home() {
     <section class="hm-stories"><header class="hm-stories-title"><p class="eyebrow">FROM THE LAB</p><h2>Recent publications</h2></header><div class="hm-story-list">${latest.map(p=>`<article><small>${p.year} · ${esc(p.venue.shortName || label(p.type))}</small><h3>${paperLink(p)}</h3></article>`).join('')}</div><a class="text-link" href="#publications">View all ${data.publications.length} publications ↗</a></section>`;
 }
 
-function people(id, params) {
+function people(id) {
   if(id){
     const p=data.people.find(p=>p.id===id||p.slug===id);if(!p)return notFound();
     const related=p.getPapers(data.publications);
-    content.innerHTML=`<a class="breadcrumb" href="#member">← All members</a>${heading(p.name,p.title,isCurrent(p)?'MEMBER':'ALUMNI')}<div class="profile-layout"><aside>${image(p.portraitAssetId,'profile-portrait')}</aside><section><div class="prose">${prose(p.bioMarkdown)}</div>${p.interests.length?`<h2>Research interests</h2><div class="tag-row">${p.interests.map(i=>`<span class="tag">${esc(i)}</span>`).join('')}</div>`:''}${emailLink(p.publicEmail)}<div class="profile-links">${p.links.map(l=>link(l.url,l.label)).join('')}</div>${p.alumniDestination?`<p>${esc(p.alumniDestination)}</p>`:''}</section></div><section class="member-papers bottom-space"><div class="section-heading"><h2>Publications</h2><span>${related.length} papers</span></div>${related.length?related.map(paperRow).join(''):'<p>No publications listed yet.</p>'}</section>`;return;
+    content.innerHTML=`<a class="breadcrumb" href="#member">← Members</a>${heading(p.name,p.title,p.state==='alumni'?'ALUMNI':'MEMBER')}<div class="profile-layout"><aside>${image(p.portraitAssetId,'profile-portrait')}</aside><section><div class="prose">${prose(p.bioMarkdown)}</div>${p.interests.length?`<h2>Research interests</h2><div class="tag-row">${p.interests.map(i=>`<span class="tag">${esc(i)}</span>`).join('')}</div>`:''}${emailLink(p.publicEmail)}<div class="profile-links">${p.links.map(l=>link(l.url,l.label)).join('')}</div>${p.alumniDestination?`<p>${esc(p.alumniDestination)}</p>`:''}</section></div><section class="member-papers bottom-space"><div class="section-heading"><h2>Publications</h2><span>${related.length} papers</span></div>${related.length?related.map(paperRow).join(''):'<p>No publications listed yet.</p>'}</section>`;return;
   }
-  const area=params.get('area')||'';
-  const roles=[...new Set(data.people.flatMap(p=>p.memberships.filter(m=>m.isCurrent).map(m=>m.role)))];
-  content.innerHTML=heading('Member')+`<div class="chips" id="people-chips" aria-label="Filter members"><button class="chip" data-role="all" aria-pressed="true">All</button>${roles.map(r=>`<button class="chip" data-role="${r}" aria-pressed="false">${esc(label(r))}</button>`).join('')}<button class="chip" data-role="alumni" aria-pressed="false">Alumni</button></div>${area?`<p class="source-note">Research area: ${esc(data.researchAreas.find(a=>a.id===area)?.title||area)} · <a href="#member">Show everyone</a></p>`:''}<p class="results-line" id="people-count" aria-live="polite"></p><div class="people-grid" id="people-results"></div>`;
-  let role='all';
-  const update=()=>{
-    const visible=data.people.filter(p=>(!area||p.researchAreaIds.includes(area))&&(role==='all'||(role==='alumni'?!isCurrent(p):p.memberships.some(m=>m.role===role&&m.isCurrent))));
-    document.querySelector('#people-count').textContent=`${visible.length} members`;
-    document.querySelector('#people-results').innerHTML=visible.length?visible.map(p=>`<article class="person"><div class="avatar">${image(p.portraitAssetId)}</div><span class="news-type">${esc(isCurrent(p)?p.title:'Alumni')}</span><h3>${memberLink(p)}</h3></article>`).join(''):'<div class="empty"><h3>No members in this category</h3></div>';
-  };
-  document.querySelector('#people-chips').addEventListener('click',e=>{const b=e.target.closest('[data-role]');if(!b)return;role=b.dataset.role;document.querySelectorAll('[data-role]').forEach(c=>c.setAttribute('aria-pressed',String(c===b)));update();});update();
+  const cards=state=>data.people.filter(p=>p.state===state).map(p=>`<article class="person"><div class="avatar">${image(p.portraitAssetId)}</div>${state==='member'&&p.title?`<span class="news-type">${esc(p.title)}</span>`:''}<h3>${memberLink(p)}</h3>${state==='alumni'&&p.alumniSince?`<p class="alumni-date">Alumni since <time datetime="${esc(p.alumniSince)}">${esc(p.alumniSince)}</time></p>`:''}</article>`).join('');
+  content.innerHTML=`<section aria-label="Members">${heading('Members')}<div class="people-grid" id="current-members">${cards('member')}</div></section><section aria-labelledby="alumni-heading"><h2 id="alumni-heading">Alumni</h2><div class="people-grid" id="alumni-members">${cards('alumni')}</div></section>`;
 }
 
 function publications(id, params) {
@@ -181,7 +172,7 @@ function route(){
   const page=({people:'member',join:'contact'})[rawPage]||rawPage;
   let id;try{id=rawId?decodeURIComponent(rawId):undefined;}catch{return notFound();}
   const params=new URLSearchParams(query);content.className=page==='home'?'home-main':'wrap';
-  if(page==='home')home();else if(page==='member')people(id,params);else if(page==='contact')join();else if(page==='publications')publications(id,params);else if(page==='news')newsPage(id);else notFound();
+  if(page==='home')home();else if(page==='member')people(id);else if(page==='contact')join();else if(page==='publications')publications(id,params);else if(page==='news')newsPage(id);else notFound();
   document.querySelectorAll('#navigation a').forEach(a=>{if(a.hash===`#${page}`)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
   document.querySelector('#navigation').classList.remove('open');document.querySelector('#menu-toggle').setAttribute('aria-expanded','false');
   document.title=`${content.querySelector('h1')?.textContent||'CASINO'} · CASINO Lab`;window.scrollTo(0,0);

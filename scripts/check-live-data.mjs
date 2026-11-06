@@ -24,9 +24,10 @@ for(const name of collections){
   }
 }
 assert.equal(data.people.length,12);assert.equal(data.publications.length,52);
-assert.equal(data.people.filter(p=>p.memberships.some(m=>m.isCurrent)).length,10);
-assert.equal(data.people.filter(p=>!p.memberships.some(m=>m.isCurrent)).length,2);
+assert.equal(data.people.filter(p=>p.state==='member').length,10);
+assert.equal(data.people.filter(p=>p.state==='alumni').length,2);
 for(const person of data.people){
+  assert(person.alumniSince===null || (person.state==='alumni' && /^\d{4}-\d{2}-\d{2}$/.test(person.alumniSince) && new Date(person.alumniSince).toISOString().slice(0,10)===person.alumniSince));
   ref(person.portraitAssetId,'assets');refs(person.researchAreaIds,'researchAreas');
   assert(person.memberships.length);for(const m of person.memberships)assert(!m.isCurrent||m.endedOn===null);
 }

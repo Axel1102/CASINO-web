@@ -70,10 +70,9 @@ for(const route of ['home','member','publications','news','contact']){
   await check("[...document.images].every(i=>i.complete&&i.naturalWidth>0)",route+' images');
   const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(`previews/gold-json/${route}.png`,Buffer.from(shot.data,'base64'));
 }
-await navigate('member');await check("document.querySelectorAll('.person').length===12 && !document.querySelector('.person .tag-row') && !document.querySelector('#people-results').textContent.includes('View profile')",'all real members without interests or profile buttons');
+await navigate('member');await check("document.querySelectorAll('.person').length===12 && !document.querySelector('.person .tag-row, #people-chips') && !document.querySelector('#content').textContent.includes('View profile')",'directory without role filters, interests or profile buttons');
 await check("!document.querySelector('.page-heading p:not(.eyebrow)') && document.querySelector('.person h3 a').href==='https://www.ye.wang/'",'simplified member heading and external PI homepage');
-await evaluate("document.querySelector('[data-role=alumni]').click()");
-await check("document.querySelectorAll('.person').length===2 && document.querySelector('#people-results').textContent.includes('Molly')",'current source alumni classification');
+await check("document.querySelectorAll('#current-members .person').length===10 && document.querySelectorAll('#alumni-members .person').length===2 && document.querySelector('#alumni-members').textContent.includes('Molly') && !document.querySelector('#alumni-members time')",'separate member and alumni groups; unknown dates hidden');
 await navigate('member/yongqi-guan');await check("document.querySelector('h1').textContent==='Maggie Yongqi GUAN' && document.querySelectorAll('.member-papers .paper').length===6",'member deep link and inline paper list');
 await evaluate("document.querySelector('.member-papers .paper h3 a').click()");await settle();
 await check("location.hash.startsWith('#publications/')",'member paper opens detail page');
@@ -101,13 +100,13 @@ for(const width of [390,768]){
   await evaluate("document.querySelector('.gallery-next').click()");await check("document.querySelector('.gallery-count').textContent==='2 / 4'",width+'px next photo works');await evaluate("document.querySelector('.gallery-prev').click()");
   await evaluate("Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{})))");
   const albumShot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(`previews/gold-json/album-${width}.png`,Buffer.from(albumShot.data,'base64'));
-  await navigate('home');await evaluate("document.querySelector('#menu-toggle').click()");await check("document.querySelector('#menu-toggle').getAttribute('aria-expanded')==='true'",width+'px mobile menu');await evaluate("document.querySelector('#navigation a[href=\"#member\"]').click()");await settle();await check("document.querySelector('#menu-toggle').getAttribute('aria-expanded')==='false' && document.querySelector('h1').textContent==='Member'",'menu closes on navigation');
+  await navigate('home');await evaluate("document.querySelector('#menu-toggle').click()");await check("document.querySelector('#menu-toggle').getAttribute('aria-expanded')==='true'",width+'px mobile menu');await evaluate("document.querySelector('#navigation a[href=\"#member\"]').click()");await settle();await check("document.querySelector('#menu-toggle').getAttribute('aria-expanded')==='false' && document.querySelector('h1').textContent==='Members'",'menu closes on navigation');
   await navigate('home');const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(`previews/gold-json/mobile-${width}.png`,Buffer.from(shot.data,'base64'));
 }
 await send('Page.navigate',{url:'http://127.0.0.1:4173/index.html#human'});await waitFor("location.pathname.endsWith('/lab.html') && document.querySelector('.hm-hero')");
 await waitFor("document.querySelector('.group-photo')?.naturalWidth===2048");
 await check("document.querySelector('.hero-wordmark img')",'third-concept legacy URL works');
-await navigate('people');await check("document.querySelector('h1').textContent==='Member'",'legacy People route');
+await navigate('people');await check("document.querySelector('h1').textContent==='Members'",'legacy People route');
 await navigate('join');await check("document.querySelector('h1').textContent==='Contact'",'legacy Join route');
 await send('Page.navigate',{url:'http://127.0.0.1:4173/lab.html#home'});await waitFor("document.querySelector('.hm-hero')");
 assert.equal(errors.length,0,errors.join('\n'));

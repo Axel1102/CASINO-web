@@ -32,3 +32,4 @@ html{scroll-padding-top:140px}.site-header{position:sticky;top:0;z-index:40;box-
 #font-preview{width:auto;min-width:0;padding:6px 9px;border:1px solid var(--line);border-radius:6px;background:var(--white);color:var(--ink);font-size:16px}
 .hm-about .recruiting-call{margin-top:18px}
 @media(max-width:900px){#font-preview{align-self:flex-start;margin:6px 10px}}
+#alumni-heading{margin-bottom:22px}

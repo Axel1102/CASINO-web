@@ -57,6 +57,8 @@ export interface Person extends Content {
   researchAreaIds: ID[];
   interests: string[];
   memberships: Membership[];
+  state: 'member' | 'alumni';
+  alumniSince: DateOnly | null;
   alumniDestination: string | null;
   publicEmail: string | null;
   links: Link[];

@@ -28,14 +28,14 @@ export default {
         { role: 'research_assistant', isCurrent: false, startedOn: '2024-09-01', endedOn: '2025-08-31' },
         { role: 'phd_student', isCurrent: true, startedOn: '2025-09-01', endedOn: null },
       ],
-      alumniDestination: null, publicEmail: null, links: [{ label: 'Website', url: 'https://example.org/alex' }], sortOrder: 1,
+      state: 'member', alumniSince: null, alumniDestination: null, publicEmail: null, links: [{ label: 'Website', url: 'https://example.org/alex' }], sortOrder: 1,
     },
     {
       ...common, id: 'person-sam', slug: 'sam-example', name: 'Sam Example', preferredName: null,
       title: null, affiliation: 'Example Research Institute', portraitAssetId: null,
       bioMarkdown: 'Sample former member.', researchAreaIds: ['area-privacy'], interests: ['Security'],
       memberships: [{ role: 'phd_student', isCurrent: false, startedOn: null, endedOn: null }],
-      alumniDestination: 'Example Research Institute', publicEmail: null, links: [], sortOrder: 2,
+      state: 'alumni', alumniSince: '2026-06-01', alumniDestination: 'Example Research Institute', publicEmail: null, links: [], sortOrder: 2,
     },
   ],
   publications: [{

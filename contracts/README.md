@@ -31,8 +31,8 @@ SiteSettings ──→ Asset / Publication
 前端类定义在 `dist/models.js`：每条 `people` 记录创建一个 `Member` 实例，每条 `publications` 记录创建一个 `Paper` 实例。JSON/API 继续使用 `people` / `publications` 集合名，与现有 Person / Publication 字段契约兼容。`member.getPapers(papers)` 通过 `authors[].personId` 返回该成员的全部论文，按年份降序显示在个人主页；不复制维护第二份论文列表。
 
 - `memberships` 保留角色历史。例如先 RA 后 PhD，只更新履历，不新增一个人。
-- 有任一 `isCurrent: true` 即 Current；所有履历都是 false 即 Alumni。Alumni 不是 role。
-- 当前成员按当前履历的 role 筛选；Alumni 按历史 role 筛选。多角色成员在列表中只出现一次。
+- `state: "member" | "alumni"` 决定成员在目录中的分组；`memberships[].isCurrent` 仅表示某条角色履历是否仍在进行。
+- `alumniSince` 记录离组日期，格式为 `YYYY-MM-DD`，未知时填 `null`。当前成员填 `null`；校友日期未填时页面不显示日期。
 - 起止日期未知填 null，不编造日期；当前履历的 `endedOn` 必须为 null。已离组成员可以保留未知离组日期。
 - `alumniDestination` 保存离组后的去向；`publicEmail` 只存已同意公开的邮箱。
 
@@ -85,7 +85,7 @@ Opportunity.applicationChecklist 保留现有字段名，但前端按各申请�
 | GET 路径 | 筛选参数（除通用分页外） | 返回 data |
 | --- | --- | --- |
 | `/site` | 无 | SiteSettings |
-| `/people` | q, membership=current\|alumni, role, researchAreaId | Person[] |
+| `/people` | q, state=member\|alumni, role, researchAreaId | Person[] |
 | `/people/{id}` | 无 | Person |
 | `/research-areas` | 无 | ResearchArea[] |
 | `/research-areas/{id}` | 无 | ResearchArea |

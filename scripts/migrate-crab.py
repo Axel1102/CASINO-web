@@ -136,7 +136,8 @@ def import_person(record):
                   title='Assistant Professor' if id=='pi' else 'MSc alumnus' if id=='jinchen-yu' else 'PhD alumnus' if former else 'PhD Student',
                   affiliation='University of Macau', portraitAssetId=asset['id'], bioMarkdown=bio, researchAreaIds=research,
                   interests=interests, memberships=[dict(role=roles,isCurrent=not former,startedOn=None,endedOn=None)],
-                  alumniDestination=None, publicEmail=email, links=links, sortOrder=0 if id=='pi' else list(canonical).index(id)+1)
+                  state='alumni' if former else 'member', alumniSince=None, alumniDestination=None,
+                  publicEmail=email, links=links, sortOrder=0 if id=='pi' else list(canonical).index(id)+1)
     return person, asset
 
 

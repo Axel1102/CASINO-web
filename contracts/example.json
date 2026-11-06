@@ -80,6 +80,8 @@
           "endedOn": null
         }
       ],
+      "state": "member",
+      "alumniSince": null,
       "alumniDestination": null,
       "publicEmail": null,
       "links": [
@@ -118,6 +120,8 @@
           "endedOn": null
         }
       ],
+      "state": "alumni",
+      "alumniSince": "2026-06-01",
       "alumniDestination": "Example Research Institute",
       "publicEmail": null,
       "links": [],

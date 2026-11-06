@@ -7,7 +7,7 @@ The selected third direction opens `dist/lab.html`, with its original warm-paper
 | Page | Implemented interactions |
 | --- | --- |
 | Home | Four subtly stacked photos; large previous/next arrows on both sides; short slide/fade transitions respecting reduced-motion preferences; top-aligned branding and recent papers below their heading |
-| Member | 12 real profiles and portraits; role/alumni filters; clickable names; personal pages directly list papers; no directory interests or profile buttons |
+| Members | Separate Members and Alumni groups based on `state`; optional alumni dates; clickable names and personal publication lists; no directory filters |
 | Publications | 52 records; year/type filters, chronological sorting, pagination; titles open Paper.pageUrl; optional abstract/BibTeX/PDF controls appear only when supplied |
 | News | JSON-backed story pages and a group photo; the source has no dated news records |
 | Contact | Applicant-specific accordions, source application materials as bullet lists, email link/copy and recruitment guidance |
