@@ -21,7 +21,7 @@ export default {
   }],
   people: [
     {
-      ...common, id: 'person-alex', slug: 'alex-example', name: 'Alex Example', preferredName: null,
+      ...common, id: 'person-alex', slug: 'alex-example', name: 'Alex Example', familyName: 'Example', preferredName: null,
       title: 'Doctoral researcher', affiliation: 'Example University', portraitAssetId: null,
       bioMarkdown: 'Sample profile for API integration.', researchAreaIds: ['area-privacy'], interests: ['Privacy'],
       memberships: [
@@ -31,11 +31,11 @@ export default {
       state: 'member', alumniSince: null, alumniDestination: null, publicEmail: null, links: [{ label: 'Website', url: 'https://example.org/alex' }], sortOrder: 1,
     },
     {
-      ...common, id: 'person-sam', slug: 'sam-example', name: 'Sam Example', preferredName: null,
+      ...common, id: 'person-sam', slug: 'sam-example', name: 'Sam Example', familyName: 'Example', preferredName: null,
       title: null, affiliation: 'Example Research Institute', portraitAssetId: null,
       bioMarkdown: 'Sample former member.', researchAreaIds: ['area-privacy'], interests: ['Security'],
       memberships: [{ role: 'phd_student', isCurrent: false, startedOn: null, endedOn: null }],
-      state: 'alumni', alumniSince: '2026-06-01', alumniDestination: 'Example Research Institute', publicEmail: null, links: [], sortOrder: 2,
+      state: 'alumni', alumniSince: '2026-06', alumniDestination: 'Example Research Institute', publicEmail: null, links: [], sortOrder: 2,
     },
   ],
   publications: [{

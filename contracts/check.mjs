@@ -29,9 +29,9 @@ function validate(data) {
     }
   }
   for (const person of data.people) {
-    assert(person.name.trim());
+    assert(person.name.trim() && person.familyName.trim());
     assert(['member', 'alumni'].includes(person.state));
-    date(person.alumniSince);
+    if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(person.alumniSince ?? '')) date(person.alumniSince);
     assert(person.state === 'alumni' || person.alumniSince === null);
     assert(person.memberships.length, 'Missing membership');
     unique(person.memberships.filter(m => m.isCurrent).map(m => m.role));

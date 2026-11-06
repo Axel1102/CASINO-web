@@ -38,7 +38,7 @@ Research areas retain the source's two categories. Member-area associations are 
 
 ## Source discrepancies to review
 
-1. The live directory places Molly Zhuangtong Huang in Alumni (PhD, October 2026), although her older profile and search caches still say PhD Student. Directory status is used. Brian Jincheng Yu is listed as MSc, June 2025. Exact graduation days are not given, so membership dates remain null and month-level information stays in the biography.
+1. The live directory places Molly Zhuangtong Huang in Alumni (PhD, October 2026), although her older profile and search caches still say PhD Student. Brian Jincheng Yu is listed as MSc, June 2025. Both dates appear on the alumni cards and use month precision in `alumniSince`; exact membership end days remain unknown.
 2. Yangxin Chen's visible email is `yc67847@um.edu.mo`, but the source mailto target is `yc67537@um.edu.mo`. His publicEmail is null until confirmed; the original profile and personal website remain linked.
 3. Maury Junjie Qing and Green Chunlin Wang both list `yc67537@um.edu.mo`. These visible addresses are preserved for review.
 4. One member profile additionally lists “Safeguarding the Unseen: a Study on Data Privacy in DeFi Protocols” without a year. The title, authors and venue are retained in Molly's biography, outside the dated publication archive.

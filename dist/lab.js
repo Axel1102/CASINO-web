@@ -41,6 +41,11 @@ function paperLink(p,title=p.title) {
   const url=paperPage(p);
   return url?`<a href="${esc(url)}" ${url.startsWith('#')?'':'target="_blank" rel="noopener"'}>${esc(title)}</a>`:esc(title);
 }
+function alumniDate(value) {
+  const monthOnly=value.length===7;
+  const date=new Date(monthOnly?`${value}-01`:value);
+  return new Intl.DateTimeFormat('en', {year:'numeric',month:'long',...(monthOnly?{}:{day:'numeric'}),timeZone:'UTC'}).format(date);
+}
 function photoStack() {
   const ids=data.siteSettings.heroPhotoAssetIds.filter(id=>asset(id));
   if(!ids.length)return '';
@@ -80,7 +85,9 @@ function people(id) {
     const related=p.getPapers(data.publications);
     content.innerHTML=`<a class="breadcrumb" href="#member">← Members</a>${heading(p.name,p.title,p.state==='alumni'?'ALUMNI':'MEMBER')}<div class="profile-layout"><aside>${image(p.portraitAssetId,'profile-portrait')}</aside><section><div class="prose">${prose(p.bioMarkdown)}</div>${p.interests.length?`<h2>Research interests</h2><div class="tag-row">${p.interests.map(i=>`<span class="tag">${esc(i)}</span>`).join('')}</div>`:''}${emailLink(p.publicEmail)}<div class="profile-links">${p.links.map(l=>link(l.url,l.label)).join('')}</div>${p.alumniDestination?`<p>${esc(p.alumniDestination)}</p>`:''}</section></div><section class="member-papers bottom-space"><div class="section-heading"><h2>Publications</h2><span>${related.length} papers</span></div>${related.length?related.map(paperRow).join(''):'<p>No publications listed yet.</p>'}</section>`;return;
   }
-  const cards=state=>data.people.filter(p=>p.state===state).map(p=>`<article class="person"><div class="avatar">${image(p.portraitAssetId)}</div>${state==='member'&&p.title?`<span class="news-type">${esc(p.title)}</span>`:''}<h3>${memberLink(p)}</h3>${state==='alumni'&&p.alumniSince?`<p class="alumni-date">Alumni since <time datetime="${esc(p.alumniSince)}">${esc(p.alumniSince)}</time></p>`:''}</article>`).join('');
+  const cards=state=>data.people.filter(p=>p.state===state)
+    .sort((a,b)=>a.familyName.localeCompare(b.familyName,'en')||a.name.localeCompare(b.name,'en'))
+    .map(p=>`<article class="person"><div class="avatar">${image(p.portraitAssetId)}</div>${state==='member'&&p.title?`<span class="news-type">${esc(p.title)}</span>`:''}<h3>${memberLink(p)}</h3>${state==='alumni'&&p.alumniSince?`<p class="alumni-date"><time datetime="${esc(p.alumniSince)}">${esc(alumniDate(p.alumniSince))}</time></p>`:''}</article>`).join('');
   content.innerHTML=`<section aria-label="Members">${heading('Members')}<div class="people-grid" id="current-members">${cards('member')}</div></section><section aria-labelledby="alumni-heading"><h2 id="alumni-heading">Alumni</h2><div class="people-grid" id="alumni-members">${cards('alumni')}</div></section>`;
 }
 

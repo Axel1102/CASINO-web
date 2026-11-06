@@ -27,7 +27,9 @@ assert.equal(data.people.length,12);assert.equal(data.publications.length,52);
 assert.equal(data.people.filter(p=>p.state==='member').length,10);
 assert.equal(data.people.filter(p=>p.state==='alumni').length,2);
 for(const person of data.people){
-  assert(person.alumniSince===null || (person.state==='alumni' && /^\d{4}-\d{2}-\d{2}$/.test(person.alumniSince) && new Date(person.alumniSince).toISOString().slice(0,10)===person.alumniSince));
+  assert(person.familyName.trim());
+  const since=person.alumniSince;
+  assert(since===null || (person.state==='alumni' && (/^\d{4}-(0[1-9]|1[0-2])$/.test(since) || (/^\d{4}-\d{2}-\d{2}$/.test(since) && new Date(since).toISOString().slice(0,10)===since))));
   ref(person.portraitAssetId,'assets');refs(person.researchAreaIds,'researchAreas');
   assert(person.memberships.length);for(const m of person.memberships)assert(!m.isCurrent||m.endedOn===null);
 }

@@ -32,7 +32,8 @@ SiteSettings ──→ Asset / Publication
 
 - `memberships` 保留角色历史。例如先 RA 后 PhD，只更新履历，不新增一个人。
 - `state: "member" | "alumni"` 决定成员在目录中的分组；`memberships[].isCurrent` 仅表示某条角色履历是否仍在进行。
-- `alumniSince` 记录离组日期，格式为 `YYYY-MM-DD`，未知时填 `null`。当前成员填 `null`；校友日期未填时页面不显示日期。
+- `familyName` 是用于目录排序的姓氏，例如 Chon Kit LAO, Ben 的姓氏填 `LAO`。每组按姓氏、显示姓名依次排序。
+- `alumniSince` 记录离组日期，格式为 `YYYY-MM-DD` 或 `YYYY-MM`，按已知精度填写；未知或当前成员填 `null`。
 - 起止日期未知填 null，不编造日期；当前履历的 `endedOn` 必须为 null。已离组成员可以保留未知离组日期。
 - `alumniDestination` 保存离组后的去向；`publicEmail` 只存已同意公开的邮箱。
 

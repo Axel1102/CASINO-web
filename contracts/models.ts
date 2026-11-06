@@ -1,9 +1,10 @@
 /** CASINO website content contract v1. See README.md for validation and API rules.
  * These are wire types, not database models. IDs are opaque, stable strings.
- * Dates use YYYY-MM-DD; instants use RFC 3339 with an explicit timezone.
+ * Dates use YYYY-MM-DD (YYYY-MM for month-only alumni dates); instants use RFC 3339 with an explicit timezone.
  */
 export type ID = string;
 export type DateOnly = string;
+export type YearMonth = string;
 export type Instant = string;
 export type HttpUrl = string;
 /** HTTP(S) URL or a local ./assets/... or /assets/... path, relative to the page. */
@@ -49,6 +50,7 @@ export interface Membership {
 
 export interface Person extends Content {
   name: string;
+  familyName: string;
   preferredName: string | null;
   title: string | null;
   affiliation: string | null;
@@ -58,7 +60,7 @@ export interface Person extends Content {
   interests: string[];
   memberships: Membership[];
   state: 'member' | 'alumni';
-  alumniSince: DateOnly | null;
+  alumniSince: DateOnly | YearMonth | null;
   alumniDestination: string | null;
   publicEmail: string | null;
   links: Link[];

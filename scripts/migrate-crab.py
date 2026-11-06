@@ -132,11 +132,14 @@ def import_person(record):
     if any(re.search(r'security|privacy|ethereum|web3|ebpf', interest, re.I) for interest in interests): research.append('security')
     if any(re.search(r'hci|programming|metaverse|human|tourism|ubiquitous|physical ai|generative ai', interest, re.I) for interest in interests): research.append('hci')
     if id == 'pi': research = ['security','hci']
-    person = dict(**base(id, url), name=canonical[id], preferredName='Ben' if id=='ben' else None,
+    person = dict(**base(id, url), name=canonical[id], familyName=canonical[id].split(',')[0].split()[-1],
+                  preferredName='Ben' if id=='ben' else None,
                   title='Assistant Professor' if id=='pi' else 'MSc alumnus' if id=='jinchen-yu' else 'PhD alumnus' if former else 'PhD Student',
                   affiliation='University of Macau', portraitAssetId=asset['id'], bioMarkdown=bio, researchAreaIds=research,
                   interests=interests, memberships=[dict(role=roles,isCurrent=not former,startedOn=None,endedOn=None)],
-                  state='alumni' if former else 'member', alumniSince=None, alumniDestination=None,
+                  state='alumni' if former else 'member',
+                  alumniSince={'zhuangtonghuang': '2026-10', 'jinchen-yu': '2025-06'}.get(id) if former else None,
+                  alumniDestination=None,
                   publicEmail=email, links=links, sortOrder=0 if id=='pi' else list(canonical).index(id)+1)
     return person, asset
 
