@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { writeFile, mkdir, readFile } from 'node:fs/promises';
 const fixture=JSON.parse(await readFile('dist/data/lab.json','utf8'));
+const live=process.env.CASINO_QA_API==='1';
 const targets=await (await fetch('http://127.0.0.1:9224/json')).json();
 const socket=new WebSocket(targets.find(t=>t.type==='page').webSocketDebuggerUrl);
 await new Promise(resolve=>socket.addEventListener('open',resolve,{once:true}));
@@ -9,7 +10,8 @@ socket.addEventListener('message',event=>{const message=JSON.parse(event.data);i
 const send=(method,params={})=>new Promise((resolve,reject)=>{const id=++next;pending.set(id,{resolve,reject});socket.send(JSON.stringify({id,method,params}));});
 const evaluate=async expression=>{const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw new Error(JSON.stringify(r.exceptionDetails));return r.result.value;};
 const settle=()=>evaluate('new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))');
-const navigate=async hash=>{await evaluate(`location.hash=${JSON.stringify(hash)}`);await settle();};
+const ready=async()=>{await settle();await waitFor("document.querySelector('#content h1') && !document.querySelector('#content .loading')");};
+const navigate=async hash=>{await evaluate(`location.hash=${JSON.stringify(hash)}`);await ready();};
 const check=async(expression,label)=>{assert(await evaluate(expression),label);console.log('PASS '+label);};
 const waitFor=async expression=>{for(let i=0;i<60;i++){if(await evaluate(expression))return;await new Promise(r=>setTimeout(r,100));}throw new Error('Timed out: '+expression);};
 await send('Runtime.enable');await send('Page.enable');await send('Network.enable');
@@ -19,7 +21,8 @@ errors.length=0;
 await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1080,deviceScaleFactor:1,mobile:false});
 await send('Page.navigate',{url:'http://127.0.0.1:4173/lab.html#home'});
 await waitFor("document.querySelector('.hm-hero') && document.querySelector('.group-photo')?.naturalWidth===2048");
-assert(requests.some(url=>url.includes('/data/lab.json')),'JSON requested');
+assert(requests.some(url=>url.includes(live?'/data/site.json':'/data/lab.json')),'Expected site data requested');
+if(live)assert(!requests.some(url=>url.includes('/data/lab.json')),'API mode never reads the static snapshot');
 await check("getComputedStyle(document.body).backgroundColor==='rgb(242, 234, 219)'",'original third-direction palette');
 await check("getComputedStyle(document.body).fontSize==='20px'",'larger body type');
 await check("document.querySelector('.brand img').src.endsWith('casino-symbol.svg') && document.querySelector('.brand').getBoundingClientRect().left < innerWidth/2",'symbol-only logo at top left');
@@ -72,12 +75,12 @@ for(const route of ['home','member','publications','news','contact']){
 }
 await navigate('member');await check("document.querySelectorAll('.person').length===12 && !document.querySelector('.person .tag-row, #people-chips') && !document.querySelector('#content').textContent.includes('View profile')",'directory without role filters, interests or profile buttons');
 await check("!document.querySelector('.page-heading p:not(.eyebrow)') && document.querySelector('.person h3 a[href=\"https://www.ye.wang/\"]')",'simplified member heading and external PI homepage');
-await check("JSON.stringify([...document.querySelectorAll('#current-members .person h3')].map(h=>h.textContent))===JSON.stringify(['Yangxin CHEN','Maggie Yongqi GUAN','Chon Kit LAO, Ben','Alicia Wanyi LIU','Nora Sinong LU','Maury Junjie QING','Janice Jianing SI','Green Chunlin WANG','Kanye Ye WANG','Rainie Siyu WANG'])",'members sorted by surname including Lao and all Wangs');
+await check(`JSON.stringify([...document.querySelectorAll('#current-members .person h3')].map(h=>h.textContent.replace(' (Ben)', ', Ben')))===JSON.stringify(['Yangxin CHEN','Maggie Yongqi GUAN','Chon Kit LAO, Ben','Alicia Wanyi LIU','Nora Sinong LU','Maury Junjie QING','Janice Jianing SI','Green Chunlin WANG','Kanye Ye WANG','Rainie Siyu WANG'])`,'members sorted by surname including Lao and all Wangs');
 await check("document.querySelectorAll('#alumni-members .person').length===2 && document.querySelector('#alumni-members time[datetime=\"2026-10\"]').textContent==='October 2026' && document.querySelector('#alumni-members time[datetime=\"2025-06\"]').textContent==='June 2025'",'original alumni dates displayed without invented days');
 await navigate('member/yongqi-guan');await check("document.querySelector('h1').textContent==='Maggie Yongqi GUAN' && document.querySelectorAll('.member-papers .paper').length===6",'member deep link and inline paper list');
 await evaluate("document.querySelector('.member-papers .paper h3 a').click()");await settle();
 await check("location.hash.startsWith('#publications/')",'member paper opens detail page');
-await evaluate('history.back()');await settle();await check("document.querySelector('h1').textContent==='Maggie Yongqi GUAN'",'browser Back returns to profile');
+await evaluate('history.back()');await ready();await check("document.querySelector('h1').textContent==='Maggie Yongqi GUAN'",'browser Back returns to profile');
 await navigate('publications');await check("document.querySelector('#paper-count').textContent==='52 results' && document.querySelectorAll('.paper').length===12",'real publication count and pagination');
 await check("!document.querySelector('.page-heading p:not(.eyebrow)') && document.querySelector('.author-link[href=\"https://www.ye.wang/\"]')",'simplified publications heading and linked PI author name');
 await evaluate("document.querySelector('[data-page=\"2\"]').click()");await check("document.querySelector('#pagination').textContent.includes('Page 2 of 5')",'publication next page');
@@ -101,7 +104,7 @@ for(const width of [390,768]){
   await evaluate("document.querySelector('.gallery-next').click()");await check("document.querySelector('.gallery-count').textContent==='2 / 4'",width+'px next photo works');await evaluate("document.querySelector('.gallery-prev').click()");
   await evaluate("Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{})))");
   const albumShot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(`previews/gold-json/album-${width}.png`,Buffer.from(albumShot.data,'base64'));
-  await navigate('home');await evaluate("document.querySelector('#menu-toggle').click()");await check("document.querySelector('#menu-toggle').getAttribute('aria-expanded')==='true'",width+'px mobile menu');await evaluate("document.querySelector('#navigation a[href=\"#member\"]').click()");await settle();await check("document.querySelector('#menu-toggle').getAttribute('aria-expanded')==='false' && document.querySelector('h1').textContent==='Members'",'menu closes on navigation');
+  await navigate('home');await evaluate("document.querySelector('#menu-toggle').click()");await check("document.querySelector('#menu-toggle').getAttribute('aria-expanded')==='true'",width+'px mobile menu');await evaluate("document.querySelector('#navigation a[href=\"#member\"]').click()");await ready();await check("document.querySelector('#menu-toggle').getAttribute('aria-expanded')==='false' && document.querySelector('h1').textContent==='Members'",'menu closes on navigation');
   await navigate('home');const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(`previews/gold-json/mobile-${width}.png`,Buffer.from(shot.data,'base64'));
 }
 await send('Page.navigate',{url:'http://127.0.0.1:4173/index.html#human'});await waitFor("location.pathname.endsWith('/lab.html') && document.querySelector('.hm-hero')");
@@ -109,6 +112,9 @@ await waitFor("document.querySelector('.group-photo')?.naturalWidth===2048");
 await check("document.querySelector('.hero-wordmark img')",'third-concept legacy URL works');
 await navigate('people');await check("document.querySelector('h1').textContent==='Members'",'legacy People route');
 await navigate('join');await check("document.querySelector('h1').textContent==='Contact'",'legacy Join route');
+if(live)for(const path of ['home','people','people/yongqi-guan','publications']){
+  assert(requests.some(url=>new URL(url).pathname==='/api/'+path),'Live endpoint was requested: '+path);
+}
 await send('Page.navigate',{url:'http://127.0.0.1:4173/lab.html#home'});await waitFor("document.querySelector('.hm-hero')");
 assert.equal(errors.length,0,errors.join('\n'));
 console.log('PASS no browser exceptions');socket.close();

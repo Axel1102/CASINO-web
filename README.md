@@ -22,8 +22,6 @@ Open <http://localhost:4173/lab.html#home>. Use HTTP rather than opening the HTM
 
 Every paper has a `pageUrl`: an internal `#publications/{id}` detail page or a verified external paper-page URL. Image URLs are resolved relative to the HTML page.
 
-Deploy the contents of `dist/` with any static web host. The current Sites deployment configuration is in `.openai/hosting.json`. There is no backend or CMS in this repository.
+The FastAPI backend and its admin UI are now in `backend/`. To run the SQLite-backed site, follow [BACKEND-INTEGRATION.md](BACKEND-INTEGRATION.md). A static host can still serve `dist/` as a snapshot; Sites uses `.openai/hosting.json`.
 
 See [CONTENT-MIGRATION.md](CONTENT-MIGRATION.md) for source coverage and editing instructions, and [SITE-FUNCTIONS.md](SITE-FUNCTIONS.md) for page behavior. Migration scripts can overwrite manual content edits; review their output before re-importing.
-
-See [BACKEND-INTEGRATION.md](BACKEND-INTEGRATION.md) for the actual FastAPI contract, field mapping, and the JSON-to-CSV import workflow. The current site still reads the static snapshot.

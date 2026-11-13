@@ -1,4 +1,6 @@
 import { Member, Paper } from './models.js';
+import { apiMode } from './api-mode.js';
+import { readPage, pageData } from './api.js';
 
 const content = document.querySelector('#content');
 const dialog = document.querySelector('#detail-dialog');
@@ -9,14 +11,18 @@ fontPreview.addEventListener('change', () => {
   document.documentElement.dataset.font = fontPreview.value;
   try { localStorage.setItem('casino-font', fontPreview.value); } catch {}
 });
-let data, previousFocus, galleryIndex=0;
+let baseData, data, previousFocus, galleryIndex=0, routeVersion=0;
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const label = value => ({faculty:'Faculty',phd_student:'PhD students',masters_student:'Master’s students',research_assistant:'Research assistants',postdoc:'Postdocs',undergraduate:'Undergraduates',visiting_researcher:'Visitors',conference:'Conference',journal:'Journal',workshop:'Workshop',preprint:'Preprint',book_chapter:'Book chapter',thesis:'Thesis',other:'Other',lab_news:'Lab news',lab_life:'Lab life',publication:'Publication',event:'Event',award:'Award'}[value] || value);
 const publicRecord = item => item.publishState === 'published' && !item.isDemo && item.publishedAt && Date.parse(item.publishedAt) <= Date.now();
 function safeUrl(value, asset=false) {
   if (!value) return '';
-  if (asset && /^(?:\.\/|\/)assets\/[a-z0-9_./-]+$/i.test(value) && !value.includes('..')) return value;
-  try { const url=new URL(value); return ['http:','https:'].includes(url.protocol) ? url.href : ''; } catch { return ''; }
+  try {
+    const decoded=decodeURIComponent(value);
+    if (asset && /^(?:\.\/|\/)assets\//.test(value) && !/[\\?#%\s\x00-\x1f\x7f]/.test(decoded) && !decoded.split('/').includes('..')) return value;
+    const url=new URL(value);
+    return ['http:','https:'].includes(url.protocol) && !url.username && !url.password ? url.href : '';
+  } catch { return ''; }
 }
 const link = (url, title, cls='text-link') => safeUrl(url) ? `<a class="${cls}" href="${esc(safeUrl(url))}" target="_blank" rel="noopener">${esc(title)} ↗</a>` : '';
 const asset = id => data.assets.find(a => a.id === id);
@@ -35,7 +41,7 @@ function fullName(value) {
   return [...value].map((letter,i)=>initials.has(i)?`<strong class="acronym-letter ${[0,14,27].includes(i)?'gold-letter':''}" data-letter="${letter.toUpperCase()}">${letter}</strong>`:esc(letter)).join('');
 }
 function paperPage(p) {
-  return /^#publications\/[a-z0-9-]+$/.test(p.pageUrl) ? p.pageUrl : safeUrl(p.pageUrl);
+  return /^#publications\/[a-zA-Z0-9_-]+$/.test(p.pageUrl) ? p.pageUrl : safeUrl(p.pageUrl);
 }
 function paperLink(p,title=p.title) {
   const url=paperPage(p);
@@ -57,10 +63,10 @@ function photo(id=data.siteSettings.heroPhotoAssetIds[0]) {
   return `<figure><button class="photo-button" data-photo="${esc(id)}" aria-label="View full group photo">${image(id,'group-photo',true)}</button><figcaption class="photo-caption"><span>${esc(asset(id).caption || 'Our group')}</span><button data-photo="${esc(id)}">View full photo ↗</button></figcaption></figure>`;
 }
 function memberLink(person, name=person.name, cls='') {
-  const url=person.id==='pi'?safeUrl(person.links[0]?.url):`#member/${encodeURIComponent(person.id)}`;
+  const url=person.id==='pi'?safeUrl(person.links[0]?.url || data.siteSettings.links.find(l=>l.label==='Principal investigator')?.url):`#member/${encodeURIComponent(person.id)}`;
   return url?`<a class="${cls}" href="${esc(url)}" ${url.startsWith('#')?'':'target="_blank" rel="noopener"'}>${esc(name)}</a>`:esc(name);
 }
-const authors = paper => paper.authors.map(a => {const person=data.people.find(p=>p.id===a.personId);return person?memberLink(person,a.name,'author-link'):esc(a.name);}).join(', ');
+const authors = paper => paper.authors.map(a => {const person=data.people.find(p=>p.id===a.personId);return person?memberLink(person,a.name,'author-link'):apiMode&&a.personId?memberLink({id:a.personId,links:[]},a.name,'author-link'):esc(a.name);}).join(', ');
 function paperActions(p) {
   const pdf=safeUrl(p.pdfUrl || asset(p.pdfAssetId)?.url,true);
   return [p.abstract?`<button data-abstract="${esc(p.id)}">Abstract</button>`:'',p.bibtex?`<button data-citation="${esc(p.id)}">Cite / BibTeX</button>`:'',pdf?`<a href="${esc(pdf)}" target="_blank" rel="noopener">PDF ↗</a>`:'',p.doi?link('https://doi.org/'+encodeURIComponent(p.doi),'DOI'):'',link(p.projectUrl,'Project'),link(p.codeUrl,'Code'),link(p.videoUrl,'Video')].join('');
@@ -70,19 +76,19 @@ const newsRow = n => `<article class="news-row"><span class="news-date">${esc(n.
 
 function home() {
   const s=data.siteSettings;
-  const pi=data.people.find(p=>p.id==='pi');
+  const pi=data.people.find(p=>p.id==='pi') || (apiMode?{id:'pi',links:[]}:null);
   const about=prose(s.aboutMarkdown || s.introduction).replace(/Kanye Ye Wang/gi,name=>pi?memberLink(pi,name):name);
   const selected=s.featuredPublicationIds.map(id=>data.publications.find(p=>p.id===id)).filter(Boolean);
-  const latest=(selected.length?selected:[...data.publications].sort((a,b)=>b.year-a.year)).slice(0,3);
+  const latest=data.recentPublications ?? (selected.length?selected:[...data.publications].sort((a,b)=>b.year-a.year)).slice(0,3);
   content.innerHTML=`<section class="hm-hero"><div class="hm-copy"><p class="eyebrow">${esc(s.institution)} · Research group</p><h1 class="hero-wordmark">${image(s.wordmarkAssetId,'wordmark',true)}<span class="sr-only">${esc(s.name)}</span></h1><h2 class="lab-full-name">${fullName(s.fullName)}</h2><p class="hm-summary">${esc(s.introduction)}</p><div class="hm-actions"><a href="#publications">Our publications</a><a href="#member">Meet the group ↗</a></div></div><div id="home-gallery" class="hm-gallery">${photoStack()}</div></section>
     <section class="hm-about"><div><p class="eyebrow">ABOUT THE LAB</p><h2>Contact</h2><p class="recruiting-call">Are you looking for a PhD/RA position? We are currently recruiting, and our latest call is available <a href="https://crab.ye.wang/info" target="_blank" rel="noopener">here</a>.</p></div><div class="about-text">${about}</div></section>
-    <section class="hm-stories"><header class="hm-stories-title"><p class="eyebrow">FROM THE LAB</p><h2>Recent publications</h2></header><div class="hm-story-list">${latest.map(p=>`<article><small>${p.year} · ${esc(p.venue.shortName || label(p.type))}</small><h3>${paperLink(p)}</h3></article>`).join('')}</div><a class="text-link" href="#publications">View all ${data.publications.length} publications ↗</a></section>`;
+    <section class="hm-stories"><header class="hm-stories-title"><p class="eyebrow">FROM THE LAB</p><h2>Recent publications</h2></header><div class="hm-story-list">${latest.map(p=>`<article><small>${p.year} · ${esc(p.venue.shortName || label(p.type))}</small><h3>${paperLink(p)}</h3></article>`).join('')}</div><a class="text-link" href="#publications">View all ${data.publicationCount ?? data.publications.length} publications ↗</a></section>`;
 }
 
 function people(id) {
   if(id){
     const p=data.people.find(p=>p.id===id||p.slug===id);if(!p)return notFound();
-    const related=p.getPapers(data.publications);
+    const related=apiMode?data.publications:p.getPapers(data.publications);
     content.innerHTML=`<a class="breadcrumb" href="#member">← Members</a>${heading(p.name,p.title,p.state==='alumni'?'ALUMNI':'MEMBER')}<div class="profile-layout"><aside>${image(p.portraitAssetId,'profile-portrait')}</aside><section><div class="prose">${prose(p.bioMarkdown)}</div>${p.interests.length?`<h2>Research interests</h2><div class="tag-row">${p.interests.map(i=>`<span class="tag">${esc(i)}</span>`).join('')}</div>`:''}${emailLink(p.publicEmail)}<div class="profile-links">${p.links.map(l=>link(l.url,l.label)).join('')}</div>${p.alumniDestination?`<p>${esc(p.alumniDestination)}</p>`:''}</section></div><section class="member-papers bottom-space"><div class="section-heading"><h2>Publications</h2><span>${related.length} papers</span></div>${related.length?related.map(paperRow).join(''):'<p>No publications listed yet.</p>'}</section>`;return;
   }
   const cards=state=>data.people.filter(p=>p.state===state)
@@ -104,7 +110,8 @@ function publications(id, params) {
   for(const [param,field] of [['year','paper-year'],['type','paper-type'],['sort','paper-sort']])if(params.has(param))document.getElementById(field).value=params.get(param);
   const update=()=>{
     const year=document.querySelector('#paper-year').value,type=document.querySelector('#paper-type').value,sort=document.querySelector('#paper-sort').value;
-    const list=data.publications.filter(p=>(!topic||p.researchAreaIds.includes(topic))&&(!personId||p.authors.some(a=>a.personId===personId))&&(!year||String(p.year)===year)&&(!type||p.type===type)).sort((a,b)=>sort==='old'?a.year-b.year:b.year-a.year);
+    const list=data.publications.filter(p=>(!topic||p.researchAreaIds.includes(topic))&&(!personId||p.authors.some(a=>a.personId===personId))&&(!year||String(p.year)===year)&&(!type||p.type===type));
+    if(sort==='old'||!apiMode)list.sort((a,b)=>sort==='old'?a.year-b.year:b.year-a.year);
     const pages=Math.ceil(list.length/12);page=Math.min(page,pages||1);
     document.querySelectorAll('[data-topic]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.topic===topic)));
     document.querySelector('#paper-count').textContent=`${list.length} result${list.length===1?'':'s'}${personId?' · '+(data.people.find(p=>p.id===personId)?.name||'Selected author'):''}`;
@@ -131,7 +138,7 @@ function emailLink(value) {
 }
 function join() {
   const s=data.siteSettings,opportunities=data.opportunities.filter(o=>o.availability==='open'&&(!o.deadlineAt||Date.parse(o.deadlineAt)>=Date.now()));
-  const pi=data.people.find(p=>p.id==='pi');
+  const pi=data.people.find(p=>p.id==='pi') || (apiMode?{id:'pi',name:'Kanye Ye WANG',links:[]}:null);
   content.innerHTML=heading('Contact','Research enquiries, collaboration, and PhD opportunities.')+`<div class="join-grid"><section><h2>Application information</h2>${opportunities.map((o,i)=>`<details ${i===0?'open':''}><summary>${esc(o.title)}</summary>${prose(o.bodyMarkdown)}${o.requirements.length?`<ul class="requirements">${o.requirements.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>`:''}${o.applicationChecklist.length?`<p>Application materials</p><ul class="application-materials">${o.applicationChecklist.map(c=>`<li>${esc(c)}</li>`).join('')}</ul>`:''}${link(o.applicationUrl,'Apply')}${link(o.guidanceUrl,'Original guidance')}</details>`).join('')}${s.recruitmentMarkdown?`<details><summary>Timeline, program &amp; funding</summary>${prose(s.recruitmentMarkdown)}</details>`:''}</section><aside><p class="eyebrow">GET IN TOUCH</p><h2>${pi?memberLink(pi):esc(s.name)}</h2><p>${esc(s.institution)}</p>${emailLink(s.publicEmail)}<div class="join-actions"><button class="button secondary" id="copy-email">Copy email</button></div><p id="email-status" class="dialog-status" role="status"></p><div class="profile-links">${s.links.map(l=>link(l.url,l.label)).join('')}</div></aside></div>`;
   document.querySelector('#copy-email').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(s.publicEmail);document.querySelector('#email-status').textContent='Email address copied.';}catch{document.querySelector('#email-status').textContent='Select the email address above to copy it.';}});
 }
@@ -172,33 +179,49 @@ content.addEventListener('click',e=>{
   }
 });
 function notFound(){content.innerHTML=heading('Page not found','The requested page is not available.')+'<div class="bottom-space"><a class="button secondary" href="#home">Return home</a></div>';}
-function route(){
-  if(!data)return;if(dialog.open)dialog.close();
+async function route(){
+  if(!baseData)return;
+  const version=++routeVersion;
+  if(dialog.open)dialog.close();
   const [path,query='']=location.hash.slice(1).split('?');
   const [rawPage='home',rawId]=(path||'home').split('/');
   const page=({people:'member',join:'contact'})[rawPage]||rawPage;
   let id;try{id=rawId?decodeURIComponent(rawId):undefined;}catch{return notFound();}
   const params=new URLSearchParams(query);content.className=page==='home'?'home-main':'wrap';
-  if(page==='home')home();else if(page==='member')people(id);else if(page==='contact')join();else if(page==='publications')publications(id,params);else if(page==='news')newsPage(id);else notFound();
   document.querySelectorAll('#navigation a').forEach(a=>{if(a.hash===`#${page}`)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
   document.querySelector('#navigation').classList.remove('open');document.querySelector('#menu-toggle').setAttribute('aria-expanded','false');
+  try {
+    if(apiMode){
+      const pending=readPage(page,id);
+      if(pending)content.innerHTML='<p class="loading" role="status">Loading the lab…</p>';
+      const payload=await pending;
+      if(version!==routeVersion)return;
+      data=pageData(baseData,page,id,payload);
+    }else data=baseData;
+    if(page==='home')home();else if(page==='member')people(id);else if(page==='contact')join();else if(page==='publications')publications(id,params);else if(page==='news')newsPage(id);else notFound();
+  }catch(error){if(version===routeVersion)showError(error,route);}
   document.title=`${content.querySelector('h1')?.textContent||'CASINO'} · CASINO Lab`;window.scrollTo(0,0);
 }
 document.querySelector('#menu-toggle').addEventListener('click',()=>{const open=document.querySelector('#navigation').classList.toggle('open');document.querySelector('#menu-toggle').setAttribute('aria-expanded',String(open));});
 document.querySelector('.skip').addEventListener('click',event=>{event.preventDefault();content.focus();content.scrollIntoView();});
 window.addEventListener('hashchange',()=>{route();content.focus({preventScroll:true});});
+function showError(error,retry){
+  content.innerHTML=heading('The content could not be loaded','Please try again.')+'<button class="button" id="retry">Retry</button>';
+  document.querySelector('#retry').onclick=retry;
+  console.error('Lab data loading failed:',error);
+}
 async function start(){
   try{
-    const response=await fetch('./data/lab.json',{cache:'no-cache'});if(!response.ok)throw new Error(`HTTP ${response.status}`);
+    const response=await fetch(apiMode?'./data/site.json':'./data/lab.json',{cache:'no-cache'});if(!response.ok)throw new Error(`HTTP ${response.status}`);
     const loaded=await response.json();if(loaded.schemaVersion!=='1.0')throw new Error('Unsupported data schema');
-    for(const name of ['people','researchAreas','publications','news','opportunities'])loaded[name]=loaded[name].filter(publicRecord);
+    for(const name of ['people','researchAreas','publications','news','opportunities'])loaded[name]=(loaded[name]??[]).filter(publicRecord);
     loaded.people=loaded.people.map(record=>new Member(record));loaded.publications=loaded.publications.map(record=>new Paper(record));
-    data=loaded;data.people.sort((a,b)=>a.sortOrder-b.sortOrder);data.researchAreas.sort((a,b)=>a.sortOrder-b.sortOrder);data.opportunities.sort((a,b)=>a.sortOrder-b.sortOrder);
+    data=baseData=loaded;data.people.sort((a,b)=>a.sortOrder-b.sortOrder);data.researchAreas.sort((a,b)=>a.sortOrder-b.sortOrder);data.opportunities.sort((a,b)=>a.sortOrder-b.sortOrder);
     const logo=safeUrl(asset(data.siteSettings.logoAssetId)?.url,true);
     if(logo){document.querySelector('.brand img').src=logo;document.querySelector('link[rel=icon]').href=logo;}
     const wordmark=safeUrl(asset(data.siteSettings.wordmarkAssetId)?.url,true);
     if(wordmark)document.querySelector('.footer-wordmark').src=wordmark;
     route();
-  }catch(error){content.innerHTML=heading('The content could not be loaded',location.protocol==='file:'?'Open this website through a local web server or the hosted link. JSON loading is unavailable from a file:// preview.':'Please reload the page to try again.')+'<button class="button" id="retry">Reload</button>';document.querySelector('#retry').onclick=()=>location.reload();console.error('Lab data loading failed:',error);}
+  }catch(error){showError(error,start);}
 }
 start();

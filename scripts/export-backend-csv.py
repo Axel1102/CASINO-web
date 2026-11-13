@@ -1,4 +1,4 @@
-"""Export the public CASINO snapshot for lab_backend 7.0.0; never write SQLite."""
+"""Export the public CASINO snapshot using the selected backend's CSV contract."""
 
 import argparse
 from datetime import datetime, timezone
@@ -7,7 +7,7 @@ from pathlib import Path
 import sys
 
 
-def convert(snapshot):
+def convert(snapshot, *, alumni_dates=False):
     now = datetime.now(timezone.utc)
 
     def public(row):
@@ -41,6 +41,8 @@ def convert(snapshot):
             "bioMarkdown": person["bioMarkdown"] or "", "interests": person["interests"],
             "memberships": memberships, "publicEmail": person["publicEmail"], "links": person["links"],
         })
+        if alumni_dates:
+            rows["people"][-1]["alumniSince"] = person["alumniSince"]
 
     # The backend returns reverse insertion order. Preserve the snapshot list order.
     for paper in filter(public, reversed(snapshot["publications"])):
@@ -66,7 +68,8 @@ def main():
     from lab_backend.models import FILES, MODELS
     from lab_backend.store import encode_csv
 
-    rows = convert(json.loads(args.source.read_text(encoding="utf-8")))
+    rows = convert(json.loads(args.source.read_text(encoding="utf-8")),
+                   alumni_dates="alumniSince" in MODELS["people"].model_fields)
     people_ids = {person["id"] for person in rows["people"]}
     encoded = {}
     for resource, entries in rows.items():
